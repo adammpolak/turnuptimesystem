@@ -27,7 +27,7 @@
         url: '/completedprojects',
         templateUrl: 'completedprojects.html'
       })
-      .state('completedprojects', {
+      .state('completedproject', {
         url: '/completedprojects/project',
         templateUrl: 'completedproject.html'
       })
