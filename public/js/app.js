@@ -23,6 +23,10 @@
         url: '/completedprojects',
         templateUrl: 'completedprojects.html'
       })
+      .state('completedprojects', {
+        url: '/completedprojects/project',
+        templateUrl: 'completedproject.html'
+      })
       .state('account', {
         url: '/account',
         templateUrl: 'account.html'
