@@ -30,8 +30,22 @@
       });
     }
 
+// EDIT PROJECT FUNCTION
+    var editProject = function(project) {
+      this.projects.push(project);
+      console.log(this.projects, 'has been updated');
+      $http.post(`/projects/${id}`) //want to post to projects/:id, correct?
+      .then(function(response) {
+        $location.path('/projects/project')
+      })
+      .catch(function(err) {
+        console.log(err)
+      });
+    }
+
 
     this.addProject = addToCart;
+    this.editProject = editProject;
 
   }
 })()
