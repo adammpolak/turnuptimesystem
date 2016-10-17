@@ -1,15 +1,15 @@
 var express = require('express'),
     router  = express.Router();
 
-var Product = require('../models/project');
-var Order = require('../models/task');
+var Project = require('../models/project');
+var Task = require('../models/task');
 var TimePeriod = require('../models/timePeriod');
 
 router.get('/', function(req, res){
-  Order.find({}).exec()
-  .then(function(orders){
-    console.log(orders);
-    res.json(orders);
+  Project.find({}).exec()
+  .then(function(allProjects){
+    console.log(allProjects);
+    res.json(allProjects);
   })
   .catch(function(err){
     console.log(err);
@@ -18,11 +18,11 @@ router.get('/', function(req, res){
 });
 
 router.post('/', function(req, res){
-  console.log("req.body", req.body.order);
-  Order.create(req.body.order)
-  .then(function(order){
-    console.log(order);
-    res.json(order);
+  console.log("req.body", req.body.project);
+  Project.create(req.body.project)
+  .then(function(project){
+    console.log(project);
+    res.json(project);
   })
   .catch(function(err){
     console.log(err);
@@ -31,10 +31,10 @@ router.post('/', function(req, res){
 });
 
 router.get('/:id', function(req, res){
-  Order.findById(req.params.id).exec()
-  .then(function(order){
-    console.log(order);
-    res.json(order);
+  Project.findById(req.params.id).exec()
+  .then(function(project){
+    console.log(project);
+    res.json(project);
   })
   .catch(function(err){
     console.log(err);
