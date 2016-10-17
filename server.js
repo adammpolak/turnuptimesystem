@@ -9,7 +9,7 @@ var express        = require('express'),
     app            = express();
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/nozama');
+mongoose.connect('mongodb://localhost/turnuptimesystem');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
