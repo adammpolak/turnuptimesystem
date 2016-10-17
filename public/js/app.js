@@ -15,9 +15,13 @@
         url: '/projects/project',
         templateUrl: 'project.html'
       })
-      .state('project', {
+      .state('projectedit', {
         url: '/projects/project/edit',
         templateUrl: 'projectedit.html'
+      })
+      .state('projectnew', {
+        url: '/projects/project/new',
+        templateUrl: 'projectnew.html'
       })
       .state('completedprojects', {
         url: '/completedprojects',
