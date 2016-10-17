@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app='turnupApp'>
+  <head>
+    <meta charset="utf-8">
+    <title>Turn Up Time System</title>
+    <link rel="stylesheet" href="/css/style.css" media="screen" title="no title">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js" charset="utf-8"></script>
+    <script src="js/app.js" charset="utf-8"></script>
+    <script src="js/projectsController.js" charset="utf-8"></script>
+  </head>
+  <body ng-controller='projectsController as projects'>
+    {{projects.number}}
+    <nav>
+			<a ui-sref-active='active' ui-sref='projects'>Projects</a>
+			<a ui-sref-active='active' ui-sref="completedprojects">Completed Projects</a>
+			<a ui-sref-active='active' ui-sref="account">Account</a>
+		</nav>
+		<main ui-view>
+
+		</main>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "name": "turnuptimesystem",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adammpolak/turntimetimesystem.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adammpolak/turntimetimesystem/issues"
+  },
+  "homepage": "https://github.com/adammpolak/turntimetimesystem#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-session": "^1.14.1",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.6.4",
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.0.0",
+    "path": "^0.12.7"
+  }
+}
