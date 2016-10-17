@@ -10,10 +10,16 @@
     this.projects = [];
     this.completedprojects = [];
 
-//get the project data
+//get the project data for projects page
     $http.get('/projects')
     .then(function(response) {
       self.projects = response.data;
+    })
+
+// get completed projects for completed projets page
+    $http.get('/completedprojects')
+    .then(function(response) {
+      self.completedprojects = response.data;
     })
 
 // ADD PROJECT FUNCTION
@@ -30,7 +36,7 @@
       });
     }
 
-// EDIT PROJECT FUNCTION
+// EDIT/UPDATE PROJECT FUNCTION
     var editProject = function(project) {
       this.projects.push(project);
       console.log(this.projects, 'has been updated');
@@ -44,7 +50,8 @@
     }
 
 
-    this.addProject = addToCart;
+
+    this.addProject = addProject;
     this.editProject = editProject;
 
   }

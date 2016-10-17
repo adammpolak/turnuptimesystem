@@ -1,11 +1,14 @@
-Welcome, username
 
+<br>
+Welcome, {{user.usersame}}
+<br>
+<br>
 <!-- create a new project -->
-<a ui-sref="projectnew"></a>
+<a ui-sref-active='active' ui-sref='projectnew'>Add A Project</a>
 
 <!-- css so this is on one line above project listings -->
-<h1>Name</h1>
-</h1>Total Hours</h1>
+<h2 class='projects-new'>Name</h2>
+<h2 class='projects-total'>Total Hours</h2>
 
 <!-- custom directive for list of projects - filter ones marked as not completed only  -->
 <project-listing></project-listing>
