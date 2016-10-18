@@ -1,4 +1,8 @@
-<br><br><br>
+
+<br>
+Welcome, {{user.username}}
+<br>
+<br>
 <!-- create a new project -->
 <a ui-sref-active='active' ui-sref='projectnew' class='add-project'>Add A Project</a>
 <br><br>
@@ -8,8 +12,11 @@
 <h2 class='projects-total'>Total Hours</h2>
 </div>
 <!-- custom directive for list of projects - filter ones marked as not completed only  -->
-<div class="" ng-repeat='project in projects.projects'>
-  {{project.projectName}}
-</div>
+<ul>
 
-<project-listing></project-listing>
+  <div class="" ng-repeat="project in projects.allProjects track by $index" ng-click='projects.displayThisProject($index)' ui-sref-active='active' ui-sref='project'>
+    <li>{{project.projectName}}</li>
+  </div>
+</ul>
+<data value=""></data>
+<!-- <project-listing></project-listing> -->

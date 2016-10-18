@@ -7,8 +7,13 @@
     var self = this;
     this.number = 7;
 
-    this.projects = [];
+    this.allProjects = [];
     this.completedprojects = [];
+    this.activeProject = {};
+//display a project
+    this.displayThisProject = function(index) {
+      self.activeProject = self.allProjects[index];
+    }
 
 //when trying to create a new project this is what you need
     this.newProjectTasks = [{name: '', description: ''}]
@@ -22,14 +27,14 @@
 //get the project data for projects page
     $http.get('/api/projects')
     .then(function(response) {
-      self.projects = response.data;
+      self.allProjects = response.data;
     })
 
 // get completed projects for completed projets page
-    $http.get('/completedprojects')
-    .then(function(response) {
-      self.completedprojects = response.data;
-    })
+    // $http.get('/api/completedprojects')
+    // .then(function(response) {
+    //   self.completedprojects = response.data;
+    // })
 
 // ADD PROJECT FUNCTION
     var addProject = function(project) {
@@ -41,7 +46,7 @@
       };
       $http.post('/api/projects', send)
       .then(function(response) {
-        self.projects.push(response.data);
+        self.allProjects.push(response.data);
         project.name = '';
         project.description = '';
         self.newProjectTasks = [{name: '', description: ''}];
@@ -54,7 +59,7 @@
 
 // EDIT/UPDATE PROJECT FUNCTION
     var editProject = function(project) {
-      console.log(this.projects, 'has been updated');
+      console.log(this.allProjects, 'has been updated');
       $http.post(`/projects/${project._id}`) //want to post to projects/:id, correct?
       .then(function(response) {
         self.projects.push(response.data);
@@ -71,4 +76,8 @@
     this.editProject = editProject;
 
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> d2f4ae5fb074a461ebdc8b62fe19d158a0b3d363
 })()
