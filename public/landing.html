@@ -1,13 +1,24 @@
-<h3>Login</h3>
-<form class="" ng-submit="auth.login(userObject)" method="post">
-  <label for="username">Username:</label><input type="text" name="username" placeholder="Username Goes Here" ng-model="userObject.username"><br>
-  <label for="password">Password:</label><input type="password" name="password" placeholder="Password Goes Here" ng-model="userObject.password">
-  <button type="submit" name="login">Login</button>
+<br><br><br><br>
+<h3 class='landing'>Login</h3>
+<form class="login" ng-submit="auth.login(userObject)" method="post">
+<input type="text" name="username" placeholder="Username Goes Here" ng-model="userObject.username"><br><br>
+<input type="password" name="password" placeholder="Password Goes Here" ng-model="userObject.passwordreg"><br><br>
+  <button class='button' type="submit" name="login">Login</button>
 </form>
+<<<<<<< HEAD
 <hr>
 <h3>Register</h3>
 <form class="" ng-submit="auth.register(userObject)" method="">
   <label for="username">Username:</label><input type="text" name="username" placeholder="Pick a username!" ng-model="userObject.usernamereg"><br>
   <label for="password">Password:</label><input type="password" name="password" placeholder="Choose your password!" ng-model="userObject.passwordreg">
   <button type="submit" name="register">Register</button>
+=======
+<br><br>
+<br>
+<h3 class='landing'>Register</h3>
+<form class="register" ng-submit="auth.register(userObject)" method="">
+<input type="text" name="username" placeholder="Create a username!" ng-model="userObject.usernamereg"><br><br>
+<input type="password" name="password" placeholder="Create your password!" ng-model="userObject.password"><br><br>
+  <button class='button' type="submit" name="register">Register</button>
+>>>>>>> ff6eae2dfc38976f51430d254a1c85c43a53c5f6
 </form>

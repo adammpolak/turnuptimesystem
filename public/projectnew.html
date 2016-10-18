@@ -3,11 +3,16 @@
 <form ng-submit='projects.addProject(newProject)'>
         <div class="">
           <label for="name">Name: </label>
-          <input type="text" ng-model='newProject.name'>
+          <input type="text" ng-model='newProject.projectName'>
           <label for="description">Description: </label>
-          <input type="text" ng-model='newProject.description'>
+          <input type="text" ng-model='newProject.projectDescription'>
         </div>
-        <button type="button" name="button">Create New Task</button>
+        <fieldset data-ng-repeat='task in projects.newProjectTasks'>
+          <input type="text" ng-model='task.name' placeholder="task name">
+          <input type="text" ng-model='task.description' placeholder="task description">
+          <button class='remove' ng-show='$last' ng-click='projects.removeTask()' name="button">remove</button>
+        </fieldset>
+        <button type="button" ng-click='projects.addTask()'>Create New Task</button>
         <div class="tasks" id='taskList'>
         </div>
         <button type="submit">Create Project!</button>
