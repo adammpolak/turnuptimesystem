@@ -71,8 +71,4 @@
     this.editProject = editProject;
 
   }
-<<<<<<< HEAD
-
-=======
->>>>>>> ff6eae2dfc38976f51430d254a1c85c43a53c5f6
 })()
