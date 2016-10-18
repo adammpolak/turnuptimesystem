@@ -25,12 +25,12 @@
         url: '/projects',
         templateUrl: 'projects.html'
       })
-      .state('project', {
-        url: '/projects/project',
+      .state('projects.project', {
+        url: `/project`,
         templateUrl: 'project.html'
       })
       .state('projectedit', {
-        url: '/projects/project/edit',
+        url: '/projets/project/edit',
         templateUrl: 'projectedit.html'
       })
       .state('projectnew', {

@@ -1,8 +1,8 @@
-PROJECT PAGE
+COMPLETED PROJECT PAGE
 
 <h1>Project {{projects.activeProject.projectName}}</h1>
 
-<input class='completed' type="checkbox" value='true' ng-model='activeProject.completed' ng-click='projects.updateStatus()' ui-sref='project'</input>
+<input class='completed' type="checkbox" value='true' ng-model='activeProject.completed' ng-click='projects.updateStatus()' ui-sref='completedproject'></input>
 
 <h3>Description</h3>
 <p class='project-description'>{{projects.activeProject.projectDescription}}</p>

@@ -1,11 +1,11 @@
-PROJECT PAGE
-
+<div class='project-container'>
 <h1>Project {{projects.activeProject.projectName}}</h1>
-<span><a ui-sref='projectedit'>Edit</a></span>
-
-
-<input class='completed' type="checkbox" value='true' ng-model='activeProject.completed' ng-click='projects.updateStatus()' ui-sref='completedproject'</input>
-
+<span><a ui-sref='projectedit'>Edit Project</a></span>
+<!-- a ui-sref='projectedit' -->
+<br>
+<div class='complete'>
+<label>Completed:</label><input class='completed' type="checkbox" value='true' ng-model='activeProject.completed' ng-click='projects.updateStatus()' ui-sref='completedprojects'</input>
+</div>
 <h3>Description</h3>
 <p class='project-description'>{{projects.activeProject.projectDescription}}</p>
 
@@ -27,3 +27,7 @@ PROJECT PAGE
     </div>
 </div>
 </div>
+</div>
+
+<!-- in order to make the dot notation work - KEEP -->
+<div ui-view><div>
