@@ -57,7 +57,8 @@
 
   }
 
-  function authControl($http, $state, $stateParams){
+  function authControl($http, $state, $stateParams){v
+    var self = this;
     function register(userObj){
       $http.post('/signup', {username: userObj.username, password: userObj.password})
         .then(function(res){
