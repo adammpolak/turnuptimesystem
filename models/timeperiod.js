@@ -7,8 +7,8 @@ var timePeriodSchema = new mongoose.Schema({
   toObject: { virtuals: true },
 });
 
-timePeriodSchema.virtual('subtotal').get(function(){
-  return this.stop - this.start;
-});
+// timePeriodSchema.virtual('subtotal').get(function(){
+//   return this.stop - this.start;
+// });
 
 module.exports = mongoose.model('TimePeriod', timePeriodSchema);

@@ -9,6 +9,7 @@ a {
   text-decoration: none;
   padding: 0 3vw 0 3vh;
   color: black;
+  /*font-family: Lemon Milk;*/
 }
 
 a:hover {
@@ -39,6 +40,13 @@ a:hover {
 }
 
 .projects-new,
-.projects-total {
+.projects-total,
+.completed-projects-total,
+.completed-projects {
   padding: 0 16vw 0 16vh;
+}
+
+@font-face {
+  font-family: 'Lemon Milk';
+  src: url('/LemonMilk.otf');
 }
