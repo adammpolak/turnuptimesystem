@@ -16,23 +16,23 @@ app.use(bodyParser.json());
 app.use(logger('dev'));
 app.use(express.static('public'));
 
+app.use(require('express-session')({
+  secret: 'turnupisthebestappknowntoman loremipsum',
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 app.use('/api/projects', require('./controllers/projectsController.js'));
 app.use('/api/users', require('./controllers/usersController.js'));
 app.use(function(req, res, next){
   res.redirect("/");
 });
-
-// app.use(require('express-session')({
-//   secret: 'keyboard cat',
-//   resave: false,
-//   saveUninitialized: false
-// }));
-// app.use(passport.initialize());
-// app.use(passport.session());
-//
-// passport.use(User.createStrategy());
-// passport.serializeUser(User.serializeUser());
-// passport.deserializeUser(User.deserializeUser());
 
 app.listen(port, function() {
     console.log('=======================');

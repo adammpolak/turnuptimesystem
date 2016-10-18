@@ -5,12 +5,13 @@ var express = require('express'),
 
 var User = require('../models/user.js');
 
-router.post('/signup', function(req, res){
+router.post('/register', function(req, res){
   User.register(new User(
     {username: req.body.username}),
     req.body.password, function(err, user){
       if (err) console.log(err);
-      res.json(201,'success');
+      console.log(req.body.username, user)
+      res.json({status: 201, statusText: 'success', user: user});
     });
 });
 

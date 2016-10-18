@@ -5,6 +5,7 @@ var Project = require('../models/project');
 var Task = require('../models/task');
 var TimePeriod = require('../models/timePeriod');
 
+// ROUTE :: GET --------------------------all projects
 router.get('/', function(req, res){
   Project.find({}).exec()
   .then(function(allProjects){
@@ -17,6 +18,7 @@ router.get('/', function(req, res){
   })
 });
 
+// ROUTE :: CREATE ------------------------one project
 router.post('/', function(req, res){
   console.log("req.body", req.body.project);
   Project.create(req.body.project)
@@ -30,19 +32,31 @@ router.post('/', function(req, res){
   })
 });
 
-
-
+// ROUTE :: GET ---------------------------one project
 router.get('/:pId', function(req, res){
-  Order.findById(req.params.id).exec()
-  .then(function(order){
-    console.log(order);
-    res.json(order);
-
+  Project.findById(req.params.pId).exec()
+  .then(function(project){
+    console.log(project);
+    res.json(project);
   })
   .catch(function(err){
     console.log(err);
     res.status(500);
   })
 });
+
+// ROUTE :: UPDATE ------------------------one project
+router.patch('/:pId', function(req, res){
+  Project.findOneAndUpdate(req.params.pId, req.body)
+  .then(function(project){
+    console.log(project);
+    res.json(project);
+  })
+  .catch(function(err) {
+    console.log(err);
+    res.status(500);
+  })
+});
+
 
 module.exports = router;

@@ -6,8 +6,21 @@
       .state('landing', {
         url: '/',
         templateUrl: 'landing.html',
-        controller: 'authControl as auth'
+        controller: 'authControl',
+        controllerAs: 'auth'
       })
+      // .state('login', {
+      //   url: '/login',
+      //   templateUrl: 'login.html',
+      //   controller: 'authControl',
+      //   controllerAs: 'auth'
+      // })
+      // .state('register', {
+      //   url: '/register',
+      //   templateUrl: 'register.html',
+      //   controller: 'authControl',
+      //   controllerAs: 'auth'
+      // })
       .state('projects', {
         url: '/projects',
         templateUrl: 'projects.html'
