@@ -1,0 +1,29 @@
+PROJECT PAGE
+
+<h1>Project {{project.name}}</h1>
+
+
+<input class='completed'></input>
+<a ui-sref='projectedit'>Edit</a>
+
+<h3>Description</h3>
+<p class='project-description'>{{project.description}}</p>
+
+<br>
+
+<div class='task-container'>
+<div ng-repeat=''>
+  <h5>{{task.name}}</h5>
+  <h6>{{task.description}}
+      {{task.totalTime}}</h6>
+  <input class='start-stop' type='submit' ng-click=''>Arrow</input>
+  <p class='task-details' ng-click='showDetails = !showDetails'></p>
+    <div ng-repeat=''>
+      {{task.timePeriodName}}
+      {{task.startTime}}
+      {{task.stopTime}}
+      {{task.totalTime}}
+      {{task.username}}
+    </div>
+</div>
+</div>
