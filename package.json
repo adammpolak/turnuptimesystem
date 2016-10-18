@@ -20,6 +20,7 @@
   "homepage": "https://github.com/adammpolak/turntimetimesystem#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "connect-flash": "^0.1.1",
     "express": "^4.14.0",
     "express-session": "^1.14.1",
     "method-override": "^2.3.6",
