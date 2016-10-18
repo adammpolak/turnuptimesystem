@@ -76,4 +76,5 @@
     this.editProject = editProject;
 
   }
+
 })()
