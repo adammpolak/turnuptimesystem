@@ -7,7 +7,7 @@ var timePeriodSchema = new mongoose.Schema({
   toObject: { virtuals: true },
 });
 
-timePerioSchema.virtual('subtotal').get(function(){
+timePeriodSchema.virtual('subtotal').get(function(){
   return this.stop - this.start;
 });
 
