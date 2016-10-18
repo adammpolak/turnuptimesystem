@@ -1,10 +1,12 @@
 (function(){
   angular.module('turnupApp')
-    .controller('authControl', authControl);
+    .controller('authControl', authControl)
     authControl.$inject = ['$http', '$location', '$stateParams'];
 
-  function authControl($http, $state, $stateParams){v
+  function authControl($http, $state, $stateParams){
+
     var self = this;
+    
     function register(userObj){
       $http.post('/signup', {username: userObj.usernamereg, password: userObj.passwordreg})
         .then(function(res){
@@ -22,6 +24,5 @@
 
     this.login = login;
     this.register = register;
-  }
-
-})()
+  };
+})();
