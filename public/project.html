@@ -12,7 +12,7 @@ PROJECT PAGE
 <br>
 
 <div class='task-container'>
-<div ng-repeat=''>
+<div ng-repeat='task in projects.activeProject.taskList'>
   <h5>{{task.name}}</h5>
   <h6>{{task.description}}
       {{task.totalTime}}</h6>

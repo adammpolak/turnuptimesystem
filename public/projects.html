@@ -1,6 +1,6 @@
 
 <br>
-Welcome, {{user.usersame}}
+Welcome, {{user.username}}
 <br>
 <br>
 <!-- create a new project -->
@@ -11,8 +11,8 @@ Welcome, {{user.usersame}}
 <h2 class='projects-total'>Total Hours</h2>
 
 <!-- custom directive for list of projects - filter ones marked as not completed only  -->
-<div class="" ng-repeat='project in projects.projects track by $index' ng-click='projects.displayThisProject($index)' ui-sref='project'>
+<div class="" ng-repeat='project in projects.allProjects' ng-click='projects.displayThisProject($index)' ui-sref='project'>
   {{project.projectName}}
 </div>
 
-<project-listing></project-listing>
+<!-- <project-listing></project-listing> -->
