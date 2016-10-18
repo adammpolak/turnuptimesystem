@@ -50,9 +50,5 @@
         templateUrl: 'account.html'
       });
       $urlRouterProvider.otherwise('/projects');
-      $locationProvider.html5Mode({
-        enabled: true,
-        requireBase: false,
-      })
   }
 })()
