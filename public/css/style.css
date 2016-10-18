@@ -1,25 +1,57 @@
+.landing,
+.login,
+.register,
+.account {
+  text-align: center;
+}
+
+.landing,
+.account-user {
+  color: #1269B2;
+}
+
+main {
+  font-family: Arial;
+}
+
+header {
+
+}
+
+.heading {
+  font-family: Lemon Milk;
+  padding: 2vh 0 0 2vh;;
+  /*color: #077F57;*/
+  color: #1269B2;
+  letter-spacing: 2px;
+  font-size: 7vh;
+  margin: -2vh;
+}
+
 nav {
-  padding: 2.5vh;
-  background: #B5E8AD;
+  padding: 2.5vh 2.5vh 2.5vh 2.5vh;
   display: flex;
   justify-content: flex-end;
+  margin: -3.5vh;
+  background-color: #E4F3FF;
 }
 
 a {
   text-decoration: none;
   padding: 0 3vw 0 3vh;
   color: black;
-  /*font-family: Lemon Milk;*/
+  font-family: Arial;
+  color: #B26D00;
 }
 
 a:hover {
-  color: white;
+  color: #1269B2;
 }
 
 .add-project {
-  color: black;
+  color:  #E4F3FF;
   padding: 2.5vh;
-  background: #B5E8AD;
+  background: #1269B2;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
@@ -31,7 +63,8 @@ a:hover {
 }
 
 .add-project:hover {
-  color: white;
+  color: #1269B2;
+  background: #E4F3FF;
 }
 
 .proj-container {
@@ -48,5 +81,34 @@ a:hover {
 
 @font-face {
   font-family: 'Lemon Milk';
-  src: url('/LemonMilk.otf');
+  src: url('LemonMilk.otf');
+}
+
+.button {
+  padding: 3px 5px;
+  background: #E4F3FF;
+  color: #B26D00;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  /*border: solid 1px #20538D;*/
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+  min-width: 10%;
+  font-size: 14px;
+}
+
+form.register input,
+form.register select,
+form.login input,
+form.login select {
+  min-width: 12%;
+height: 5vh;
+/*font-size: 1em;*/
+background: white;
+text-align: center;
+border: 1px solid #601a10;
+border-radius: 0.5em;
 }
