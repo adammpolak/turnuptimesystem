@@ -2,7 +2,7 @@ var express        = require('express'),
     bodyParser     = require('body-parser'),
     mongoose       = require('mongoose'),
     logger         = require('morgan'),
-    port           = 3000 || process.env.PORT,
+    port           = process.env.PORT || 3000,
     passport       = require('passport'),
     LocalStrategy  = require('passport-local').Strategy,
     User           = require('./models/user'),
@@ -10,6 +10,7 @@ var express        = require('express'),
 
 mongoose.Promise = global.Promise;
 var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/turnuptimesystem';
+console.log('===== Connecting to DB ... =====', mongoURI);
 mongoose.connect(mongoURI);
 
 app.use(bodyParser.urlencoded({ extended: true }));
