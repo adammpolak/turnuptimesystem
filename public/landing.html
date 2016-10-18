@@ -1,0 +1,13 @@
+<h3>Login</h3>
+<form class="" ng-submit="auth.login(userObject)" method="post">
+  <label for="username">Username:</label><input type="text" name="username" placeholder="Username Goes Here" ng-model="userObject.username"><br>
+  <label for="password">Password:</label><input type="password" name="password" placeholder="Password Goes Here" ng-model="userObject.password">
+  <button type="submit" name="login">Login</button>
+</form>
+<hr>
+<h3>Register</h3>
+<form class="" ng-submit="auth.register(userObject)" method="">
+  <label for="username">Username:</label><input type="text" name="username" placeholder="Pick a username!" ng-model="userObject.usernamereg"><br>
+  <label for="password">Password:</label><input type="password" name="password" placeholder="Choose your password!" ng-model="userObject.passwordreg">
+  <button type="submit" name="register">Register</button>
+</form>
