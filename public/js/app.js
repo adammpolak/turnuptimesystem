@@ -6,7 +6,7 @@
       .state('landing', {
         url: '/',
         templateUrl: 'landing.html',
-        controller: 'AuthControl',
+        controller: 'authControl',
         controllerAs: 'auth'
       })
       .state('projects', {
