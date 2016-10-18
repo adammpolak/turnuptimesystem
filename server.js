@@ -9,12 +9,14 @@ var express        = require('express'),
     app            = express();
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/nozama');
+mongoose.connect('mongodb://localhost/turnuptimesystem');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(logger('dev'));
 app.use(express.static('public'));
+
+app.use('/api/projects', require('./controllers/projectsController'));
 
 // app.use(require('express-session')({
 //   secret: 'keyboard cat',
