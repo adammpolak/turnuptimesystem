@@ -30,7 +30,7 @@
         templateUrl: 'project.html'
       })
       .state('projectedit', {
-        url: '/projets/project/edit',
+        url: '/projects/project/edit',
         templateUrl: 'projectedit.html'
       })
       .state('projectnew', {
