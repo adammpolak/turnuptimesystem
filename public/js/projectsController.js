@@ -1,6 +1,7 @@
 (function(){
   angular.module('turnupApp')
-  .controller('projectsController', projectsController);
+  .controller('projectsController', projectsController)
+  .controller('authControl', authControl);
   projectsController.$inject = ['$http', '$location'];
 
   function projectsController($http, $location) {
@@ -54,5 +55,23 @@
     this.addProject = addProject;
     this.editProject = editProject;
 
+  }
+
+  function authControl($http, $state, $stateParams){v
+    var self = this;
+    function register(userObj){
+      $http.post('/signup', {username: userObj.username, password: userObj.password})
+        .then(function(res){
+          $state.go('landing', {url: '/'});
+        })
+    }
+
+    function login(userObj){
+      $http.post('/login', {username: userObj.username, password: userObj.password})
+        .then(function(res){
+          self.user = res.data.user;
+          $state.go('projects', {url: '/projects'});
+        })
+    }
   }
 })()
