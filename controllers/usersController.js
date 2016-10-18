@@ -9,12 +9,15 @@ router.post('/register', function(req, res){
   User.register(new User(
     {username: req.body.username}),
     req.body.password, function(err, user){
-      if (err) console.log(err);
-      req.login(user, function(err){
-        if (err) console.log(err);
-        console.log(req.user.username)
-      });
-      res.json({status: 201, statusText: 'success', user: user});
+      if (err){
+        return err;
+      } else {
+        req.login(user, function(err){
+          if (err) console.log(err);
+          console.log(req.user.username)
+          res.json({status: 201, statusText: 'success', user: user});
+        });
+      }
     });
 });
 
