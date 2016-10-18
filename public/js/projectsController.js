@@ -1,9 +1,9 @@
 (function(){
   angular.module('turnupApp')
   .controller('projectsController', projectsController);
-  projectsController.$inject = ['$http', '$location'];
+  projectsController.$inject = ['$http', '$location', 'Flash'];
 
-  function projectsController($http, $location) {
+  function projectsController($http, $location, Flash) {
     var self = this;
     this.number = 7;
 
