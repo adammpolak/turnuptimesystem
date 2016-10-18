@@ -1,18 +1,18 @@
 PROJECT PAGE
 
-<h1>Project {{project.name}}</h1>
+<h1>Project {{projects.activeProject.projectName}}</h1>
 
 
 <input class='completed'></input>
 <a ui-sref='projectedit'>Edit</a>
 
 <h3>Description</h3>
-<p class='project-description'>{{project.description}}</p>
+<p class='project-description'>{{projects.activeProject.projectDescription}}</p>
 
 <br>
 
 <div class='task-container'>
-<div ng-repeat=''>
+<div ng-repeat='task in projects.activeProject.taskList'>
   <h5>{{task.name}}</h5>
   <h6>{{task.description}}
       {{task.totalTime}}</h6>
