@@ -1,15 +1,15 @@
 (function(){
   angular.module('turnupApp')
     .controller('authControl', authControl)
-    authControl.$inject = ['$http', '$location', '$stateParams'];
 
-  function authControl($http, $state, $stateParams){
+  function authControl($http, $state){
 
     var self = this;
-    
+
     function register(userObj){
-      $http.post('/signup', {username: userObj.usernamereg, password: userObj.passwordreg})
+      $http.post('/register', {username: userObj.usernamereg, password: userObj.passwordreg})
         .then(function(res){
+          console.log(res);
           $state.go('landing', {url: '/'});
         })
     }
