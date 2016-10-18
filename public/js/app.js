@@ -8,6 +8,16 @@
         templateUrl: 'landing.html',
         controller: 'authControl as auth'
       })
+      .state('login', {
+        url: '/login',
+        templateUrl: 'login.html',
+        controller: 'authControl as auth'
+      })
+      .state('register', {
+        url: '/register',
+        templateUrl: 'register.html',
+        controller: 'authControl as auth'
+      })
       .state('projects', {
         url: '/projects',
         templateUrl: 'projects.html'
