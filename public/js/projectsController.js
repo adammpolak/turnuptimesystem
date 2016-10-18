@@ -10,6 +10,16 @@
     this.allProjects = [];
     this.completedprojects = [];
     this.activeProject = {};
+
+//updating a project status
+    this.updateStatus = function () {
+      self.activeProject.completed != self.activeProject.completed
+      console.log('update function');
+      $http.put(`/api/projects/${self.activeProject._id}`, self.activeProject)
+      .then(function(response){
+      })
+    }
+
 //display a project
     this.displayThisProject = function(index) {
       self.activeProject = self.allProjects[index];
