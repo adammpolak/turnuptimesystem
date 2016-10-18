@@ -4,8 +4,10 @@
     <meta charset="utf-8">
     <title>Turn Up Time System</title>
     <link rel="stylesheet" href="/css/style.css" media="screen" title="no title">
+    <link type="text/css" rel="stylesheet" href="/scripts/angular-flash-alert/dist/angular-flash.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js" charset="utf-8"></script>
+    <script src="/scripts/angular-flash-alert/dist/angular-flash.min.js"></script>
     <script src="js/app.js" charset="utf-8"></script>
     <script src="js/projectsController.js" charset="utf-8"></script>
     <script src="js/usersController.js"></script>
@@ -19,6 +21,7 @@
 			<a ui-sref-active='active' ui-sref="account">Account</a>
 		</nav>
   </header>
+  <flash-message duration = "7000" show-close = 'true'></flash-message>
 		<main ui-view>
 
 		</main>
