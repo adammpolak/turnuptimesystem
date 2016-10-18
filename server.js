@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(logger('dev'));
 app.use(express.static('public'));
+app.use('/scripts', express.static(__dirname + '/bower_components'))
 
 app.use(require('express-session')({
   secret: 'turnupisthebestappknowntoman loremipsum',
