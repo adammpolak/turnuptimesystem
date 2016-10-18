@@ -9,6 +9,12 @@
 
     this.projects = [];
     this.completedprojects = [];
+    this.activeProject = {};
+//display a project
+    this.displayThisProject = function(index) {
+      console.log(self.projects[index]);
+      self.activeProject = self.projects[index];
+    }
 
 //when trying to create a new project this is what you need
     this.newProjectTasks = [{name: '', description: ''}]
@@ -26,10 +32,10 @@
     })
 
 // get completed projects for completed projets page
-    $http.get('/completedprojects')
-    .then(function(response) {
-      self.completedprojects = response.data;
-    })
+    // $http.get('/api/completedprojects')
+    // .then(function(response) {
+    //   self.completedprojects = response.data;
+    // })
 
 // ADD PROJECT FUNCTION
     var addProject = function(project) {
