@@ -1,3 +1,10 @@
+.project-container {
+  margin:  5vh 10vh 5vh 10vh;
+  text-align: center;
+  border: solid 1px #1269B2;
+  border-radius: 4px;
+}
+
 .landing,
 .login,
 .register,
@@ -36,10 +43,10 @@ nav {
   background-color: #E4F3FF;
 }
 
-a {
+a,
+.complete {
   text-decoration: none;
   padding: 0 3vw 0 3vh;
-  color: black;
   font-family: Arial;
   color: #B26D00;
 }

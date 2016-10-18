@@ -46,7 +46,7 @@ router.get('/:pId', function(req, res){
 });
 
 // ROUTE :: UPDATE ------------------------one project
-router.patch('/:pId', function(req, res){
+router.put('/:pId', function(req, res){
   Project.findOneAndUpdate(req.params.pId, req.body)
   .then(function(project){
     console.log(project);
