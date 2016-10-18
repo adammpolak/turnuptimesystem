@@ -6,5 +6,4 @@ var timePeriodSchema = new mongoose.Schema({
   stop: Date
 });
 
-
 module.exports = mongoose.model('TimePeriod', timePeriodSchema);
