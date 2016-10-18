@@ -4,12 +4,13 @@ Welcome, {{user.username}}
 <br>
 <br>
 <!-- create a new project -->
-<a ui-sref-active='active' ui-sref='projectnew'>Add A Project</a>
-
+<a ui-sref-active='active' ui-sref='projectnew' class='add-project'>Add A Project</a>
+<br><br>
 <!-- css so this is on one line above project listings -->
+<div class='proj-container'>
 <h2 class='projects-new'>Name</h2>
 <h2 class='projects-total'>Total Hours</h2>
-
+</div>
 <!-- custom directive for list of projects - filter ones marked as not completed only  -->
 <data value=""></data>
 <!-- <project-listing></project-listing> -->
