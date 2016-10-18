@@ -1,5 +1,5 @@
 (function(){
-  angular.module('turnupApp', ['ui.router']).config(MainRouter);
+  angular.module('turnupApp', ['ui.router', 'ngFlash']).config(MainRouter);
   MainRouter.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
   function MainRouter($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
