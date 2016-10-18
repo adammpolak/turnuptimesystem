@@ -1,9 +1,9 @@
 (function(){
   angular.module('turnupApp')
   .controller('projectsController', projectsController);
-  projectsController.$inject = ['$http', '$location'];
+  projectsController.$inject = ['$http', '$location', '$state', 'Flash'];
 
-  function projectsController($http, $location) {
+  function projectsController($http, $location, $state, Flash) {
     var self = this;
     this.number = 7;
 
@@ -15,9 +15,10 @@
     this.updateStatus = function () {
       self.activeProject.completed != self.activeProject.completed
       console.log('update function');
-      $http.put(`/api/projects/${self.activeProject._id}`, self.activeProject)
-      .then(function(response){
-      })
+      // $http.put(`/api/projects/${self.activeProject._id}`, self.activeProject)
+      // .then(function(response){
+      //   // $state.go('completedprojects', {url: '/completedprojects'})
+      // })
     }
 
 //display a project
