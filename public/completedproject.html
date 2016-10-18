@@ -1,0 +1,27 @@
+PROJECT PAGE
+
+<h1>Project {{projects.activeProject.projectName}}</h1>
+
+<input class='completed' type="checkbox" value='true' ng-model='activeProject.completed' ng-click='projects.updateStatus()' ui-sref='project'</input>
+
+<h3>Description</h3>
+<p class='project-description'>{{projects.activeProject.projectDescription}}</p>
+
+<br>
+
+<div class='task-container'>
+<div ng-repeat='task in projects.activeProject.taskList'>
+  <h5>{{task.name}}</h5>
+  <h6>{{task.description}}
+      {{task.totalTime}}</h6>
+  <input class='start-stop' type='submit' ng-click=''>Arrow</input>
+  <p class='task-details' ng-click='showDetails = !showDetails'></p>
+    <div ng-repeat=''>
+      {{task.timePeriodName}}
+      {{task.startTime}}
+      {{task.stopTime}}
+      {{task.totalTime}}
+      {{task.username}}
+    </div>
+</div>
+</div>
