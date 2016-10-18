@@ -30,17 +30,12 @@ router.post('/', function(req, res){
   })
 });
 
-router.get('/:id', function(req, res){
-  Project.findById(req.params.id).exec()
-  .then(function(project){
-    console.log(project);
-    res.json(project);
-
 router.get('/:pId', function(req, res){
   Order.findById(req.params.id).exec()
   .then(function(order){
     console.log(order);
     res.json(order);
+
   })
   .catch(function(err){
     console.log(err);

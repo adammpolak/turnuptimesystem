@@ -16,8 +16,8 @@ app.use(bodyParser.json());
 app.use(logger('dev'));
 app.use(express.static('public'));
 
-app.use('/api/projects', require('./controllers/projectsController'));
-// app.use('/api/users', require('./controllers/usersController.js'));
+app.use('/api/projects', require('./controllers/projectsController.js'));
+app.use('/api/users', require('./controllers/usersController.js'));
 
 // app.use(require('express-session')({
 //   secret: 'keyboard cat',
