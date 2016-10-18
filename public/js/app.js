@@ -5,7 +5,9 @@
     $stateProvider
       .state('landing', {
         url: '/',
-        templateUrl: 'landing.html'
+        templateUrl: 'landing.html',
+        controller: 'AuthControl',
+        controllerAs: 'auth'
       })
       .state('projects', {
         url: '/projects',
