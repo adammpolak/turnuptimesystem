@@ -6,7 +6,7 @@
   function authControl($http, $state, $stateParams){v
     var self = this;
     function register(userObj){
-      $http.post('/signup', {username: userObj.username, password: userObj.password})
+      $http.post('/signup', {username: userObj.usernamereg, password: userObj.passwordreg})
         .then(function(res){
           $state.go('landing', {url: '/'});
         })
