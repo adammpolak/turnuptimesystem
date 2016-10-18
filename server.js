@@ -19,17 +19,17 @@ app.use(express.static('public'));
 app.use('/api/projects', require('./controllers/projectsController.js'));
 app.use('/api/users', require('./controllers/usersController.js'));
 
-// app.use(require('express-session')({
-//   secret: 'keyboard cat',
-//   resave: false,
-//   saveUninitialized: false
-// }));
-// app.use(passport.initialize());
-// app.use(passport.session());
-//
-// passport.use(User.createStrategy());
-// passport.serializeUser(User.serializeUser());
-// passport.deserializeUser(User.deserializeUser());
+app.use(require('express-session')({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.listen(port, function() {
     console.log('=======================');
