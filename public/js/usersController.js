@@ -38,17 +38,16 @@
 
     function successAlert() {
       var message = '<strong>Success!</strong> Registered successfully!'
-      var id = Flash.create('success', message, 7000, {}, true);
+      var id = Flash.create('success', message, 7000, {class: 'flashAlert'}, true);
     }
 
     function loginSuccess() {
       var message = '<strong>Success!</strong> Login successful!'
-      var id = Flash.create('success', message, 7000, {}, true);
+      var id = Flash.create('success', message, 7000, {class: 'flashAlert'}, true);
     }
 
     function authFail(reason){
-      var message = reason;
-      var id = Flash.create('danger', message, 7000, {}, true);
+      var id = Flash.create('danger', reason, 7000, { class: 'flashAlert'}, true);
     }
 
     this.login = login;
