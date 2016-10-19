@@ -9,9 +9,9 @@ router.post('/register', function(req, res){
   User.register(new User(
     {username: req.body.username}),
     req.body.password, function(err, user){
-      if (err) return err;
+      if (err) res.json({errmsg: err});
       req.login(user, function(err){
-        if (err) console.log(err);
+        if (err) res.json({errmsg: err});
         console.log(req.user.username)
         res.json({status: 201, statusText: 'success', user: user});
       });
@@ -20,8 +20,8 @@ router.post('/register', function(req, res){
 
 router.post('/login', passport.authenticate('local'), function(req, res){
   req.session.save(function(err) {
-    if (err) console.log(err);
-
+    if (err) res.json({errmsg: err});
+    
     res.json({user: req.user});
   })
 });
