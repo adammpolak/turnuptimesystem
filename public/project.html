@@ -27,11 +27,8 @@
       <button ng-click='projects.updateTaskTimePeriod($index)' ng-if='projects.activeUserTaskStates[$index].outstanding'>stop</button>
   <p class='task-details' ng-click='showDetails = !showDetails'>Details</p>
     <div ng-repeat="timeperiod in task.taskTimeList | orderBy: '-start'" ng-show='showDetails'>
-      user: {{timeperiod.user}}
+      user: {{timeperiod.user}} | start: {{timeperiod.start | date : 'short'}} | stop: {{timeperiod.stop | date : 'short'}}
       <hr>
-      start: {{timeperiod.start | date : 'short'}}
-      <hr>
-      stop: {{timeperiod.stop | date : 'short'}}
     </div>
 </div>
 </div>
