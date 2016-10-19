@@ -1,5 +1,7 @@
 var express        = require('express'),
     bodyParser     = require('body-parser'),
+    session        = require('express-session'),
+    MongoStore     = require('connect-mongo')(session),
     mongoose       = require('mongoose'),
     logger         = require('morgan'),
     port           = 3000 || process.env.PORT,
@@ -17,10 +19,18 @@ app.use(logger('dev'));
 app.use(express.static('public'));
 app.use('/scripts', express.static(__dirname + '/bower_components'))
 
-app.use(require('express-session')({
+app.use(session({
   secret: 'turnupisthebestappknowntoman loremipsum',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  maxAge: new Date(Date.now() + 86400000),
+  store: new MongoStore(
+    {mongooseConnection: mongoose.connection},
+    function(err){
+      if (err) {console.log(err)}
+      else {console.log('session saved')}
+    }
+  )
 }));
 app.use(passport.initialize());
 app.use(passport.session());
