@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="">
 
   <br><br><br><br>
@@ -16,3 +17,30 @@
     <button class='button' type="submit" name="register">Register</button>
   </form>
 </div>
+=======
+<header>
+  <h1 class='heading'>Turn Up Time Systems</h1>
+  <nav>
+    <a ui-sref-active='active' ui-sref='projects'>Projects</a>
+    <a ui-sref-active='active' ui-sref="completedprojects">Completed Projects</a>
+    <a ui-sref-active='active' ui-sref="account">Account</a>
+    <a ui-sref-active='active' ui-sref="projectedit">Edit Route</a>
+  </nav>
+</header>
+<flash-message duration = "7000" show-close = 'true'></flash-message>
+<br><br><br><br>
+<h3 class='landing'>Login</h3>
+<form class="login" ng-submit="auth.login(userObject)" method="post">
+<input type="text" name="username" placeholder="Username Goes Here" ng-model="userObject.username"><br><br>
+<input type="password" name="password" placeholder="Password Goes Here" ng-model="userObject.password"><br><br>
+  <button class='button' type="submit" name="login">Login</button>
+</form>
+<br><br>
+<br>
+<h3 class='landing'>Register</h3>
+<form class="register" ng-submit="auth.register(userObject)" method="">
+<input type="text" name="username" placeholder="Create a username!" ng-model="userObject.usernamereg"><br><br>
+<input type="password" name="password" placeholder="Create your password!" ng-model="userObject.passwordreg"><br><br>
+  <button class='button' type="submit" name="register">Register</button>
+</form>
+>>>>>>> flash
