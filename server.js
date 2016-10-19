@@ -1,14 +1,14 @@
 var express        = require('express'),
     bodyParser     = require('body-parser'),
+    session        = require('express-session'),
+    MongoStore     = require('connect-mongo')(session),
     mongoose       = require('mongoose'),
     logger         = require('morgan'),
     port           = 3000 || process.env.PORT,
     passport       = require('passport'),
     LocalStrategy  = require('passport-local').Strategy,
     User           = require('./models/user'),
-    app            = express(),
-    session        = require('express-session'),
-    MongoStore     = require('connect-mongo')(session);
+    app            = express();
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/turnuptimesystem');
@@ -25,7 +25,7 @@ app.use(session({
   saveUninitialized: false,
   maxAge: new Date(Date.now() + 86400000),
   store: new MongoStore(
-    {db:mongoose.connection.db},
+    {mongooseConnection: mongoose.connection},
     function(err){
       if (err) {console.log(err)}
       else {console.log('session saved')}
