@@ -41,8 +41,8 @@
         url: '/completedprojects',
         templateUrl: 'completedprojects.html'
       })
-      .state('completedproject', {
-        url: '/completedprojects/project',
+      .state('completedprojects.completedproject', {
+        url: '/completedproject',
         templateUrl: 'completedproject.html'
       })
       .state('account', {

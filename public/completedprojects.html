@@ -14,8 +14,9 @@
 </div> -->
 
 <ul class='list'>
-  <div ng-repeat="project in projects.allProjects track by $index">
-    <div class="" ng-click='projects.displayThisProject($index)' ng-if='checked' ui-sref-active='active' ui-sref='.project'>
+  <div ng-repeat="project in projects.completedprojects track by $index">
+    <div class="completed-project" ng-click='projects.displayThisProject($index)' ui-sref-active='active' ui-sref='.completedproject'>
+           <!-- ng-if='checked' -->
     <li class='project-list'>{{project.completed}} {{project.projectName}}</li>
     </div>
   </div>
