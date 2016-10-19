@@ -1,17 +1,16 @@
-COMPLETED PROJECT PAGE
-
+<br><br>
+<div class='project-container'>
 <h1>Project {{projects.activeProject.projectName}}</h1>
 
+<div class='complete'>
 <input class='completed' type="checkbox" value='true' ng-checked='projects.activeProject.completed' ng-click='projects.updateProjectStatus()' ui-sref='completedprojects'></input>
-
+</div>
 <h3>Description</h3>
 <p class='project-description'>{{projects.activeProject.projectDescription}}</p>
-
 <br>
-
 <div class='task-container'>
 <div ng-repeat='task in projects.activeProject.taskList'>
-  <h5>Task Name: {{task.name}}</h5>
+  <h5 class='task-name'>Task Name: {{task.name}}</h5>
   <h6>Task Description: {{task.description}}
       {{task.totalTime}}</h6>
   <p class='task-details' ng-click='showDetails = !showDetails'>Details</p>
@@ -25,5 +24,6 @@ COMPLETED PROJECT PAGE
       <hr>
       {{task.username}}
     </div>
+</div>
 </div>
 </div>
