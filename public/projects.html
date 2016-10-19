@@ -19,8 +19,8 @@
 <!-- custom directive for list of projects - filter ones marked as not completed only  -->
 <ul class='list'>
   <div ng-repeat="project in projects.allProjects track by $index">
-    <div class="" ng-click='projects.displayThisProject($index)' ui-sref-active='active' ui-sref='.project'>
-    <li class='project-list'>{{project.projectName}}</li>
+    <div class="" ng-click='projects.displayThisProject($index)' ng-if='!checked' ui-sref-active='active' ui-sref='.project'>
+    <li class='project-list'>{{project.completed}} {{project.projectName}}</li>
     </div>
   </div>
 </ul>

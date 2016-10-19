@@ -1,5 +1,15 @@
 (function(){
   angular.module('turnupApp')
+
+  // .filter('complete', ['completed',
+  //   function(completed){
+  //     function completeFilter(project) {
+  //       return activeProject.completed;
+  //     }
+  //     completeFilter.$stateful = true;
+  //     return completeFilter;
+  // }])
+
   .controller('projectsController', projectsController);
   projectsController.$inject = ['$http', '$location', '$state'];
 
@@ -13,13 +23,27 @@
 
 //updating a project status
     this.updateStatus = function () {
-      self.activeProject.completed != self.activeProject.completed
-      console.log('update function');
+      console.log(self.activeProject.completed);
+      self.activeProject.completed = !self.activeProject.completed
+      console.log('update function', self.activeProject.completed);
+
+      // $location.path('/projects')
+      // self.allProjects();
       // $http.put(`/api/projects/${self.activeProject._id}`, self.activeProject)
       // .then(function(response){
       //   // $state.go('completedprojects', {url: '/completedprojects'})
       // })
     }
+
+// function should change status to completed
+
+  // display completed projects
+  this.displayCompletedProject = function(index) {
+    // self.activeProject = self.completedProjects[index];
+    // if (self.activeProject.completed === true) {
+    //   console.log('project completed', 'this.activeProject');
+    // }
+  }
 
 //display a project
     this.displayThisProject = function(index) {

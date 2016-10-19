@@ -8,10 +8,18 @@
 </header>
 <br><br><br><br><br><br>
 <!-- css so this is on one line above project listings -->
-<div class='proj-container'>
+<!-- <div class='proj-container'>
 <h2 class='completed-projects'>Name</h2>
 <h2 class='completed-projects-total'>Total Hours</h2>
-</div>
+</div> -->
+
+<ul class='list'>
+  <div ng-repeat="project in projects.allProjects track by $index">
+    <div class="" ng-click='projects.displayThisProject($index)' ng-if='checked' ui-sref-active='active' ui-sref='.project'>
+    <li class='project-list'>{{project.completed}} {{project.projectName}}</li>
+    </div>
+  </div>
+</ul>
 
 <!-- custom directive for list of projects - filter: ones marked as completed only  -->
 <project-listing></project-listing>
