@@ -58,6 +58,7 @@
 
 //updating a project status
     this.updateActiveProject = function () {
+      passAlert('Update successful!');
       console.log(self.activeProject);
       $http.put(`/api/projects/project`, self.activeProject)
       .then(function(response){
