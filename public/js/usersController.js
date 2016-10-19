@@ -47,8 +47,7 @@
     }
 
     function authFail(reason){
-      var message = reason;
-      var id = Flash.create('danger', message, 7000, {}, true);
+      var id = Flash.create('danger', reason, 7000, {}, true);
     }
 
     this.login = login;
