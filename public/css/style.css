@@ -7,21 +7,20 @@
   margin-top: -2vh;
 }
 
-.play {
+div.s-button {
     display:block;
     width:40px;
     height:40px;
     line-height:40px;
     border: 2px solid #f5f5f5;
-    border-radius: 50%;
     color: white;
     text-align: center;
     text-decoration:none;
     background: #B26C00;
-    box-shadow: 0 0 3px gray;
+    box-shadow: 0 0 3px white;
     font-size:25px;
 }
-.play:hover {
+div.s-button:hover {
     background: #FF9A00;
 }
 
