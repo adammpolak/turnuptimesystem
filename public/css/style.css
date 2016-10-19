@@ -3,22 +3,67 @@
   margin: 0;
 }
 
+.project-description {
+  width:70%;
+  margin: auto;
+}
+
+.task-container {
+  text-align: left;
+}
+
+#align {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content:flex-start;
+  text-align: left;
+}
+
+#align-name {
+   flex: 1;
+}
+
+#align-description {
+   flex: 3;
+   font-size: 14px;
+}
+
+#align-button {
+  flex: 1;
+}
+
+#align-details {
+  flex: 1;
+  font-size: 14px;
+}
+
+#align-details:hover {
+  color: #1269B2;
+}
+
+.details {
+  font-size: 14px;
+}
+
+
+
 .complete-box {
   margin-top: -2vh;
 }
 
 div.s-button {
     display:block;
-    width:40px;
-    height:40px;
-    line-height:40px;
+    width:30px;
+    height:30px;
+    line-height:30px;
     border: 2px solid #f5f5f5;
     color: white;
     text-align: center;
     text-decoration:none;
     background: #B26C00;
     box-shadow: 0 0 3px white;
-    font-size:25px;
+    font-size:20px;
 }
 div.s-button:hover {
     background: #FF9A00;
