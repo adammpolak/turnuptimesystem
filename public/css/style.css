@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+.complete-box {
+  margin-top: -2vh;
+}
+
 .play {
     display:block;
     width:40px;
@@ -13,16 +17,12 @@
     color: white;
     text-align: center;
     text-decoration:none;
-    background: #FF9A00;
+    background: #B26C00;
     box-shadow: 0 0 3px gray;
     font-size:25px;
 }
 .play:hover {
-    background: #B26C00;
-}
-
-.s-button {
-  margin-bottom: 5px;
+    background: #FF9A00;
 }
 
 fieldset {
