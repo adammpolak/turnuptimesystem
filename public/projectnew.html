@@ -1,20 +1,22 @@
-<br><br><br>
+<br><br>
+<div id='new-project-cont'>
 <h2>Create New Project</h2>
-
-<form ng-click="projects.addProject(newProject)">
+<br>
+<form ng-submit="projects.addProject(newProject)">
         <div class="">
-          <label for="name">Name: </label>
-          <input type="text" ng-model='newProject.projectName'>
-          <label for="description">Description: </label>
+          <label for="name">Project Name</label><br>
+          <input type="text" ng-model='newProject.projectName'><br><br>
+          <label for="description">Project Description</label><br>
           <input type="text" ng-model='newProject.projectDescription'>
-        </div>
+        </div><br>
         <fieldset data-ng-repeat='task in projects.newProjectTasks'>
-          <input type="text" ng-model='task.name' placeholder="task name">
-          <input type="text" ng-model='task.description' placeholder="task description">
-          <button class='remove' ng-show='$last' ng-click='projects.removeTask()' name="button">remove</button>
-        </fieldset>
+          <input type="text" ng-model='task.name' placeholder="task name"><br>
+          <input type="text" ng-model='task.description' placeholder="task description"><br>
+          <button class='remove' ng-show='$last' ng-click='projects.removeTask()' name="button">Remove Task</button><br>
+        </fieldset><br>
         <button type="button" ng-click='projects.addTask()'>Create New Task</button>
         <div class="tasks" id='taskList'>
         </div>
         <button type="submit">Create Project!</button>
       </form>
+</div>
