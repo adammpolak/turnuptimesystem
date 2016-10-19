@@ -4,7 +4,7 @@
 <a id='edit-button' ui-sref-active='active' ui-sref="projects.edit({projectId:projects.activeProject._id})">Edit Project</a>
 <!-- a ui-sref='projectedit' -->
 <div class='complete'>
-<label>Complete?</label><input class='completed' type="checkbox" value='true' ng-model='activeProject.completed' ng-click='projects.updateStatus()' ui-sref='completedprojects'></input>
+<label>Complete?</label><input class='completed' type="checkbox" value='true' ng-checked='projects.activeProject.completed' ng-click='projects.updateProjectStatus()' ui-sref='projects'></input>
 </div>
 
 <h3>Description</h3>

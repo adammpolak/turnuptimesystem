@@ -26,27 +26,27 @@
         templateUrl: 'projects.html'
       })
       .state('projects.projectnew', {
-        url: '/projects/project/new',
+        url: '/project/new',
         templateUrl: 'projectnew.html'
+      })
+      .state('account', {
+        url: '/account',
+        templateUrl: 'account.html'
       })
       .state('completedprojects', {
         url: '/completedprojects',
         templateUrl: 'completedprojects.html'
       })
-      .state('completedproject', {
-        url: '/completedprojects/project',
+      .state('completedprojects.completedproject', {
+        url: '/completedproject/:projectId',
         templateUrl: 'completedproject.html'
-      })
-      .state('account', {
-        url: '/account',
-        templateUrl: 'account.html'
       })
       .state('projects.project', {
         url: `/project/:projectId`,
         templateUrl: 'project.html'
       })
       .state('projects.edit', {
-        url: '/:projectId/edit',
+        url: '/project/:projectId/edit',
         templateUrl: 'projectedit.html'
       });
       $urlRouterProvider.otherwise('/projects');
