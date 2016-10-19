@@ -2,7 +2,7 @@ COMPLETED PROJECT PAGE
 
 <h1>Project {{projects.activeProject.projectName}}</h1>
 
-<input class='completed' type="checkbox" value='true' ng-model='activeProject.completed' ng-click='projects.updateStatus()' ui-sref='completedprojects'></input>
+<input class='completed' type="checkbox" value='true' ng-checked='projects.activeProject.completed' ng-click='projects.updateProjectStatus()' ui-sref='completedprojects'></input>
 
 <h3>Description</h3>
 <p class='project-description'>{{projects.activeProject.projectDescription}}</p>
@@ -11,16 +11,18 @@ COMPLETED PROJECT PAGE
 
 <div class='task-container'>
 <div ng-repeat='task in projects.activeProject.taskList'>
-  <h5>{{task.name}}</h5>
-  <h6>{{task.description}}
+  <h5>Task Name: {{task.name}}</h5>
+  <h6>Task Description: {{task.description}}
       {{task.totalTime}}</h6>
-  <input class='start-stop' type='submit' ng-click=''>Arrow</input>
-  <p class='task-details' ng-click='showDetails = !showDetails'></p>
-    <div ng-repeat=''>
-      {{task.timeperiodName}}
-      {{task.startTime}}
-      {{task.stopTime}}
-      {{task.totalTime}}
+  <p class='task-details' ng-click='showDetails = !showDetails'>Details</p>
+    <div ng-repeat='timeperiod in task.taskTimeList' ng-show='showDetails'>
+      <hr>
+      {{timeperiod.user}}
+      <hr>
+      {{timeperiod.start}}
+      <hr>
+      {{timeperiod.stop}}
+      <hr>
       {{task.username}}
     </div>
 </div>

@@ -11,6 +11,10 @@
     this.completedprojects = [];
     this.activeProject = {};
     this.activeUserTaskStates = [];
+    this.removeTask = function(index) {
+      self.activeProject.taskList[index].splice(index, 1);
+      self.updateActiveProject();
+    }
 //update time for a certain task
     this.updateTaskTimePeriod = function(index){
       var now = new Date();
@@ -36,8 +40,6 @@
           outstanding: true,
           indexPosition: self.activeProject.taskList[index].taskTimeList.length-1,
         }
-        console.log(self.activeProject);
-        console.log(self.activeUserTaskStates);
       }
       //this will be the put route to update the new object with the information
       self.updateActiveProject();
@@ -60,6 +62,10 @@
         console.log(response);
       })
     }
+    this.goToNewProject = function(){
+      console.log('frank');
+      $location.path('/projects/project/new')
+    }
 
 //display a project
     this.displayThisProject = function(index) {
@@ -70,23 +76,22 @@
           outstanding: false,
           indexPosition: null,
         }
-        for (var i = 0; i<self.activeProject.taskList[x].taskTimeList.length; i++) {
+        if (self.activeProject.taskList[x].taskTimeList) {
+          for (var i = 0; i<self.activeProject.taskList[x].taskTimeList.length; i++) {
 
-          if (self.activeProject.taskList[x].taskTimeList[i].stop) {
-            console.log('it exists!');
-          } else {
-            if (self.activeProject.taskList[x].taskTimeList[i].userId == self.currentUser._id) {
-              taskStatus = {
-                outstanding: true,
-                indexPosition: i,
+            if (self.activeProject.taskList[x].taskTimeList[i].stop) {
+            } else {
+              if (self.activeProject.taskList[x].taskTimeList[i].userId == self.currentUser._id) {
+                taskStatus = {
+                  outstanding: true,
+                  indexPosition: i,
+                }
               }
             }
           }
-          console.log(self.activeProject.taskList[x].taskTimeList[i]);
         }
         self.activeUserTaskStates.push(taskStatus);
       }
-      console.log(self.activeUserTaskStates);
     }
 
 //when trying to create a new project this is what you need
@@ -94,15 +99,34 @@
     this.addTask = function () {
       self.newProjectTasks.push({name: '', description: ''})
     }
+    this.editAddTask = function (index) {
+      self.activeProject.taskList.push({name: '', description: ''})
+    }
     this.removeTask = function() {
       var lastItem = self.newProjectTasks.length-1;
       self.newProjectTasks.splice(lastItem);
     }
+    this.editRemoveTask = function(index) {
+      self.activeProject.taskList.splice(index, 1);
+    }
+
 //get the project data for projects page
     $http.get('/api/projects')
     .then(function(response) {
       self.allProjects = response.data;
     })
+    // $http.get($location.$$path.toString())
+    // .then(function(response) {
+    //   self.activeProject = response.data;
+    // })
+    // console.log($location.$$path.toString())
+
+//update project status
+    this.updateProjectStatus = function() {
+      self.activeProject.completed = !self.activeProject.completed;
+      console.log(self.activeProject);
+      self.updateActiveProject();
+    }
 
 // get completed projects for completed projets page
     // $http.get('/api/completedprojects')
@@ -111,6 +135,17 @@
     // })
 
 // ADD PROJECT FUNCTION
+    this.getToProject = function(){
+      $location.path('/projects/project');
+    }
+    this.getToProjects = function(){
+      $location.path('/projects');
+      $http.get('/api/projects')
+      .then(function(response) {
+        self.allProjects = response.data;
+      })
+    }
+
     var addProject = function(project) {
       project.taskList = self.newProjectTasks;
       console.log('clicked add project button')
@@ -130,25 +165,16 @@
         console.log(err)
       });
     }
+//REMOVE PROEJCT FUNCTION
+    this.deleteProject = function () {
+      $http.delete(`/api/projects/project/${self.activeProject._id}`)
+      .then(function(response){
+        self.activeProject = {};
 
-// EDIT/UPDATE PROJECT FUNCTION
-    var editProject = function(project) {
-      console.log(this.allProjects, 'has been updated');
-      $http.post(`/projects/${project._id}`) //want to post to projects/:id, correct?
-      .then(function(response) {
-        self.projects.push(response.data);
-        $location.path('/projects/project')
       })
-      .catch(function(err) {
-        console.log(err)
-      });
     }
 
-
-
     this.addProject = addProject;
-    this.editProject = editProject;
-
   }
 
 })()

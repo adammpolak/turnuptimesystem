@@ -1,31 +1,25 @@
-<header>
-  <h1 class='heading'>TURN UP TIME</h1>
-  <nav>
-    <a ui-sref-active='active' ui-sref='projects'>Projects</a>
-    <a ui-sref-active='active' ui-sref="completedprojects">Completed Projects</a>
-    <a ui-sref-active='active' ui-sref="account">Account</a>
-  </nav>
-</header>
 <br><br><br>
 <h1>Project Edit Page</h1>
 
-<form ng-submit='projects.addProject(newProject)'>
+<form ng-submit='projects.updateActiveProject(); projects.getToProject()'>
         <div class="">
           <label for="name">Name: </label>
-          <input type="text" ng-model='newProject.projectName'>
+          <input type="text" ng-model='projects.activeProject.projectName'>
           <label for="description">Description: </label>
-          <input type="text" ng-model='newProject.projectDescription'>
+          <input type="text" ng-model='projects.activeProject.projectDescription'>
         </div>
-        <fieldset data-ng-repeat='task in projects.newProjectTasks'>
+        <fieldset data-ng-repeat='task in projects.activeProject.taskList track by $index'>
           <input type="text" ng-model='task.name' placeholder="task name">
           <input type="text" ng-model='task.description' placeholder="task description">
-          <button class='remove' ng-show='$last' ng-click='projects.removeTask()' name="button">remove</button>
+          <button class='remove' ng-click='projects.editRemoveTask(index)' name="button">remove</button>
         </fieldset>
-        <button type="button" ng-click='projects.addTask()'>Create New Task</button>
+        <button type="button" ng-click='projects.editAddTask()'>Create New Task</button>
         <div class="tasks" id='taskList'>
         </div>
         <button type="submit">Submit</button>
       </form>
+
+      <button ng-click='projects.deleteProject(); projects.getToProjects()'>Delete Project</button>
 
 
 <!-- in order to make the dot notation work - KEEP -->
