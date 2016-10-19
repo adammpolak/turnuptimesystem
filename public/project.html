@@ -15,12 +15,11 @@
 <!-- <div id='column2'> -->
 <h4>Tasks</h4>
 <div class='task-container'>
-<div ng-repeat='task in projects.activeProject.taskList'>
-  <div id='align'>
-  <h5 id='task-name'>{{task.name}}</h5>
+<div ng-repeat='task in projects.activeProject.taskList track by $index'>
+  <h5>{{task.name}}</h5>
   <h6>{{task.description}}
       {{task.totalTime}}</h6>
-  <input class='start-stop' type='submit' ng-click=''></input></div>
+  <input class='start-stop' type='submit' ng-click='projects.updateTaskTimePeriod($index)'>Arrow</input>
   <p class='task-details' ng-click='showDetails = !showDetails'></p>
     <div ng-repeat=''>
       {{task.timeperiodName}}

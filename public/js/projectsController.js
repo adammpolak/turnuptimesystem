@@ -19,7 +19,7 @@
         var timePeriodIndex = self.activeUserTaskStates[index].indexPosition;
         self.activeProject.taskList[index].taskTimeList[timePeriodIndex].stop = now;
         self.activeUserTaskStates[index] = {
-          oustanding: false,
+          outstanding: false,
           indexPosition: null,
         };
         //this is run if this task has outstanding time state
@@ -37,6 +37,7 @@
           indexPosition: self.activeProject.taskList[index].taskTimeList.length-1,
         }
         console.log(self.activeProject);
+        console.log(activeUserTaskStates);
       }
       //this will be the put route to update the new object with the information
       self.updateActiveProject();
@@ -61,19 +62,27 @@
 
 //display a project
     this.displayThisProject = function(index) {
+      self.activeUserTaskStates = [];
       self.activeProject = self.allProjects[index];
       for (var x = 0; x<self.activeProject.taskList.length; x++){
         var taskStatus = {
-          oustanding: false,
+          outstanding: false,
           indexPosition: null,
         }
         for (var i = 0; i<self.activeProject.taskList[x].taskTimeList.length; i++) {
-          if (!self.activeProject.taskList[x].taskTimeList[i].stop &&
-              self.activeProject.taskList[x].taskTimeList[i].userId == self.currentUser._id) {
-                taskStatus = {
-                  outstanding: true,
-                  indexPosition: i,
-                }
+
+          if (self.activeProject.taskList[x].taskTimeList[i].stop) {
+            console.log('it exists!');
+          } else {
+            console.log('frank');
+            console.log(self.activeProject.taskList[x].taskTimeList[i]);
+            console.log(self.currentUser._id);
+            if (self.activeProject.taskList[x].taskTimeList[i].userId == self.currentUser._id) {
+              taskStatus = {
+                outstanding: true,
+                indexPosition: i,
+              }
+            }
           }
         }
         self.activeUserTaskStates.push(taskStatus);
