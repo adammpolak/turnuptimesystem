@@ -10,6 +10,7 @@
       $http.post('api/users/register', {username: userObj.usernamereg, password: userObj.passwordreg})
         .then(function(res){
           $state.go('projects', {url: '/projects'});
+          console.log(successAlert())
           userObj.passwordreg = '';
           userObj.usernamereg = '';
         })
