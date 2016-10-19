@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
 
-var timePeriodSchema = new mongoose.Schema({
+var timeperiodSchema = new mongoose.Schema({
   user: String,
   start: Date,
   stop: Date
 });
 
-module.exports = mongoose.model('TimePeriod', timePeriodSchema);
+module.exports = mongoose.model('timeperiod', timeperiodSchema);
