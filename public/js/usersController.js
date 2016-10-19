@@ -10,7 +10,7 @@
       $http.post('api/users/register', {username: userObj.usernamereg, password: userObj.passwordreg})
         .then(function(res){
           $state.go('projects', {url: '/projects'});
-          console.log(successAlert())
+          successAlert();
           userObj.passwordreg = '';
           userObj.usernamereg = '';
         })
@@ -26,13 +26,13 @@
     }
 
     function successAlert() {
-      var message = 'Success!'
+      var message = '<strong>Success!</strong> Registered successfully!'
       var id = Flash.create('success', message, 7000, {}, true);
     }
 
     this.login = login;
     this.register = register;
-    this.successAlert = successAlert;
+    // this.successAlert = successAlert;
     this.userObject;
   };
 })();
