@@ -14,13 +14,14 @@
 </div> -->
 
 <ul class='list'>
-  <div ng-repeat="project in projects.completedprojects track by $index">
+  <div ng-repeat="project in projects.allProjects track by $index">
     <div class="completed-project" ng-click='projects.displayThisProject($index)' ui-sref-active='active' ui-sref='.completedproject'>
-           <!-- ng-if='checked' -->
-    <li class='project-list'>{{project.completed}} {{project.projectName}}</li>
+    <li class='project-list' ng-if='project.completed'>{{project.projectName}}</li>
     </div>
   </div>
 </ul>
 
 <!-- custom directive for list of projects - filter: ones marked as completed only  -->
 <project-listing></project-listing>
+
+<div ui-view><div>

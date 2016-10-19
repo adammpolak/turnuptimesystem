@@ -1,11 +1,11 @@
 <br><br>
 <div class='project-container'>
-<h1 id='project-title'>Project {{projects.activeProject.projectName}}</h1>
+<h1 class='project-title'>Project {{projects.activeProject.projectName}}</h1>
 <a id='edit-button' ui-sref-active='active' ui-sref="projectedit">Edit Project</a>
 
 <div class='complete'>
 <label>Complete?</label><input class='completed' type="checkbox" value='activeProject.completed' ng-model='activeProject.completed' ng-click='projects.updateStatus()' ui-sref='completedprojects'></input>
-<!-- ui-sref='completedprojects -->
+<!-- ui-sref='completedprojects' -->
 </div>
 
 <h3>Description</h3>
@@ -13,12 +13,11 @@
   {{projects.activeProject.projectDescription}}
 </p>
 <br>
-<!-- <div id='column2'> -->
 <h4>Tasks</h4>
 <div class='task-container'>
 <div ng-repeat='task in projects.activeProject.taskList'>
   <div id='align'>
-  <h5 id='task-name'>{{task.name}}</h5>
+  <h5 class='task-name'>{{task.name}}</h5>
   <h6>{{task.description}}
       {{task.totalTime}}</h6>
   <input class='start-stop' type='submit' ng-click=''></input></div>
