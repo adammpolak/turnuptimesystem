@@ -3,6 +3,35 @@
   margin: 0;
 }
 
+form.input-name input,
+form.input-name select{
+  min-width: 22%;
+  height: 5vh;
+  /*font-size: 1em;*/
+  background: white;
+  text-align: center;
+  border: 1px solid #601a10;
+  /*border-radius: 0.5em;*/
+}
+
+textarea.input-description {
+  min-width: 50%;
+  height: 10vh;
+  /*font-size: 1em;*/
+  background: white;
+  text-align: center;
+  border: 1px solid #601a10;
+  /*border-radius: 0.5em;*/
+}
+
+.input-task-name {
+
+}
+
+.input-task-description {
+  width: 60%;
+}
+
 .project-description {
   width:70%;
   margin: auto;
