@@ -15,7 +15,8 @@
   text-align: left;
 }
 
-#align {
+#align,
+#align-complete {
   display: flex;
   align-items: baseline;;
   justify-content: space-around;
