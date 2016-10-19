@@ -7,47 +7,107 @@
         url: '/',
         templateUrl: 'landing.html',
         controller: 'authControl',
-        controllerAs: 'auth'
+        controllerAs: 'auth',
+        resolve:{ logged: function($http, $state){
+          $http.get('/api/helpers/get-user')
+            .then(function(res){
+              if (res.data.user) {
+                $state.go('projects', {url: '/projects'});
+              }
+            })
+        }
+        }
       })
-      // .state('login', {
-      //   url: '/login',
-      //   templateUrl: 'login.html',
-      //   controller: 'authControl',
-      //   controllerAs: 'auth'
-      // })
-      // .state('register', {
-      //   url: '/register',
-      //   templateUrl: 'register.html',
-      //   controller: 'authControl',
-      //   controllerAs: 'auth'
-      // })
       .state('projects', {
         url: '/projects',
-        templateUrl: 'projects.html'
+        templateUrl: 'projects.html',
+        resolve:{ logged: function($http, $state){
+          $http.get('/api/helpers/get-user')
+            .then(function(res){
+              if (!res.data.user) {
+                $state.go('landing', {url: '/'});
+              }
+            })
+        }
+        }
       })
       .state('projects.projectnew', {
         url: '/project/new',
-        templateUrl: 'projectnew.html'
+        templateUrl: 'projectnew.html',
+        resolve:{ logged: function($http, $state){
+          $http.get('/api/helpers/get-user')
+            .then(function(res){
+              if (!res.data.user) {
+                $state.go('landing', {url: '/'});
+              }
+            })
+        }
+        }
       })
       .state('account', {
         url: '/account',
-        templateUrl: 'account.html'
+        templateUrl: 'account.html',
+        resolve:{ logged: function($http, $state){
+          $http.get('/api/helpers/get-user')
+            .then(function(res){
+              if (!res.data.user) {
+                $state.go('landing', {url: '/'});
+              }
+            })
+        }
+        }
       })
       .state('completedprojects', {
         url: '/completedprojects',
-        templateUrl: 'completedprojects.html'
+        templateUrl: 'completedprojects.html',
+        resolve:{ logged: function($http, $state){
+          $http.get('/api/helpers/get-user')
+            .then(function(res){
+              if (!res.data.user) {
+                $state.go('landing', {url: '/'});
+              }
+            })
+        }
+        }
       })
       .state('completedprojects.completedproject', {
         url: '/completedproject/:projectId',
-        templateUrl: 'completedproject.html'
+        templateUrl: 'completedproject.html',
+        resolve:{ logged: function($http, $state){
+          $http.get('/api/helpers/get-user')
+            .then(function(res){
+              if (!res.data.user) {
+                $state.go('landing', {url: '/'});
+              }
+            })
+        }
+        }
       })
       .state('projects.project', {
         url: `/project/:projectId`,
-        templateUrl: 'project.html'
+        templateUrl: 'project.html',
+        resolve:{ logged: function($http, $state){
+          $http.get('/api/helpers/get-user')
+            .then(function(res){
+              if (!res.data.user) {
+                $state.go('landing', {url: '/'});
+              }
+            })
+        }
+        }
       })
       .state('projects.edit', {
         url: '/project/:projectId/edit',
-        templateUrl: 'projectedit.html'
+        templateUrl: 'projectedit.html',
+        resolve:{ logged: function($http, $state){
+          $http.get('/api/helpers/get-user')
+            .then(function(res){
+              if (!res.data.user) {
+                $state.go('landing', {url: '/'});
+              }
+            })
+        }
+        }
       });
       $urlRouterProvider.otherwise('/projects');
   }
