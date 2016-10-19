@@ -3,26 +3,24 @@
 <h1>Project {{projects.activeProject.projectName}}</h1>
 
 <div class='complete'>
-<input class='completed' type="checkbox" value='true' ng-checked='projects.activeProject.completed' ng-click='projects.updateProjectStatus()' ui-sref='completedprojects'></input>
+<label>Complete? </label><br><input class='complete-box' class='completed' type="checkbox" value='true' ng-checked='projects.activeProject.completed' ng-click='projects.updateProjectStatus()' ui-sref='completedprojects'></input>
 </div>
 <h3>Description</h3>
 <p class='project-description'>{{projects.activeProject.projectDescription}}</p>
 <br>
 <div class='task-container'>
 <div ng-repeat='task in projects.activeProject.taskList'>
-  <h5 class='task-name'>Task Name: {{task.name}}</h5>
-  <h6>Task Description: {{task.description}}
-      {{task.totalTime}}</h6>
-  <p class='task-details' ng-click='showDetails = !showDetails'>Details</p>
-    <div ng-repeat='timeperiod in task.taskTimeList' ng-show='showDetails'>
+  <div class='align'>
+  <h5 class='align-name'>{{task.name}}</h5>
+  <p class='align-description'>{{task.description}}
+      {{task.totalTime}}</p>
+  <p class='align-details' class='task-details' ng-click='showDetails = !showDetails'>Click for details</p></div>
+    <div ng-repeat="timeperiod in task.taskTimeList | orderBy: '-start'" ng-show='showDetails'>
+      <p class='details'>user: {{timeperiod.user}}</p>
       <hr>
-      {{timeperiod.user}}
+      <p class='details'>start: {{timeperiod.start | date : 'short'}}</p>
       <hr>
-      {{timeperiod.start}}
-      <hr>
-      {{timeperiod.stop}}
-      <hr>
-      {{task.username}}
+      <p class='details'>stop: {{timeperiod.stop | date : 'short'}}</p>
     </div>
 </div>
 </div>

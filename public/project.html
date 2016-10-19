@@ -1,12 +1,11 @@
 <div class='project-container'>
-<h1 id='project-title'>Project {{projects.activeProject.projectName}}</h1>
+<h1 id='project-title'> {{projects.activeProject.projectName}}</h1>
 <a id='edit-button' ui-sref-active='active' ui-sref="projects.edit({projectId:projects.activeProject._id})">Edit Project</a>
-<!-- a ui-sref='projectedit' -->
 <div class='complete'>
-<label>Complete?</label><input class='completed' type="checkbox" value='true' ng-checked='projects.activeProject.completed' ng-click='projects.updateProjectStatus()' ui-sref='projects'></input>
+<label>Complete? </label><br><div class='complete-box'><input class='completed' type="checkbox" value='true' ng-checked='projects.activeProject.completed' ng-click='projects.updateProjectStatus()' ui-sref='projects'></input></div>
 </div>
 
-<h3>Description</h3>
+<!-- <h3>Description</h3> -->
 <p class='project-description'>
   {{projects.activeProject.projectDescription}}
 </p>
@@ -15,14 +14,17 @@
 <h4>Tasks</h4>
 <div class='task-container'>
 <div ng-repeat='task in projects.activeProject.taskList track by $index'>
-  <h5>{{task.name}}</h5>
-  <h6>{{task.description}}
-      {{task.totalTime}}</h6>
-      <button ng-click='projects.updateTaskTimePeriod($index)' ng-if='!projects.activeUserTaskStates[$index].outstanding'>start</button>
-      <button ng-click='projects.updateTaskTimePeriod($index)' ng-if='projects.activeUserTaskStates[$index].outstanding'>stop</button>
-  <p class='task-details' ng-click='showDetails = !showDetails'>Details</p>
+  <div class='align'>
+  <h5 class='align-name'>{{task.name}}</h5>
+  <p class='align-description'>{{task.description}}
+      {{task.totalTime}}</p>
+      <div id='align-button'>
+      <button class='play' ng-click='projects.updateTaskTimePeriod($index)' ng-if='!projects.activeUserTaskStates[$index].outstanding'><div class='s-button'>&#9656</div></button>
+      <button class='play' ng-click='projects.updateTaskTimePeriod($index)' ng-if='projects.activeUserTaskStates[$index].outstanding'><div class='s-button'>&#9632</div></button>
+    </div>
+  <p class='align-details' class='task-details' ng-click='showDetails = !showDetails'>Click for details</p></div>
     <div ng-repeat="timeperiod in task.taskTimeList | orderBy: '-start'" ng-show='showDetails'>
-      user: {{timeperiod.user}} | start: {{timeperiod.start | date : 'short'}} | stop: {{timeperiod.stop | date : 'short'}}
+      <p class='details'>user: {{timeperiod.user}} | start: {{timeperiod.start | date : 'short'}} | stop: {{timeperiod.stop | date : 'short'}}</p>
       <hr>
     </div>
 </div>
