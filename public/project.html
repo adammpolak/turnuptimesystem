@@ -19,15 +19,15 @@
 <h4>Tasks</h4>
 <div class='task-container'>
 <div ng-repeat='task in projects.activeProject.taskList track by $index'>
-  <div id='align'>
-  <h5 id='align-name'>{{task.name}}</h5>
-  <p id='align-description'>{{task.description}}
+  <div class='align'>
+  <h5 class='align-name'>{{task.name}}</h5>
+  <p class='align-description'>{{task.description}}
       {{task.totalTime}}</p>
       <div id='align-button'>
       <button class='play' ng-click='projects.updateTaskTimePeriod($index)' ng-if='!projects.activeUserTaskStates[$index].outstanding'><div class='s-button'>&#9656</div></button>
       <button class='play' ng-click='projects.updateTaskTimePeriod($index)' ng-if='projects.activeUserTaskStates[$index].outstanding'><div class='s-button'>&#9632</div></button>
     </div>
-  <p id='align-details'class='task-details' ng-click='showDetails = !showDetails'>Click for details</p></div>
+  <p class='align-details' class='task-details' ng-click='showDetails = !showDetails'>Click for details</p></div>
     <div ng-repeat="timeperiod in task.taskTimeList | orderBy: '-start'" ng-show='showDetails'>
       <p class='details'>user: {{timeperiod.user}}</p>
       <hr>

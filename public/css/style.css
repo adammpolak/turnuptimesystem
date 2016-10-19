@@ -12,7 +12,7 @@
   text-align: left;
 }
 
-#align {
+.align {
   display: flex;
   flex-direction: row;
   align-items: baseline;
@@ -20,11 +20,11 @@
   text-align: left;
 }
 
-#align-name {
+.align-name {
    flex: 1;
 }
 
-#align-description {
+.align-description {
    flex: 3;
    font-size: 14px;
 }
@@ -33,20 +33,18 @@
   flex: 1;
 }
 
-#align-details {
+.align-details {
   flex: 1;
   font-size: 14px;
 }
 
-#align-details:hover {
+.align-details:hover {
   color: #1269B2;
 }
 
 .details {
   font-size: 14px;
 }
-
-
 
 .complete-box {
   margin-top: -2vh;
