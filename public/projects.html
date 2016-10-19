@@ -10,13 +10,11 @@
 <!-- create a new project -->
 <a ui-sref-active='active' ui-sref='projectnew' class='add-project'>Add A Project</a>
 <br><br>
-<!-- css so this is on one line above project listings -->
 <div class='proj-container'>
 <br><br>
 <!-- <h2 class='projects-new'>Name</h2>
 <h2 class='projects-total'>Total Hours</h2> -->
 </div>
-<!-- custom directive for list of projects - filter ones marked as not completed only  -->
 <ul class='list'>
   <div ng-repeat="project in projects.allProjects track by $index">
     <div class="" ng-click='projects.displayThisProject($index)' ui-sref-active='active' ui-sref='.project' ng-hide='completedprojects'>
@@ -24,7 +22,5 @@
     </div>
   </div>
 </ul>
-<!-- <data value=""></data> -->
-<!-- <project-listing></project-listing> -->
 
 <div ui-view><div>

@@ -37,7 +37,6 @@
       // console.log(self.completedprojects, "completed projects");
       // var completedIndex = self.allProjects.indexOf(this.activeProject);
       // self.allProjects.splice(completedIndex, 1);
-
     }
 
 //display a project
@@ -105,7 +104,6 @@
 
     this.addProject = addProject;
     this.editProject = editProject;
-    // this.displayCompletedProjects = displayCompletedProjects;
 
   }
 
