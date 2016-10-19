@@ -62,6 +62,10 @@
         console.log(response);
       })
     }
+    this.goToNewProject = function(){
+      console.log('frank');
+      $location.path('/projects/project/new')
+    }
 
 //display a project
     this.displayThisProject = function(index) {
@@ -72,14 +76,16 @@
           outstanding: false,
           indexPosition: null,
         }
-        for (var i = 0; i<self.activeProject.taskList[x].taskTimeList.length; i++) {
+        if (self.activeProject.taskList[x].taskTimeList) {
+          for (var i = 0; i<self.activeProject.taskList[x].taskTimeList.length; i++) {
 
-          if (self.activeProject.taskList[x].taskTimeList[i].stop) {
-          } else {
-            if (self.activeProject.taskList[x].taskTimeList[i].userId == self.currentUser._id) {
-              taskStatus = {
-                outstanding: true,
-                indexPosition: i,
+            if (self.activeProject.taskList[x].taskTimeList[i].stop) {
+            } else {
+              if (self.activeProject.taskList[x].taskTimeList[i].userId == self.currentUser._id) {
+                taskStatus = {
+                  outstanding: true,
+                  indexPosition: i,
+                }
               }
             }
           }
@@ -93,10 +99,17 @@
     this.addTask = function () {
       self.newProjectTasks.push({name: '', description: ''})
     }
+    this.editAddTask = function (index) {
+      self.activeProject.taskList.push({name: '', description: ''})
+    }
     this.removeTask = function() {
       var lastItem = self.newProjectTasks.length-1;
       self.newProjectTasks.splice(lastItem);
     }
+    this.editRemoveTask = function(index) {
+      self.activeProject.taskList.splice(index, 1);
+    }
+
 //get the project data for projects page
     $http.get('/api/projects')
     .then(function(response) {
@@ -107,6 +120,13 @@
     //   self.activeProject = response.data;
     // })
     // console.log($location.$$path.toString())
+
+//update project status
+    this.updateProjectStatus = function() {
+      self.activeProject.completed = !self.activeProject.completed;
+      console.log(self.activeProject);
+      self.updateActiveProject();
+    }
 
 // get completed projects for completed projets page
     // $http.get('/api/completedprojects')
