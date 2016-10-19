@@ -4,7 +4,7 @@
 <flash-message duration = "7000" show-close = 'true'></flash-message>
 
 <div class='complete'>
-<input class='completed' type="checkbox" value='true' ng-checked='projects.activeProject.completed' ng-click='projects.updateProjectStatus()' ui-sref='completedprojects'></input>
+<label>Complete? </label><br><input class='complete-box' class='completed' type="checkbox" value='true' ng-checked='projects.activeProject.completed' ng-click='projects.updateProjectStatus()' ui-sref='completedprojects'></input>
 </div>
 <h3>Description</h3>
 <p class='project-description'>{{projects.activeProject.projectDescription}}</p>
