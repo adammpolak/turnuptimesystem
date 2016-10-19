@@ -10,7 +10,6 @@
       $http.post('api/users/register', {username: userObj.usernamereg, password: userObj.passwordreg})
         .then(function(res){
           $state.go('projects', {url: '/projects'});
-          console.log(self.successAlert());
           userObj.passwordreg = '';
           userObj.usernamereg = '';
         })
@@ -33,6 +32,6 @@
     this.login = login;
     this.register = register;
     this.successAlert = successAlert;
-    // this.userObject;   Not required.
+    this.userObject;
   };
 })();
