@@ -3,6 +3,89 @@
   margin: 0;
 }
 
+.play {
+    display:block;
+    width:50px;
+    height:50px;
+    line-height:50px;
+    border: 2px solid #f5f5f5;
+    border-radius: 50%;
+    color:#f5f5f5;
+    text-align:center;
+    text-decoration:none;
+    background: #464646;
+    box-shadow: 0 0 3px gray;
+    font-size:10px;
+    font-weight:bold;
+}
+.play:hover {
+    background: #262626;
+}
+
+
+/*.play {
+  display:block;
+  width: 0;
+	height: 0;
+	border-top: $size solid transparent;
+	border-bottom: $size solid transparent;
+	border-left: ($size*$ratio) solid $foreground;
+  margin: ($size * 2) auto $size auto;
+  position:relative;
+  z-index:1;
+  transition: all $transition-time;
+  -webkit-transition: all $transition-time;
+  -moz-transition: all $transition-time;
+  left:($size*0.2);
+}
+
+&:before {
+    content:'';
+    position:absolute;
+    top:($size*-1.5);
+    left:($size*-2.3);
+    bottom:($size*-1.5);
+    right:($size*-0.7);
+    border-radius:50%;
+    border: ($size*0.2) solid $foreground;
+    z-index:2;
+    transition: all $transition-time;
+    -webkit-transition: all $transition-time;
+    -moz-transition: all $transition-time;
+  }
+  &:after {
+    content:'';
+    opacity:0;
+    transition: opacity ($transition-time * 2);
+    -webkit-transition: opacity ($transition-time * 2);
+    -moz-transition: opacity ($transition-time * 2);
+  }
+
+  &:hover, &:focus {
+    &:before {
+       transform: scale(1.1);
+       -webkit-transform: scale(1.1);
+       -moz-transform: scale(1.1);
+    }
+  }
+
+  &.active {
+	  border-color:transparent;
+    &:after {
+      content:'';
+      opacity:1;
+      width:($size);
+      height:($size*1.6);
+      background:$foreground;
+      position:absolute;
+      right: ($size*0.1);
+      top: ($size*-0.8);
+      border-left:($size*0.4) solid $foreground;
+      box-shadow:inset ($size*0.6) 0 0 0 $background;
+    }
+  }
+}*/
+
 fieldset {
     border: 0;
 }

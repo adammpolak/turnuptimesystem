@@ -19,8 +19,10 @@
   <h5>{{task.name}}</h5>
   <h6>{{task.description}}
       {{task.totalTime}}</h6>
-      <button ng-click='projects.updateTaskTimePeriod($index)' ng-if='!projects.activeUserTaskStates[$index].outstanding'>start</button>
-      <button ng-click='projects.updateTaskTimePeriod($index)' ng-if='projects.activeUserTaskStates[$index].outstanding'>stop</button>
+      <div id='container'>
+      <button class='play' ng-click='projects.updateTaskTimePeriod($index)' ng-if='!projects.activeUserTaskStates[$index].outstanding'>start</button>
+      <button class='play' ng-click='projects.updateTaskTimePeriod($index)' ng-if='projects.activeUserTaskStates[$index].outstanding'>stop</button>
+      </div>
   <p class='task-details' ng-click='showDetails = !showDetails'>Details</p>
     <div ng-repeat="timeperiod in task.taskTimeList | orderBy: '-start'" ng-show='showDetails'>
       user: {{timeperiod.user}}
@@ -34,3 +36,16 @@
 </div>
 <!-- in order to make the dot notation work - KEEP -->
 <!-- <div ui-view><div> -->
+
+<!-- <a href="#" title="Play video" class="play"></a>
+This is the play button
+
+<script>
+$(document).ready(function() {
+  var icon = $('.play');
+  icon.click(function() {
+     icon.toggleClass('active');
+     return false;
+  });
+});
+</script> -->
