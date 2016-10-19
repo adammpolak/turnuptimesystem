@@ -1,5 +1,5 @@
 (function(){
-  angular.module('turnupApp', ['ui.router']).config(MainRouter);
+  angular.module('turnupApp', ['ui.router', 'ngFlash']).config(MainRouter);
   MainRouter.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
   function MainRouter($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
@@ -25,8 +25,8 @@
         url: '/projects',
         templateUrl: 'projects.html'
       })
-      .state('project', {
-        url: '/projects/project',
+      .state('projects.project', {
+        url: `/project`,
         templateUrl: 'project.html'
       })
       .state('projectedit', {
@@ -50,9 +50,5 @@
         templateUrl: 'account.html'
       });
       $urlRouterProvider.otherwise('/projects');
-      $locationProvider.html5Mode({
-        enabled: true,
-        requireBase: false,
-      })
   }
 })()

@@ -3,8 +3,9 @@ var express = require('express'),
 
 var Project = require('../models/project');
 var Task = require('../models/task');
-var TimePeriod = require('../models/timePeriod');
+var timeperiod = require('../models/timeperiod');
 
+// ROUTE :: GET --------------------------all projects
 router.get('/', function(req, res){
   Project.find({}).exec()
   .then(function(allProjects){
@@ -17,6 +18,7 @@ router.get('/', function(req, res){
   })
 });
 
+// ROUTE :: CREATE ------------------------one project
 router.post('/', function(req, res){
   console.log("req.body", req.body.project);
   Project.create(req.body.project)
@@ -30,19 +32,31 @@ router.post('/', function(req, res){
   })
 });
 
-
-
+// ROUTE :: GET ---------------------------one project
 router.get('/:pId', function(req, res){
   Project.findById(req.params.pId).exec()
   .then(function(project){
     console.log(project);
     res.json(project);
-
   })
   .catch(function(err){
     console.log(err);
     res.status(500);
   })
 });
+
+// ROUTE :: UPDATE ------------------------one project
+router.put('/project', function(req, res){
+  Project.findOneAndUpdate({_id: req.body._id}, req.body)
+  .then(function(project){
+    console.log(project);
+    res.json(project);
+  })
+  .catch(function(err) {
+    console.log(err);
+    res.status(500);
+  })
+});
+
 
 module.exports = router;

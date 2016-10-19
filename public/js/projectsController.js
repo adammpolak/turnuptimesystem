@@ -1,28 +1,92 @@
 (function(){
   angular.module('turnupApp')
   .controller('projectsController', projectsController);
-  projectsController.$inject = ['$http', '$location'];
+  projectsController.$inject = ['$http', '$location', '$state', 'Flash'];
 
-  function projectsController($http, $location) {
+  function projectsController($http, $location, $state, Flash) {
     var self = this;
     this.number = 7;
 
     this.allProjects = [];
     this.completedprojects = [];
     this.activeProject = {};
+    this.activeUserTaskStates = [];
+//update time for a certain task
+    this.updateTaskTimePeriod = function(index){
+      var now = new Date();
+      //this checks if there is an outstanding timeperiod for the current user
+      if (self.activeUserTaskStates[index].outstanding === true) {
+        var timePeriodIndex = self.activeUserTaskStates[index].indexPosition;
+        self.activeProject.taskList[index].taskTimeList[timePeriodIndex].stop = now;
+        self.activeUserTaskStates[index] = {
+          outstanding: false,
+          indexPosition: null,
+        };
+        //this is run if this task has outstanding time state
+      } else {
+        //this is run if the task does not have outstanding time state
+        var newTimePeriodObject = {
+          userId: self.currentUser._id,
+          user: self.currentUser.username,
+          start: now,
+          stop: null,
+        }
+        self.activeProject.taskList[index].taskTimeList.push(newTimePeriodObject);
+        self.activeUserTaskStates[index] = {
+          outstanding: true,
+          indexPosition: self.activeProject.taskList[index].taskTimeList.length-1,
+        }
+        console.log(self.activeProject);
+        console.log(self.activeUserTaskStates);
+      }
+      //this will be the put route to update the new object with the information
+      self.updateActiveProject();
+    }
+
+//active user
+    $http.get('/api/helpers/get-user')
+      .then(function(response) {
+        self.currentUser = response.data.user;
+      })
+      .catch(function(err){
+        console.log('err', err)
+      })
 
 //updating a project status
-    this.updateStatus = function () {
-      self.activeProject.completed != self.activeProject.completed
-      console.log('update function');
-      $http.put(`/api/projects/${self.activeProject._id}`, self.activeProject)
+    this.updateActiveProject = function () {
+      console.log(self.activeProject);
+      $http.put(`/api/projects/project`, self.activeProject)
       .then(function(response){
+        console.log(response);
       })
     }
 
 //display a project
     this.displayThisProject = function(index) {
+      self.activeUserTaskStates = [];
       self.activeProject = self.allProjects[index];
+      for (var x = 0; x<self.activeProject.taskList.length; x++){
+        var taskStatus = {
+          outstanding: false,
+          indexPosition: null,
+        }
+        for (var i = 0; i<self.activeProject.taskList[x].taskTimeList.length; i++) {
+
+          if (self.activeProject.taskList[x].taskTimeList[i].stop) {
+            console.log('it exists!');
+          } else {
+            if (self.activeProject.taskList[x].taskTimeList[i].userId == self.currentUser._id) {
+              taskStatus = {
+                outstanding: true,
+                indexPosition: i,
+              }
+            }
+          }
+          console.log(self.activeProject.taskList[x].taskTimeList[i]);
+        }
+        self.activeUserTaskStates.push(taskStatus);
+      }
+      console.log(self.activeUserTaskStates);
     }
 
 //when trying to create a new project this is what you need

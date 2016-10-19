@@ -1,3 +1,59 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.project-container {
+  text-align: center;
+  /*border-radius: 4px;*/
+  background-color: #E4F3FF;
+  padding: 4vh;
+  line-height: 40px;
+}
+
+.task-container {
+  text-align: left;
+}
+
+#align {
+  display: flex;
+  align-items: baseline;;
+  justify-content: space-around;
+}
+
+.list {
+  padding: 0;
+  margin: 1vw;
+  list-style: none;
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.project-list {
+  background:  #1269B2;
+  padding: 5px;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  line-height: 100px;
+  color: white;
+  font-weight: bold;
+  font-size: 1em;
+  text-align: center;
+  /*list-style-type: none;
+  padding: .5vh;
+  display: flex;
+  justify-content:space-between;
+  flex-wrap: wrap;*/
+}
+
 .landing,
 .login,
 .register,
@@ -14,33 +70,33 @@ main {
   font-family: Arial;
 }
 
-header {
+/*header {
 
-}
+}*/
 
 .heading {
-  font-family: Lemon Milk;
-  padding: 2vh 0 0 2vh;;
+  font-family: Arial Black;
+  padding: 2vh 0 0 2vh;
   /*color: #077F57;*/
   color: #1269B2;
   letter-spacing: 2px;
   font-size: 7vh;
-  margin: -2vh;
+  margin: -1vh;
 }
 
 nav {
-  padding: 2.5vh 2.5vh 2.5vh 2.5vh;
+  padding: 3.5vh 3.5vh 3.5vh 3.5vh;
   display: flex;
   justify-content: flex-end;
   margin: -3.5vh;
   background-color: #E4F3FF;
 }
 
-a {
+a,
+.complete {
   text-decoration: none;
   padding: 0 3vw 0 3vh;
-  color: black;
-  font-family: Arial;
+  font-family: Arial Black;
   color: #B26D00;
 }
 
@@ -49,17 +105,18 @@ a:hover {
 }
 
 .add-project {
+  margin: 2vw;
   color:  #E4F3FF;
   padding: 2.5vh;
   background: #1269B2;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
+  /*-webkit-border-radius: 4px;
+  -moz-border-radius: 4px;*/
+  /*border-radius: 4px;*/
   /*border: solid 1px #20538D;*/
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1p
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px;
 }
 
 .add-project:hover {
@@ -88,9 +145,9 @@ a:hover {
   padding: 3px 5px;
   background: #E4F3FF;
   color: #B26D00;
-  -webkit-border-radius: 4px;
+  /*-webkit-border-radius: 4px;
   -moz-border-radius: 4px;
-  border-radius: 4px;
+  border-radius: 4px;*/
   /*border: solid 1px #20538D;*/
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
@@ -110,5 +167,5 @@ height: 5vh;
 background: white;
 text-align: center;
 border: 1px solid #601a10;
-border-radius: 0.5em;
+/*border-radius: 0.5em;*/
 }
