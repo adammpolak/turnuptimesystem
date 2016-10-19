@@ -15,7 +15,7 @@
                 $state.go('projects', {url: '/projects'});
               }
             })
-        }
+          }
         }
       })
       .state('projects', {
@@ -28,7 +28,7 @@
                 $state.go('landing', {url: '/'});
               }
             })
-        }
+          }
         }
       })
       .state('projects.projectnew', {
@@ -41,7 +41,7 @@
                 $state.go('landing', {url: '/'});
               }
             })
-        }
+          }
         }
       })
       .state('account', {
@@ -54,7 +54,7 @@
                 $state.go('landing', {url: '/'});
               }
             })
-        }
+          }
         }
       })
       .state('completedprojects', {
@@ -67,7 +67,7 @@
                 $state.go('landing', {url: '/'});
               }
             })
-        }
+          }
         }
       })
       .state('completedprojects.completedproject', {
@@ -80,7 +80,7 @@
                 $state.go('landing', {url: '/'});
               }
             })
-        }
+          }
         }
       })
       .state('projects.project', {
@@ -93,7 +93,7 @@
                 $state.go('landing', {url: '/'});
               }
             })
-        }
+          }
         }
       })
       .state('projects.edit', {
@@ -106,7 +106,7 @@
                 $state.go('landing', {url: '/'});
               }
             })
-        }
+          }
         }
       });
       $urlRouterProvider.otherwise('/projects');
