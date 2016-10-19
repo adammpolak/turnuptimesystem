@@ -42,6 +42,7 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use('/api/projects', require('./controllers/projectsController.js'));
 app.use('/api/users', require('./controllers/usersController.js'));
+app.use('/api/helpers', require('./controllers/helpersController.js'));
 app.use(function(req, res, next){
   res.redirect("/");
 });

@@ -67,26 +67,19 @@
           oustanding: false,
           indexPosition: null,
         }
-        console.log(self.activeProject.taskList[x]);
         for (var i = 0; i<self.activeProject.taskList[x].taskTimeList.length; i++) {
-        if (self.activeProject.taskList[x].taskTimeList[i].stop) {
-          console.log('it exists');
-        } else {
-          console.log(self.currentUser);
-          // if (self.activeProject.taskList[x].taskTimeList[i]._userId == self.currentUser._id) {
-          //   taskStatus = {
-          //     outstanding: true,
-          //     indexPosition: i,
-          //   }
-          // }
-        }
-        // if (self.activeProject.taskList[x].taskTimeList.length > 0 && !self.activeProject.taskList.taskTimeList[x].stop && self.activeProject.taskList.taskTimeList[x]._userId == self.currentUser._id) {
-        // };
+          if (!self.activeProject.taskList[x].taskTimeList[i].stop &&
+              self.activeProject.taskList[x].taskTimeList[i].userId == self.currentUser._id) {
+                taskStatus = {
+                  outstanding: true,
+                  indexPosition: i,
+                }
+          }
         }
         self.activeUserTaskStates.push(taskStatus);
-      console.log(self.activeUserTaskStates);
       }
-  }
+      console.log(self.activeUserTaskStates);
+    }
 
 //when trying to create a new project this is what you need
     this.newProjectTasks = [{name: '', description: ''}]
