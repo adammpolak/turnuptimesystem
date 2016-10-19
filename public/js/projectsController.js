@@ -1,5 +1,14 @@
 (function(){
   angular.module('turnupApp')
+  // .filter('complete', ['completed',
+  //   function(completed){
+  //     function completeFilter(project) {
+  //       return activeProject.completed;
+  //     }
+  //     completeFilter.$stateful = true;
+  //     return completeFilter;
+  // }])
+
   .controller('projectsController', projectsController);
   projectsController.$inject = ['$http', '$location', '$state', 'Flash'];
 
@@ -55,6 +64,25 @@
       })
 
 //updating a project status
+    this.updateStatus = function () {
+      console.log(self.activeProject.completed);
+      self.activeProject.completed = !self.activeProject.completed
+      console.log('update function', self.activeProject.completed);
+      //NEED BUT PATCH FUNCTION NOT COMPLETED YET
+      // $http.patch(`/api/projects/${this.activeProject._id}`, this.activeProject)
+      // .then(function(response) {
+      //   console.log(this.activeProject);
+      // })
+      console.log(self.allProjects, 'updated without completed');
+
+      //not needed
+      // self.completedprojects.push(self.activeProject);
+      // console.log(self.completedprojects, "completed projects");
+      // var completedIndex = self.allProjects.indexOf(this.activeProject);
+      // self.allProjects.splice(completedIndex, 1);
+
+    }
+
     this.updateActiveProject = function () {
       console.log(self.activeProject);
       $http.put(`/api/projects/project`, self.activeProject)
@@ -114,6 +142,7 @@
     $http.get('/api/projects')
     .then(function(response) {
       self.allProjects = response.data;
+
     })
     // $http.get($location.$$path.toString())
     // .then(function(response) {

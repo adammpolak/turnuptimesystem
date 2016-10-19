@@ -1,10 +1,11 @@
 <br><br>
 <div class='project-container'>
-<h1 id='project-title'>Project {{projects.activeProject.projectName}}</h1>
-<a id='edit-button' ui-sref-active='active' ui-sref="projects.edit({projectId:projects.activeProject._id})">Edit Project</a>
-<!-- a ui-sref='projectedit' -->
+<h1 class='project-title'>Project {{projects.activeProject.projectName}}</h1>
+<a id='edit-button' ui-sref-active='active' ui-sref="projectedit">Edit Project</a>
+<!-- ui-sref="projects.edit({projectId:projects.activeProject._id})" -->
+<!-- ng-checked='projects.activeProject.completed' ng-click='projects.updateProjectStatus()' -->
 <div class='complete'>
-<label>Complete?</label><input class='completed' type="checkbox" value='true' ng-checked='projects.activeProject.completed' ng-click='projects.updateProjectStatus()' ui-sref='projects'></input>
+<label>Complete?</label><input class='completed' type="checkbox" value='activeProject.completed' ng-model='activeProject.completed' ng-click='projects.updateStatus()' ui-sref='completedprojects'></input>
 </div>
 
 <h3>Description</h3>
@@ -12,11 +13,11 @@
   {{projects.activeProject.projectDescription}}
 </p>
 <br>
-<!-- <div id='column2'> -->
 <h4>Tasks</h4>
 <div class='task-container'>
 <div ng-repeat='task in projects.activeProject.taskList track by $index'>
-  <h5>{{task.name}}</h5>
+  <div id='align'>
+  <h5 class='task-name'>{{task.name}}</h5>
   <h6>{{task.description}}
       {{task.totalTime}}</h6>
       <button ng-click='projects.updateTaskTimePeriod($index)' ng-if='!projects.activeUserTaskStates[$index].outstanding'>start</button>

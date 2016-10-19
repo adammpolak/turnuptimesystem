@@ -1,19 +1,26 @@
-COMPLETED PROJECT PAGE
 
-<h1>Project {{projects.activeProject.projectName}}</h1>
+<br><br>
+<div class='project-container'>
+<h1 class='project-title'>Project {{projects.activeProject.projectName}}</h1>
 
-<input class='completed' type="checkbox" value='true' ng-checked='projects.activeProject.completed' ng-click='projects.updateProjectStatus()' ui-sref='completedprojects'></input>
+<div class='complete'>
+<label>Complete?</label><input class='completed' type="checkbox" value='activeProject.completed' ng-model='activeProject.completed' ng-click='projects.updateStatus()' ui-sref='projects'></input>
+</div>
 
 <h3>Description</h3>
-<p class='project-description'>{{projects.activeProject.projectDescription}}</p>
-
+<p class='project-description'>
+  {{projects.activeProject.projectDescription}}
+</p>
 <br>
-
+<h4>Tasks</h4>
 <div class='task-container'>
 <div ng-repeat='task in projects.activeProject.taskList'>
-  <h5>Task Name: {{task.name}}</h5>
-  <h6>Task Description: {{task.description}}
+  <div id='align-complete'>
+  <h5 class='task-name'>{{task.name}}</h5>
+  <h6>{{task.description}}
       {{task.totalTime}}</h6>
+  <!-- start, stop not needed on completed page -->
+  <!-- <input class='start-stop' type='submit' ng-click=''>Arrow</input> -->
   <p class='task-details' ng-click='showDetails = !showDetails'>Details</p>
     <div ng-repeat='timeperiod in task.taskTimeList' ng-show='showDetails'>
       <hr>
@@ -27,3 +34,7 @@ COMPLETED PROJECT PAGE
     </div>
 </div>
 </div>
+</div>
+
+<!-- in order to make the dot notation work - KEEP -->
+<div ui-view><div>

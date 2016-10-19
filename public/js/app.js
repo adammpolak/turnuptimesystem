@@ -38,7 +38,7 @@
         templateUrl: 'completedprojects.html'
       })
       .state('completedprojects.completedproject', {
-        url: '/completedproject/:projectId',
+        url: '/completedproject',
         templateUrl: 'completedproject.html'
       })
       .state('projects.project', {
