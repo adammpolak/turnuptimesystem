@@ -10,7 +10,6 @@ var express        = require('express'),
 
 mongoose.Promise = global.Promise;
 var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/turnuptimesystem';
-console.log('===== Connecting to DB ... =====', mongoURI);
 mongoose.connect(mongoURI);
 
 app.use(bodyParser.urlencoded({ extended: true }));

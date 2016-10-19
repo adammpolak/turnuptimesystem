@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
 
-var timePeriodSchema = require('./timePeriod').schema;
+var timeperiodSchema = require('./timeperiod').schema;
 
 var taskSchema = new mongoose.Schema({
   name: String,
   description: String,
-  taskTimeList: [timePeriodSchema]
+  taskTimeList: [timeperiodSchema]
 });
 
 module.exports = mongoose.model('Task', taskSchema);

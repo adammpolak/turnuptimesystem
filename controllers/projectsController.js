@@ -3,7 +3,7 @@ var express = require('express'),
 
 var Project = require('../models/project');
 var Task = require('../models/task');
-var TimePeriod = require('../models/timePeriod');
+var timeperiod = require('../models/timeperiod');
 
 // ROUTE :: GET --------------------------all projects
 router.get('/', function(req, res){
