@@ -192,19 +192,19 @@
 
 //Flash starts here
   function passAlert(msg){
-    var id = Flash.create('success', msg, 7000, {}, true);
+    var id = Flash.create('success', msg, 7000, {class: 'flashAlert'}, true);
   }
 
   function failAlert(msg){
-    var id = Flash.create('danger', msg, 7000, {}, true);
+    var id = Flash.create('danger', msg, 7000, {class: 'flashAlert'}, true);
   }
 
   function infoAlert(msg){
-    var id = Flash.create('info', msg, 7000, {}, true);
+    var id = Flash.create('info', msg, 7000, {class: 'flashAlert'}, true);
   }
 
   function warnAlert(msg){
-    var id = Flash.create('warning', msg, 7000, {}, true);
+    var id = Flash.create('warning', msg, 7000, {class: 'flashAlert'}, true);
   }
 }
 })()
