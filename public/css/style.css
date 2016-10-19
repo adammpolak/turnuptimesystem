@@ -3,6 +3,16 @@
   margin: 0;
 }
 
+fieldset {
+    border: 0;
+}
+
+#new-project-cont {
+  text-align: center;
+  background-color: #E4F3FF;
+  padding: 4vh;
+}
+
 .project-container {
   text-align: center;
   /*border-radius: 4px;*/
