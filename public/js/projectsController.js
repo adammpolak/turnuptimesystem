@@ -20,7 +20,7 @@
       var now = new Date();
       //this checks if there is an outstanding timeperiod for the current user
       if (self.activeUserTaskStates[index].outstanding === true) {
-        warnAlert('Starting Timer!');
+        warnAlert('Stopping Timer!');
         var timePeriodIndex = self.activeUserTaskStates[index].indexPosition;
         self.activeProject.taskList[index].taskTimeList[timePeriodIndex].stop = now;
         self.activeUserTaskStates[index] = {
