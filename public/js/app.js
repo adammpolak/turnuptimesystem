@@ -25,15 +25,7 @@
         url: '/projects',
         templateUrl: 'projects.html'
       })
-      .state('projects.project', {
-        url: `/project`,
-        templateUrl: 'project.html'
-      })
-      .state('projectedit', {
-        url: '/projects/project/edit',
-        templateUrl: 'projectedit.html'
-      })
-      .state('projectnew', {
+      .state('projects.projectnew', {
         url: '/projects/project/new',
         templateUrl: 'projectnew.html'
       })
@@ -48,6 +40,14 @@
       .state('account', {
         url: '/account',
         templateUrl: 'account.html'
+      })
+      .state('projects.project', {
+        url: `/project/:projectId`,
+        templateUrl: 'project.html'
+      })
+      .state('projects.edit', {
+        url: '/:projectId/edit',
+        templateUrl: 'projectedit.html'
       });
       $urlRouterProvider.otherwise('/projects');
   }

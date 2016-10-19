@@ -1,11 +1,4 @@
-<header>
-  <h1 class='heading'>TURN UP TIME</h1>
-  <nav>
-    <a ui-sref-active='active' ui-sref='projects'>Projects</a>
-    <a ui-sref-active='active' ui-sref="completedprojects">Completed Projects</a>
-    <a ui-sref-active='active' ui-sref="account">Account</a>
-  </nav>
-</header>
+
 <br><br><br><br><br>
 <!-- create a new project -->
 <a ui-sref-active='active' ui-sref='projectnew' class='add-project'>Add A Project</a>
@@ -19,12 +12,11 @@
 <!-- custom directive for list of projects - filter ones marked as not completed only  -->
 <ul class='list'>
   <div ng-repeat="project in projects.allProjects track by $index">
-    <div class="" ng-click='projects.displayThisProject($index)' ui-sref-active='active' ui-sref='.project'>
+    <div class="" ng-click='projects.displayThisProject($index)' ui-sref-active='active' ui-sref='projects.project({projectId: project._id})'>
     <li class='project-list'>{{project.projectName}}</li>
     </div>
   </div>
 </ul>
 <!-- <data value=""></data> -->
 <!-- <project-listing></project-listing> -->
-
 <div ui-view><div>
