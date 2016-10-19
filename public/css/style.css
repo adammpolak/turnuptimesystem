@@ -7,7 +7,8 @@ fieldset {
     border: 0;
 }
 
-#new-project-cont {
+#new-project-cont,
+#edit-project-cont {
   text-align: center;
   background-color: #E4F3FF;
   padding: 4vh;
