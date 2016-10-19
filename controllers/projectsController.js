@@ -46,8 +46,8 @@ router.get('/:pId', function(req, res){
 });
 
 // ROUTE :: UPDATE ------------------------one project
-router.put('/:pId', function(req, res){
-  Project.findOneAndUpdate(req.params.pId, req.body)
+router.put('/project', function(req, res){
+  Project.findOneAndUpdate({_id: req.body._id}, req.body, {new: true})
   .then(function(project){
     console.log(project);
     res.json(project);
@@ -58,5 +58,17 @@ router.put('/:pId', function(req, res){
   })
 });
 
+router.delete('/project/:id', function(req, res){
+  console.log(req.params.id);
+  Project.remove({_id: req.params.id})
+  .then(function(project){
+    console.log(project);
+    res.json(project);
+  })
+  .catch(function(err) {
+    console.log(err);
+    res.status(500);
+  })
+});
 
 module.exports = router;

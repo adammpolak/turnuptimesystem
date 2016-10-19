@@ -1,15 +1,7 @@
-<header>
-  <h1 class='heading'>TURN UP TIME</h1>
-  <nav>
-    <a ui-sref-active='active' ui-sref='projects'>Projects</a>
-    <a ui-sref-active='active' ui-sref="completedprojects">Completed Projects</a>
-    <a ui-sref-active='active' ui-sref="account">Account</a>
-  </nav>
-</header>
 <br><br><br>
 <h2>Create New Project</h2>
 
-<form ng-submit='projects.addProject(newProject)'>
+<form ng-submit="projects.addProject(newProject)">
         <div class="">
           <label for="name">Name: </label>
           <input type="text" ng-model='newProject.projectName'>

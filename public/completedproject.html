@@ -21,12 +21,15 @@
       {{task.totalTime}}</h6>
   <!-- start, stop not needed on completed page -->
   <!-- <input class='start-stop' type='submit' ng-click=''>Arrow</input> -->
-  <p class='task-details' ng-click='showDetails = !showDetails'></p>
-    <div ng-repeat=''>
-      {{task.timeperiodName}}
-      {{task.startTime}}
-      {{task.stopTime}}
-      {{task.totalTime}}
+  <p class='task-details' ng-click='showDetails = !showDetails'>Details</p>
+    <div ng-repeat='timeperiod in task.taskTimeList' ng-show='showDetails'>
+      <hr>
+      {{timeperiod.user}}
+      <hr>
+      {{timeperiod.start}}
+      <hr>
+      {{timeperiod.stop}}
+      <hr>
       {{task.username}}
     </div>
 </div>
