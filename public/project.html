@@ -19,14 +19,15 @@
   <h5>{{task.name}}</h5>
   <h6>{{task.description}}
       {{task.totalTime}}</h6>
-  <input class='start-stop' type='submit' ng-click='projects.updateTaskTimePeriod($index)'>Arrow</input>
-  <p class='task-details' ng-click='showDetails = !showDetails'></p>
-    <div ng-repeat=''>
-      {{task.timeperiodName}}
-      {{task.startTime}}
-      {{task.stopTime}}
-      {{task.totalTime}}
-      {{task.username}}
+      <button ng-click='projects.updateTaskTimePeriod($index)' ng-if='!projects.activeUserTaskStates[$index].outstanding'>start</button>
+      <button ng-click='projects.updateTaskTimePeriod($index)' ng-if='projects.activeUserTaskStates[$index].outstanding'>stop</button>
+  <p class='task-details' ng-click='showDetails = !showDetails'>Details</p>
+    <div ng-repeat="timeperiod in task.taskTimeList | orderBy: '-start'" ng-show='showDetails'>
+      user: {{timeperiod.user}}
+      <hr>
+      start: {{timeperiod.start | date : 'short'}}
+      <hr>
+      stop: {{timeperiod.stop | date : 'short'}}
     </div>
 </div>
 </div>

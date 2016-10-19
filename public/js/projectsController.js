@@ -37,7 +37,7 @@
           indexPosition: self.activeProject.taskList[index].taskTimeList.length-1,
         }
         console.log(self.activeProject);
-        console.log(activeUserTaskStates);
+        console.log(self.activeUserTaskStates);
       }
       //this will be the put route to update the new object with the information
       self.updateActiveProject();
@@ -54,7 +54,8 @@
 
 //updating a project status
     this.updateActiveProject = function () {
-      $http.put(`/api/projects/${self.activeProject._id}`, self.activeProject)
+      console.log(self.activeProject);
+      $http.put(`/api/projects/project`, self.activeProject)
       .then(function(response){
         console.log(response);
       })
@@ -74,9 +75,6 @@
           if (self.activeProject.taskList[x].taskTimeList[i].stop) {
             console.log('it exists!');
           } else {
-            console.log('frank');
-            console.log(self.activeProject.taskList[x].taskTimeList[i]);
-            console.log(self.currentUser._id);
             if (self.activeProject.taskList[x].taskTimeList[i].userId == self.currentUser._id) {
               taskStatus = {
                 outstanding: true,
@@ -84,6 +82,7 @@
               }
             }
           }
+          console.log(self.activeProject.taskList[x].taskTimeList[i]);
         }
         self.activeUserTaskStates.push(taskStatus);
       }
