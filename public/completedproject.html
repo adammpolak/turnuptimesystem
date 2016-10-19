@@ -1,7 +1,6 @@
 <br><br>
 <div class='project-container'>
 <h1>Project {{projects.activeProject.projectName}}</h1>
-<flash-message duration = "7000" show-close = 'true'></flash-message>
 
 <div class='complete'>
 <input class='completed' type="checkbox" value='true' ng-checked='projects.activeProject.completed' ng-click='projects.updateProjectStatus()' ui-sref='completedprojects'></input>

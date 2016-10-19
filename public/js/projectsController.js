@@ -20,6 +20,7 @@
       var now = new Date();
       //this checks if there is an outstanding timeperiod for the current user
       if (self.activeUserTaskStates[index].outstanding === true) {
+        warnAlert('Starting Timer!');
         var timePeriodIndex = self.activeUserTaskStates[index].indexPosition;
         self.activeProject.taskList[index].taskTimeList[timePeriodIndex].stop = now;
         self.activeUserTaskStates[index] = {
@@ -29,6 +30,7 @@
         //this is run if this task has outstanding time state
       } else {
         //this is run if the task does not have outstanding time state
+        infoAlert('Starting new timer!');
         var newTimePeriodObject = {
           userId: self.currentUser._id,
           user: self.currentUser.username,
@@ -97,16 +99,20 @@
 //when trying to create a new project this is what you need
     this.newProjectTasks = [{name: '', description: ''}]
     this.addTask = function () {
+      infoAlert('Task Created');
       self.newProjectTasks.push({name: '', description: ''})
     }
     this.editAddTask = function (index) {
+      infoAlert('Added Task Successfully');
       self.activeProject.taskList.push({name: '', description: ''})
     }
     this.removeTask = function() {
+      warnAlert('Task Deleted!');
       var lastItem = self.newProjectTasks.length-1;
       self.newProjectTasks.splice(lastItem);
     }
     this.editRemoveTask = function(index) {
+      warnAlert('Task Deleted!');
       self.activeProject.taskList.splice(index, 1);
     }
 
@@ -123,6 +129,11 @@
 
 //update project status
     this.updateProjectStatus = function() {
+      if (self.activeProject.completed){
+        warnAlert('Moved Project out of Completed');
+      } else if (!self.activeProject.completed){
+        warnAlert('Moved Project to Completed')
+      }
       self.activeProject.completed = !self.activeProject.completed;
       console.log(self.activeProject);
       self.updateActiveProject();
@@ -155,6 +166,7 @@
       };
       $http.post('/api/projects', send)
       .then(function(response) {
+        passAlert('<strong>Project created!</strong>')
         self.allProjects.push(response.data);
         project.name = '';
         project.description = '';
@@ -169,12 +181,29 @@
     this.deleteProject = function () {
       $http.delete(`/api/projects/project/${self.activeProject._id}`)
       .then(function(response){
+        failAlert('<strong>Delete successful</strong>');
         self.activeProject = {};
 
       })
     }
 
     this.addProject = addProject;
+
+//Flash starts here
+  function passAlert(msg){
+    var id = Flash.create('success', msg, 7000, {}, true);
   }
 
+  function failAlert(msg){
+    var id = Flash.create('danger', msg, 7000, {}, true);
+  }
+
+  function infoAlert(msg){
+    var id = Flash.create('info', msg, 7000, {}, true);
+  }
+
+  function warnAlert(msg){
+    var id = Flash.create('warning', msg, 7000, {}, true);
+  }
+}
 })()
