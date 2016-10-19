@@ -6,7 +6,9 @@ var express        = require('express'),
     passport       = require('passport'),
     LocalStrategy  = require('passport-local').Strategy,
     User           = require('./models/user'),
-    app            = express();
+    app            = express(),
+    session        = require('express-session'),
+    MongoStore     = require('connect-mongo')(session);
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/turnuptimesystem');
@@ -17,10 +19,18 @@ app.use(logger('dev'));
 app.use(express.static('public'));
 app.use('/scripts', express.static(__dirname + '/bower_components'))
 
-app.use(require('express-session')({
+app.use(session({
   secret: 'turnupisthebestappknowntoman loremipsum',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  maxAge: new Date(Date.now() + 86400000),
+  store: new MongoStore(
+    {db:mongoose.connection.db},
+    function(err){
+      if (err) {console.log(err)}
+      else {console.log('session saved')}
+    }
+  )
 }));
 app.use(passport.initialize());
 app.use(passport.session());
