@@ -50,8 +50,42 @@
       var id = Flash.create('danger', reason, 7000, { class: 'flashAlert'}, true);
     }
 
+    var updatePassword = function(userObj) {
+      console.log('clicked');
+      console.log(self.user);
+      // $http.post('api/users/register', {password: userObj.password})
+      // userObj.updatePassword(new_data.body.password, function(error) {
+      //   if (!error) {
+      //     userObj.save(function(error) {
+      //       if (error) {
+      //         console.log(error)
+      //       }
+      //     });
+      //   }
+      //   else {console.log(error)
+      //   }
+      // });
+
+      // userObj.set("password",newPassword);
+      // userObj.save()
+      // .then(
+      //   function(userObj) {
+      //     return userObj.fetch();
+      //   }
+      // )
+      // .then(
+      //   function(userObj) {
+      //     console.log('Password changed', userObj);
+      //   },
+      //   function(error) {
+      //     console.log('Something went wrong!', error);
+      //   }
+      // );
+    }
+
     this.login = login;
     this.register = register;
     this.userObject;
+    this.updatePassword = updatePassword;
   };
 })();

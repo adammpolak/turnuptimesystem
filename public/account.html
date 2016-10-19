@@ -1,9 +1,17 @@
 <br><br><br><br><br>
-<div class='account'>
-<h2>Hey there, {{user.username}}</h2>
-<h3 class='account-user'>
-  update username
+<div class='account' ng-controller='authControl as auth'>
+<h2>Hey there, {{userObj}}</h2><br>
+<h3 class='account-user' ng-click='showUsername = !showUsername'>update username</h3><br>
+<form class="update-password" ng-submit="auth.updateUsername(userObj)" method="post" ng-show='showUsername'>
+  <input type="password" name="password" ng-model="userObject.password"><br><br>
+  <button class='button' type="submit" name="update">Update</button>
+</form><br>
+<h3 class='account-user' ng-click='showPassword = !showPassword'>
+  update password</h3><br>
+  <form class="update-password" ng-submit="auth.updatePassword(userObj)" method="post" ng-show='showPassword'>
+    <input type="password" name="password" ng-model="userObject.password"><br><br>
+    <button class='button' type="submit" name="update">Update</button>
+  </form>
   <br><br>
-  update password</h3>
 
 </div>
