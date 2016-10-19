@@ -1,33 +1,36 @@
+<br><br>
 <div class='project-container'>
-<h1>Project {{projects.activeProject.projectName}}</h1>
-<a ui-sref-active='active' ui-sref="projectedit">Edit Project</a>
+<h1 id='project-title'>Project {{projects.activeProject.projectName}}</h1>
+<a id='edit-button' ui-sref-active='active' ui-sref="projects.edit({projectId:projects.activeProject._id})">Edit Project</a>
 <!-- a ui-sref='projectedit' -->
-<br>
 <div class='complete'>
-<label>Completed:</label><input class='completed' type="checkbox" value='true' ng-model='activeProject.completed' ng-click='projects.updateStatus()' ui-sref='completedprojects'></input>
+<label>Complete?</label><input class='completed' type="checkbox" value='true' ng-checked='projects.activeProject.completed' ng-click='projects.updateProjectStatus()' ui-sref='projects'></input>
 </div>
+
 <h3>Description</h3>
-<p class='project-description'>{{projects.activeProject.projectDescription}}</p>
-
+<p class='project-description'>
+  {{projects.activeProject.projectDescription}}
+</p>
 <br>
-
+<!-- <div id='column2'> -->
+<h4>Tasks</h4>
 <div class='task-container'>
-<div ng-repeat='task in projects.activeProject.taskList'>
+<div ng-repeat='task in projects.activeProject.taskList track by $index'>
   <h5>{{task.name}}</h5>
   <h6>{{task.description}}
       {{task.totalTime}}</h6>
-  <input class='start-stop' type='submit' ng-click=''>Arrow</input>
-  <p class='task-details' ng-click='showDetails = !showDetails'></p>
-    <div ng-repeat=''>
-      {{task.timePeriodName}}
-      {{task.startTime}}
-      {{task.stopTime}}
-      {{task.totalTime}}
-      {{task.username}}
+      <button ng-click='projects.updateTaskTimePeriod($index)' ng-if='!projects.activeUserTaskStates[$index].outstanding'>start</button>
+      <button ng-click='projects.updateTaskTimePeriod($index)' ng-if='projects.activeUserTaskStates[$index].outstanding'>stop</button>
+  <p class='task-details' ng-click='showDetails = !showDetails'>Details</p>
+    <div ng-repeat="timeperiod in task.taskTimeList | orderBy: '-start'" ng-show='showDetails'>
+      user: {{timeperiod.user}}
+      <hr>
+      start: {{timeperiod.start | date : 'short'}}
+      <hr>
+      stop: {{timeperiod.stop | date : 'short'}}
     </div>
 </div>
 </div>
 </div>
-
 <!-- in order to make the dot notation work - KEEP -->
-<div ui-view><div>
+<!-- <div ui-view><div> -->

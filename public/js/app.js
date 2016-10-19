@@ -25,34 +25,30 @@
         url: '/projects',
         templateUrl: 'projects.html'
       })
-      .state('projects.project', {
-        url: `/project`,
-        templateUrl: 'project.html'
-      })
-      .state('projectedit', {
-        url: '/projects/project/edit',
-        templateUrl: 'projectedit.html'
-      })
-      .state('projectnew', {
-        url: '/projects/project/new',
+      .state('projects.projectnew', {
+        url: '/project/new',
         templateUrl: 'projectnew.html'
+      })
+      .state('account', {
+        url: '/account',
+        templateUrl: 'account.html'
       })
       .state('completedprojects', {
         url: '/completedprojects',
         templateUrl: 'completedprojects.html'
       })
-      .state('completedproject', {
-        url: '/completedprojects/project',
+      .state('completedprojects.completedproject', {
+        url: '/completedproject/:projectId',
         templateUrl: 'completedproject.html'
       })
-      .state('account', {
-        url: '/account',
-        templateUrl: 'account.html'
+      .state('projects.project', {
+        url: `/project/:projectId`,
+        templateUrl: 'project.html'
+      })
+      .state('projects.edit', {
+        url: '/project/:projectId/edit',
+        templateUrl: 'projectedit.html'
       });
       $urlRouterProvider.otherwise('/projects');
-      // $locationProvider.html5Mode({
-      //   enabled: true,
-      //   requireBase: false,
-      // })
   }
 })()
