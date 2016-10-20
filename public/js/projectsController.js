@@ -18,6 +18,7 @@
     this.allProjectsTotalTime = [];
 //update time for a certain task
     this.updateTaskTimePeriod = function(index){
+      getUser();
       console.log(index);
       var now = new Date();
       //this checks if there is an outstanding timeperiod for the current user
@@ -53,13 +54,23 @@
     }
 
 //active user
-    $http.get('/api/helpers/get-user')
-      .then(function(response) {
-        self.currentUser = response.data.user;
-      })
-      .catch(function(err){
-        console.log('err', err)
-      })
+    // $http.get('/api/helpers/get-user')
+    //   .then(function(response) {
+    //     self.currentUser = response.data.user;
+    //   })
+    //   .catch(function(err){
+    //     console.log('err', err)
+    //   })
+
+    function getUser(){
+      $http.get('/api/helpers/get-user')
+        .then(function(response) {
+          self.currentUser = response.data.user;
+        })
+        .catch(function(err){
+          console.log('err', err)
+        })
+    }
 
 //updating a project status
     this.updateActiveProject = function () {
@@ -76,6 +87,7 @@
 
 //display a project
     this.displayThisProject = function(index) {
+      getUser();
       $http.get('/api/projects')
       .then(function(response) {
         self.allProjects = response.data;
