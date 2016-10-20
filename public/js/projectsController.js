@@ -79,6 +79,9 @@
 
 //display a project
     this.displayThisProject = function(index) {
+      $http.get('/api/projects')
+      .then(function(response) {
+        self.allProjects = response.data;
       self.activeUserTaskStates = [];
       self.activeProject = self.allProjects[index];
       self.activeIndex = index;
@@ -103,6 +106,7 @@
         }
         self.activeUserTaskStates.push(taskStatus);
       }
+    })
     }
 
 //when trying to create a new project this is what you need

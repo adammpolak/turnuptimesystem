@@ -2,7 +2,7 @@
 <div id='edit-project-cont'>
 <h2>Edit Project</h2>
 
-<form ng-submit='projects.updateActiveProject(); projects.getToProject()' >
+<form >
         <div class="project-edit">
           <label for="name">Project Name</label><br>
           <input type="text" ng-model='projects.activeProject.projectName'><br><br>
@@ -18,7 +18,7 @@
         <button type="button" ng-click='projects.editAddTask($index)'>Create New Task</button>
         <div class="tasks" id='taskList'>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit"  ng-click='projects.getToProject(); projects.updateActiveProject();'>Submit</button>
       </form>
 
       <button ng-click='projects.deleteProject(); projects.getToProjects()'>Delete Entire Project</button>
