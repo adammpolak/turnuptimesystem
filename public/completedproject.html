@@ -13,14 +13,12 @@
   <div class='align'>
   <h5 class='align-name'>{{task.name}}</h5>
   <p class='align-description'>{{task.description}}</p>
-  <p class='align-time'>Total Time: {{projects.allProjectsTotalTime[$index].projectTotalTime}}</p>
+  <p class='align-time'>Total Time:
+     {{projects.allProjectsTotalTime[$index].projectTotalTime}}
+  </p>
   <p class='align-details' class='task-details' ng-click='showDetails = !showDetails'>Click for details</p></div>
     <div ng-repeat="timeperiod in task.taskTimeList | orderBy: '-start'" ng-show='showDetails'>
-      <p class='details'>user: {{timeperiod.user}}</p>
-      <hr>
-      <p class='details'>start: {{timeperiod.start | date : 'short'}}</p>
-      <hr>
-      <p class='details'>stop: {{timeperiod.stop | date : 'short'}}</p>
+      <p class='details'>user: {{timeperiod.user}} | start: {{timeperiod.start | date : 'short'}} | stop: {{timeperiod.stop | date : 'short'}}</p><hr>
     </div><hr><br>
 </div>
 </div>

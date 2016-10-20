@@ -5,7 +5,7 @@
 <ul class='list'>
   <div ng-repeat="project in projects.allProjects track by $index" ng-if='project.completed'>
     <div class="active-project" ng-click='projects.displayThisProject($index)' ui-sref-active='active' ui-sref='completedprojects.completedproject({projectId: project._id})'>
-    <li class='project-list'><div class='name'>{{project.projectName}}<br><div class='clock-body'><a class="clock icon" title="Clock" href="#"></a> {{projects.allProjectsTotalTime[$index].projectTotalTime}}</div></div></li>
+    <li class='project-list'><div class='name'>{{project.projectName}}<br><div class='clock-body'><a class="clock icon" title="Clock" href="#"></a> {{projects.allProjectsTotalTime[$index].projectTotalTime}} hrs</div></div></li>
     </div>
   </div>
 </ul>
