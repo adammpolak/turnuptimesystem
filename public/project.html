@@ -5,13 +5,10 @@
 <div class='complete'>
 <label>Complete? </label><br><div class='complete-box'><input class='completed' type="checkbox" value='true' ng-checked='projects.activeProject.completed' ng-click='projects.updateProjectStatus()' ui-sref='projects'></input></div>
 </div>
-
-<!-- <h3>Description</h3> -->
 <p class='project-description'>
   {{projects.activeProject.projectDescription}}
 </p>
 <br>
-<!-- <div id='column2'> -->
 <h4>Tasks</h4>
 <div class='task-container'>
 <div ng-repeat='task in projects.activeProject.taskList track by $index' ng-init='$rowIndex = $index'>
@@ -28,10 +25,9 @@
     <div ng-repeat="timeperiod in task.taskTimeList | orderBy: '-start'" ng-show='showDetails'>
       <p class='details'>user: {{timeperiod.user}} | start: {{timeperiod.start | date : 'short'}} | stop: {{timeperiod.stop | date : 'short'}}</p>
       <hr>
-    </div>
+    </div><hr><br>
 </div>
 </div>
 </div>
-<!-- {{projects.allProjectsTotalTime[projects.activeIndex].taskObjectArray[$rowIndex].timeperiodObjectArray[$index].stopTime -->
 <!-- in order to make the dot notation work - KEEP -->
 <!-- <div ui-view><div> -->
