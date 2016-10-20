@@ -1,6 +1,10 @@
-
-<br><br><br><br>
-<div class='list' id='add'><a ui-sref-active='active' ui-sref='projects.projectnew'  class='add-project'>Add<br>A Project</a></div>
+<br><br><br><br><br>
+<div class='list' id='add'><a ui-sref-active='active' ui-sref='projects.projectnew' class='add-project'>Add<br>A Project</a></div>
+<p ng-model=projects.testNumber>
+  test
+</p>
+{{projects.testNumber}}
+<br><br>
 <!-- css so this is on one line above project listings -->
 <div class='proj-container'>
 <br>
@@ -11,7 +15,8 @@
 <ul class='list'>
   <div ng-repeat="project in projects.allProjects track by $index" ng-if='!project.completed'>
     <div class="" ng-click='projects.displayThisProject($index)' ui-sref-active='active' ui-sref='projects.project({projectId: project._id})'>
-    <li class='project-list'>{{project.projectName}}</li>
+    <li class=''>{{project.projectName}}
+      <br>Total Time: {{projects.allProjectsTotalTime[$index].projectTotalTime}}</li>
     </div>
   </div>
 </ul>
