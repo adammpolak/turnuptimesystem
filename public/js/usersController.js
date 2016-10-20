@@ -50,42 +50,28 @@
       var id = Flash.create('danger', reason, 7000, { class: 'flashAlert'}, true);
     }
 
-    var updatePassword = function(userObj) {
-      console.log('clicked');
-      console.log(self.user);
-      // $http.post('api/users/register', {password: userObj.password})
-      // userObj.updatePassword(new_data.body.password, function(error) {
-      //   if (!error) {
-      //     userObj.save(function(error) {
-      //       if (error) {
-      //         console.log(error)
-      //       }
-      //     });
-      //   }
-      //   else {console.log(error)
-      //   }
-      // });
+    var updateUsername = function(user) {
+      console.log('clicked', user, 'from updateUsername function');
+      console.log(user._id, 'from updateUsername function');
+      $http.patch(`/api/users/${user._id}`, user)
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
 
-      // userObj.set("password",newPassword);
-      // userObj.save()
-      // .then(
-      //   function(userObj) {
-      //     return userObj.fetch();
-      //   }
-      // )
-      // .then(
-      //   function(userObj) {
-      //     console.log('Password changed', userObj);
-      //   },
-      //   function(error) {
-      //     console.log('Something went wrong!', error);
-      //   }
-      // );
+    var setPassword = function(userObj) {
+      console.log('clicked');
+      console.log(userObj, 'from updatePassword Function');
+      $http.patch(`api/users/${userObj._id}`, {username: userObj.username, password: userObj.password, passwordConfirmation: userObj.passwordConfirmation})
     }
 
     this.login = login;
     this.register = register;
     this.userObject;
-    this.updatePassword = updatePassword;
+    this.setPassword = setPassword;
+    this.updateUsername = updateUsername;
   };
 })();
