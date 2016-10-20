@@ -18,6 +18,7 @@
     this.allProjectsTotalTime = [];
 //update time for a certain task
     this.updateTaskTimePeriod = function(index){
+      console.log(index);
       var now = new Date();
       //this checks if there is an outstanding timeperiod for the current user
       if (self.activeUserTaskStates[index].outstanding === true) {
@@ -38,7 +39,12 @@
           start: now,
           stop: null,
         }
-        self.activeProject.taskList[index].taskTimeList.push(newTimePeriodObject);
+        console.log(self.activeProject.taskList[index]);
+        if (self.activeProject.taskList[index].taskTimeList) {
+          self.activeProject.taskList[index].taskTimeList.push(newTimePeriodObject);
+        } else {
+          self.activeProject.taskList[index].taskTimeList = [newTimePeriodObject];
+        }
         self.activeUserTaskStates[index] = {
           outstanding: true,
           indexPosition: self.activeProject.taskList[index].taskTimeList.length-1,
