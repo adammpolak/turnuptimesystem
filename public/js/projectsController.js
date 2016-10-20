@@ -1,26 +1,27 @@
 (function(){
   angular.module('turnupApp')
   .controller('projectsController', projectsController);
-  projectsController.$inject = ['$http', '$location', '$state', 'Flash'];
+  projectsController.$inject = ['$http', '$location', '$state', 'Flash', '$timeout'];
 
-  function projectsController($http, $location, $state, Flash) {
+  function projectsController($http, $location, $state, Flash, $timeout) {
     var self = this;
-    this.number = 7;
 
     this.allProjects = [];
     this.completedprojects = [];
     this.activeProject = {};
     this.activeUserTaskStates = [];
+    this.activeIndex = null;
     this.removeTask = function(index) {
       self.activeProject.taskList[index].splice(index, 1);
       self.updateActiveProject();
     }
+    this.allProjectsTotalTime = [];
 //update time for a certain task
     this.updateTaskTimePeriod = function(index){
       var now = new Date();
       //this checks if there is an outstanding timeperiod for the current user
       if (self.activeUserTaskStates[index].outstanding === true) {
-        warnAlert('Stopping Timer!');
+        warnAlert('Clocked Out!');
         var timePeriodIndex = self.activeUserTaskStates[index].indexPosition;
         self.activeProject.taskList[index].taskTimeList[timePeriodIndex].stop = now;
         self.activeUserTaskStates[index] = {
@@ -30,7 +31,7 @@
         //this is run if this task has outstanding time state
       } else {
         //this is run if the task does not have outstanding time state
-        infoAlert('Starting new timer!');
+        infoAlert('Clocked in!');
         var newTimePeriodObject = {
           userId: self.currentUser._id,
           user: self.currentUser.username,
@@ -74,6 +75,7 @@
     this.displayThisProject = function(index) {
       self.activeUserTaskStates = [];
       self.activeProject = self.allProjects[index];
+      self.activeIndex = index;
       for (var x = 0; x<self.activeProject.taskList.length; x++){
         var taskStatus = {
           outstanding: false,
@@ -104,7 +106,7 @@
       self.newProjectTasks.push({name: '', description: ''})
     }
     this.editAddTask = function (index) {
-      infoAlert('Added Task Successfully');
+      // infoAlert('Added Task Successfully');
       self.activeProject.taskList.push({name: '', description: ''})
     }
     this.removeTask = function() {
@@ -113,7 +115,7 @@
       self.newProjectTasks.splice(lastItem);
     }
     this.editRemoveTask = function(index) {
-      warnAlert('Task Deleted!');
+      // warnAlert('Task Deleted!');
       self.activeProject.taskList.splice(index, 1);
     }
 
@@ -189,6 +191,53 @@
     }
 
     this.addProject = addProject;
+    this.updateTimes = function() {
+      var tempProjectsTotalTimeArray = [];
+      var now = new Date();
+      for (var x = 0; x<self.allProjects.length; x++) {
+        //now we are cycling through the projects
+        var projectTimeObject = {
+          projectTotalTime: 0,
+          taskObjectArray: [],
+        };
+        for (var i = 0; i<self.allProjects[x].taskList.length; i++){
+          //now we are cycling through the specific project tasks
+          var taskTimeObject = {
+            taskTotalTime: 0,
+            timeperiodObjectArray: [],
+          };
+          if (self.allProjects[x].taskList[i].taskTimeList) {for (var j = 0; j<self.allProjects[x].taskList[i].taskTimeList.length; j++) {
+            //now we are cycling through the specific time periods
+            var timeperiod = self.allProjects[x].taskList[i].taskTimeList[j];
+            var startTime = new Date(timeperiod.start);
+            if (timeperiod.stop) {
+              var stopTime = new Date(timeperiod.stop)
+              var timeperiodTime = stopTime-startTime;
+              taskTimeObject.taskTotalTime += timeperiodTime;
+              var timePeriodTimeObject = {
+                stopTime: timeperiod.stop,
+                totalTime: timeperiodTime,
+              };
+            } else {
+              var timeperiodTime = now - startTime;
+              taskTimeObject.taskTotalTime += timeperiodTime;
+              var timePeriodTimeObject = {
+                stopTime: now,
+                totalTime: timeperiodTime,
+              }
+            }
+            taskTimeObject.timeperiodObjectArray.push(timePeriodTimeObject);
+          }}
+          projectTimeObject.projectTotalTime += taskTimeObject.taskTotalTime;
+          projectTimeObject.taskObjectArray.push(taskTimeObject);
+        }
+        tempProjectsTotalTimeArray.push(projectTimeObject);
+      }
+      self.allProjectsTotalTime = tempProjectsTotalTimeArray;
+      // console.log(self.allProjectsTotalTime);
+      $timeout(self.updateTimes, 1000);
+    }
+    this.updateTimes()
 
 //Flash starts here
   function passAlert(msg){
