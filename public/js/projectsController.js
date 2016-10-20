@@ -232,6 +232,8 @@
             if (timeperiod.stop) {
               var stopTime = new Date(timeperiod.stop)
               var timeperiodTime = stopTime-startTime;
+              var calculated = [((timeperiodTime/1000)%60), ((timeperiodTime/(1000*60))%60), ((timeperiodTime/(1000*60*60))%24)];
+              timeperiodTime = calculated;
               taskTimeObject.taskTotalTime += timeperiodTime;
               var timePeriodTimeObject = {
                 stopTime: timeperiod.stop,
@@ -239,6 +241,8 @@
               };
             } else {
               var timeperiodTime = now - startTime;
+              var calculated = [((timeperiodTime/1000)%60), ((timeperiodTime/(1000*60))%60), ((timeperiodTime/(1000*60*60))%24)];
+              timeperiodTime = calculated;
               taskTimeObject.taskTotalTime += timeperiodTime;
               var timePeriodTimeObject = {
                 stopTime: now,
