@@ -41,6 +41,50 @@ router.post('/login', function(req, res, next){
   })(req, res, next);
 });
 
+// update username function
+// router.patch('/:_id', function(req, res){
+//   User.findOneAndUpdate({_id: req.params._id}, req.body.username).exec()
+//   .then(function(data) {
+//     console.log(req.params._id, data);
+//   })
+//   .catch(function(error){
+//     console.error(error);
+//   })
+// });
+
+var authenticate = function(req, res, next) {
+  if (!req.user || req.user.id != req.params.id) {
+    res.json({status: 401, message: 'unauthorized'})
+  } else {
+    next()
+  }
+}
+
+//update password patch route
+router.get('/:userId', authenticate, function(req,res){
+  res.json('profile/password', {user: req.user});
+});
+router.patch('/:userId', function(req, res){
+  User.findOne({_id: req.params.userId}).exec()
+  .catch(function(error){
+    console.error(error);
+  })
+  .then(function(user){
+    console.log(req.body.password, req.body.passwordConfirmation);
+    console.log(user);
+    if (req.body.password) {
+      if (req.body.password === req.body.passwordConfirmation) {
+        user.setPassword(req.body.password, function(){
+          console.log('Password reset');
+          user.save();
+        });
+      } else {
+        console.log('Passwords do not match');
+      }
+    }
+  });
+});
+
 router.delete('/logout', function(req, res){
   req.logout();
   res.json("User logged out.")
