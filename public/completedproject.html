@@ -12,8 +12,8 @@
 <div ng-repeat='task in projects.activeProject.taskList'>
   <div class='align'>
   <h5 class='align-name'>{{task.name}}</h5>
-  <p class='align-description'>{{task.description}}
-      {{task.totalTime}}</p>
+  <p class='align-description'>{{task.description}}</p>
+  <p class='align-time'>Total Time: {{task.totalTime}}</p>
   <p class='align-details' class='task-details' ng-click='showDetails = !showDetails'>Click for details</p></div>
     <div ng-repeat="timeperiod in task.taskTimeList | orderBy: '-start'" ng-show='showDetails'>
       <p class='details'>user: {{timeperiod.user}}</p>

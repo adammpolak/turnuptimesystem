@@ -131,13 +131,18 @@ textarea.input-description,
    flex: 1;
 }
 
+.align-time {
+  flex: 1;
+  font-size: 14px;
+}
+
 .align-description {
-   flex: 3;
+   flex: 2;
    font-size: 14px;
 }
 
 #align-button {
-  flex: 1;
+  flex: .5;
 }
 
 .align-details {
