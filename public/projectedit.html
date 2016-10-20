@@ -4,9 +4,7 @@
 <br>
 <form class='input-name'>
         <div class="project-edit">
-          <!-- <label for="name">Project Name</label><br> -->
           <input class='input-name' type="text" ng-model='projects.activeProject.projectName'><br>
-          <!-- <label for="description">Project Description</label> -->
           <input class='edit-description' type="text" ng-model='projects.activeProject.projectDescription'>
         </div><br>
         <fieldset data-ng-repeat='task in projects.activeProject.taskList track by $index'>
