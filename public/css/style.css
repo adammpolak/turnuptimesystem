@@ -370,7 +370,7 @@ a.clock:before {
 .add-project:focus {
   background-color: #1999FF;
   /*color: black;*/
-  z-index: auto;
+  /*z-index: auto;*/
 }
 
 .account-container {
