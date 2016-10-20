@@ -3,25 +3,102 @@
   margin: 0;
 }
 
-form.input-name input,
-form.input-name select{
-  min-width: 22%;
-  height: 5vh;
-  /*font-size: 1em;*/
-  background: white;
+.nice-button {
+  border-style: solid;
+  border-width: 0px 0px 3px;
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-style: normal;
+  overflow: hidden;
   text-align: center;
-  border: 1px solid #601a10;
-  /*border-radius: 0.5em;*/
+  text-decoration: none;
+  text-overflow: ellipsis;
+  transition: all 200ms ease-in-out 0s;
+  white-space: nowrap;
+  font-weight: 700;
+  padding: 19px 39px 18px;
+  font-size: 14px;
+  border-color: #326E99;
+  background-color:  #1269B2;
+}
+
+.remove {
+  border-style: solid;
+  border-width: 0px 0px 3px;
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-style: normal;
+  overflow: hidden;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  transition: all 200ms ease-in-out 0s;
+  white-space: nowrap;
+  font-weight: 700;
+  padding: 6px 26px 5px;
+  font-size: 12px;
+  border-color: #326E99;
+  background-color:  #1269B2;
+}
+
+.nice-button:hover,
+.remove:hover {
+  background-color: #1999FF;
+  border-color: #326E99;
+}
+
+#password {
+  font-size: 12px;
+}
+
+form.input-name input,
+form.input-name select,
+form.update-username input,
+form.update-username select,
+form.update-password input,
+form.update-password select {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background: rgba(255,255,255,.1);
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  margin: 0;
+  outline: 0;
+  padding: 7px;
+  min-width: 22%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background-color: white;
+  color:#8a97a0;
+  -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 30px;
 }
 
 textarea.input-description {
-  min-width: 50%;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background: rgba(255,255,255,.1);
+  border: none;
   height: 10vh;
-  /*font-size: 1em;*/
-  background: white;
-  text-align: center;
-  border: 1px solid #601a10;
-  /*border-radius: 0.5em;*/
+  border-radius: 4px;
+  font-size: 16px;
+  margin: 0;
+  outline: 0;
+  padding: 7px;
+  min-width: 50%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background-color: white;
+  color:#8a97a0;
+  -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 30px;
 }
 
 .input-task-name {
@@ -159,6 +236,10 @@ fieldset {
   flex-wrap: wrap;*/
 }
 
+.project-list:hover {
+  background-color: #1999FF;
+}
+
 .landing,
 .login,
 .register,
@@ -209,25 +290,29 @@ a:hover {
   color: #1269B2;
 }
 
-.add-project {
+#add {
+    margin: 0 0 0 2vw;
+}
+
+/*.add-project {
   margin: 2vw;
   color:  #E4F3FF;
   padding: 2.5vh;
-  background: #1269B2;
+  background: #1269B2;*/
   /*-webkit-border-radius: 4px;
   -moz-border-radius: 4px;*/
   /*border-radius: 4px;*/
   /*border: solid 1px #20538D;*/
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+  /*text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px;
-}
+}*/
 
-.add-project:hover {
+/*.add-project:hover {
   color: #1269B2;
   background: #E4F3FF;
-}
+}*/
 
 .proj-container {
   display: flex;
@@ -244,23 +329,6 @@ a:hover {
 @font-face {
   font-family: 'Lemon Milk';
   src: url('LemonMilk.otf');
-}
-
-.button {
-  padding: 3px 5px;
-  background: #E4F3FF;
-  color: #B26D00;
-  text-align: center;
-  /*-webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;*/
-  /*border: solid 1px #20538D;*/
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
-  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
-  min-width: 10%;
-  font-size: 18px;
 }
 
 form.register input,
