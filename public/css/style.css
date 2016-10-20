@@ -122,7 +122,7 @@ textarea.input-description,
 .align {
   display: flex;
   flex-direction: row;
-  align-items: baseline;
+  align-items:center;
   justify-content:flex-start;
   text-align: left;
 }
@@ -252,7 +252,8 @@ fieldset {
   margin-top: 2vh;
 }
 
-.project-list {
+/*.project-list,*/
+.active-project {
   background:  #1269B2;
   /*background: #CCCCCC;*/
   /*background: #1999FF;*/
@@ -272,11 +273,25 @@ fieldset {
   flex-wrap: wrap;*/
 }
 
-.project-list:hover,
+.active-project:hover,
 .add-project:hover {
-  background-color: #1999FF;
+  /*background-color: #1999FF;*/
+  background: #1999FF;
+  /*color: #1269B2;*/
+  -moz-transition: all .5s ease-in;
+  -o-transition: all .5s ease-in;
+  -webkit-transition: all .4s ease-in;
+  transition: all .4s ease-in;
   /*color: #1269B2;*/
   /*color: #CCCCCC;*/
+}
+
+.active-project.active,
+.project-list:focus,
+.add-project:focus {
+  background-color: #1999FF;
+  /*color: black;*/
+  z-index: auto;
 }
 
 .landing,
