@@ -14,7 +14,7 @@
             authFail(res.data.message);
           } else {
             $state.go('projects', {url: '/projects'});
-            successAlert();
+            successAlert('<strong>Success!</strong> Registered successfully!');
             userObj.passwordreg = '';
             userObj.usernamereg = '';
           }
@@ -36,9 +36,8 @@
         })
     }
 
-    function successAlert() {
-      var message = '<strong>Success!</strong> Registered successfully!'
-      var id = Flash.create('success', message, 7000, {class: 'flashAlert'}, true);
+    function successAlert(msg) {
+      var id = Flash.create('success', msg, 7000, {class: 'flashAlert'}, true);
     }
 
     function loginSuccess() {
@@ -65,6 +64,7 @@
     var setPassword = function(userObj) {
       console.log('clicked');
       console.log(userObj, 'from updatePassword Function');
+      successAlert('<strong>Success!</strong> Password change completed.')
       $http.patch(`api/users/${userObj._id}`, {username: userObj.username, password: userObj.password, passwordConfirmation: userObj.passwordConfirmation})
     }
 
