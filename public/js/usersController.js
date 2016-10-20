@@ -50,8 +50,28 @@
       var id = Flash.create('danger', reason, 7000, { class: 'flashAlert'}, true);
     }
 
+    // var updateUsername = function(user) {
+    //   console.log('clicked', user, 'from updateUsername function');
+    //   console.log(user._id, 'from updateUsername function');
+    //   $http.patch(`/api/users/${user._id}`, user)
+    //   .then(function(response) {
+    //     console.log(response);
+    //   })
+    //   .catch(function(error) {
+    //     console.log(error);
+    //   })
+    // }
+
+    var setPassword = function(userObj) {
+      console.log('clicked');
+      console.log(userObj, 'from updatePassword Function');
+      $http.patch(`api/users/${userObj._id}`, {username: userObj.username, password: userObj.password, passwordConfirmation: userObj.passwordConfirmation})
+    }
+
     this.login = login;
     this.register = register;
     this.userObject;
+    this.setPassword = setPassword;
+    // this.updateUsername = updateUsername;
   };
 })();
