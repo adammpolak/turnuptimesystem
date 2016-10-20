@@ -519,4 +519,5 @@ form.login select {
 .flashAlert {
 position: fixed;
 width: 100%;
+z-index: 5;
 }
