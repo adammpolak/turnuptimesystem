@@ -7,19 +7,20 @@
           <!-- <label for="name">Project Name</label><br> -->
           <input class='input-name' type="text" ng-model='projects.activeProject.projectName'><br>
           <!-- <label for="description">Project Description</label> -->
-          <input class='input-description' type="text" ng-model='projects.activeProject.projectDescription'>
+          <input class='edit-description' type="text" ng-model='projects.activeProject.projectDescription'>
         </div><br>
-        <fieldset data-ng-repeat='task in projects.activeProject.taskList track by $index'><br>
-          <input class='input-task-name' type="text" ng-model='task.name' placeholder="task name"><br>
-          <input class='input-task-description' type="text" ng-model='task.description' placeholder="task description"><br>
+        <fieldset data-ng-repeat='task in projects.activeProject.taskList track by $index'>
+          <input class='input-task-name' type="text" ng-model='task.name' placeholder="task name">
+          <input class='input-task-description' type="text" ng-model='task.description' placeholder="task description">
           <button class='remove' ng-click='projects.editRemoveTask($index)' name="button">remove</button>
         </fieldset>
         <br><br>
         <button class='nice-button' type="button" ng-click='projects.editAddTask($index)'>Create New Task</button>
         <div class="tasks" class='taskList'>
         </div>
+        <br>
         <button class='nice-button' type="submit" ng-click='projects.getToProject(); projects.updateActiveProject();'>Submit</button>
-      </form>
+      </form><br>
 
       <button class='nice-button' ng-click='projects.deleteProject(); projects.getToProjects()'>Delete Entire Project</button>
 </div>
