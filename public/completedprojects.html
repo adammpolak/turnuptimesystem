@@ -1,18 +1,11 @@
-
-<br><br><br><br><br>
-Completed Projects
 <br><br>
-<!-- css so this is on one line above project listings -->
 <div class='proj-container'>
 <br><br>
-<!-- <h2 class='projects-new'>Name</h2>
-<h2 class='projects-total'>Total Hours</h2> -->
 </div>
-<!-- custom directive for list of projects - filter ones marked as completed only  -->
 <ul class='list'>
   <div ng-repeat="project in projects.allProjects track by $index" ng-if='project.completed'>
-    <div class="" ng-click='projects.displayThisProject($index)' ui-sref-active='active' ui-sref='completedprojects.completedproject({projectId: project._id})'>
-    <li class='project-list'>{{project.projectName}}</li>
+    <div class="active-project" ng-click='projects.displayThisProject($index)' ui-sref-active='active' ui-sref='completedprojects.completedproject({projectId: project._id})'>
+    <li class='project-list'><div class='name'>{{project.projectName}}<br><div class='clock-body'><a class="clock icon" title="Clock" href="#"></a> {{projects.allProjectsTotalTime[$index].projectTotalTime}}</div></div></li>
     </div>
   </div>
 </ul>

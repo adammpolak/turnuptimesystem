@@ -1,22 +1,19 @@
-
 <br><br><br><br><br>
-<!-- create a new project -->
-<a ui-sref-active='active' ui-sref='projects.projectnew' class='add-project'>Add A Project</a>
+<div class='list' id='add'><a ui-sref-active='active' ui-sref='projects.projectnew' class='add-project'><div class='name'>Add<br>A Project</div></a></div>
+<!-- <p ng-model=projects.testNumber>
+</p>
+{{projects.testNumber}} -->
 <br><br>
-<!-- css so this is on one line above project listings -->
 <div class='proj-container'>
-<br><br>
-<!-- <h2 class='projects-new'>Name</h2>
-<h2 class='projects-total'>Total Hours</h2> -->
+<br>
 </div>
-<!-- custom directive for list of projects - filter ones marked as not completed only  -->
 <ul class='list'>
   <div ng-repeat="project in projects.allProjects track by $index" ng-if='!project.completed'>
-    <div class="" ng-click='projects.displayThisProject($index)' ui-sref-active='active' ui-sref='projects.project({projectId: project._id})'>
-    <li class='project-list'>{{project.projectName}}</li>
+    <div class="active-project" ng-click='projects.displayThisProject($index)' ui-sref-active='active' ui-sref='projects.project({projectId: project._id})'>
+    <li class='project-list'><div class='name'>{{project.projectName}}
+      <br><div class='clock-body'><a class="clock icon" title="Clock" href="#"></a>{{projects.allProjectsTotalTime[$index].projectTotalTime}} hrs</div></div></li>
     </div>
   </div>
 </ul>
-<!-- <data value=""></data> -->
-<!-- <project-listing></project-listing> -->
+
 <div ui-view><div>

@@ -13,15 +13,16 @@
     <script src="js/usersController.js"></script>
   </head>
   <body ng-controller='projectsController as projects'>
+  <flash-message duration = "7000" show-close = 'true'></flash-message>
   <header>
-    <h1 class='heading'>Turn Up Time Systems</h1>
-    <nav>
+    <div class='viewport'></div>
+    <nav class='tabs'>
 			<a ui-sref-active='active' ui-sref='projects'>Projects</a>
 			<a ui-sref-active='active' ui-sref="completedprojects">Completed Projects</a>
 			<a ui-sref-active='active' ui-sref="account">Account</a>
+      <a ng-click="projects.logFlash()">Logout</a>
 		</nav>
   </header>
-  <flash-message duration = "7000" show-close = 'true'></flash-message>
 		<main ui-view>
 
 		</main>

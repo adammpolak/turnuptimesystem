@@ -1,12 +1,24 @@
 <br><br><br><br><br>
-<div class='account'>
-<h2>Hey there, {{user.username}}</h2>
-<h3 class='account-user'>
-  update username
-  <br><br>
-  update password</h3>
-
-  <form method='POST' action="/logout?_method=DELETE" id='logout' >
-  <button class='button' type='submit' name='logout'>Log Out</button>
+<div class='account-container'>
+<div class='account' ng-controller='authControl as auth'>
+<h2>Hey there, {{projects.currentUser.username}}<br>Welcome to your dashboard</h2><br>
+<h3 class='account-user' ng-click='showUsername = !showUsername'>update username</h3><br>
+<form class="update-username" ng-submit="auth.updateUsername(projects.currentUser)" method="post" ng-show='showUsername'>
+  <input type="text" name="username" ng-model="projects.currentUser.username"><br><br>
+  <button class='nice-button' type="submit" name="update">Update</button>
+</form>
+<h3 class='account-user' ng-click='showPassword = !showPassword'>
+  update password</h3><br>
+  <form class="update-password" ng-submit="auth.setPassword(projects.currentUser)" method="POST" ng-show='showPassword'>
+    <input type="password" name="password" placeholder='enter new password'ng-model="projects.currentUser.password"><br>
+    <!-- <label for="passwordConfirm" id='password'>Confirm password</label><br> -->
+    <input class="update-password" type="password" placeholder='confirm password' name="passwordConfirmation" ng-model="projects.currentUser.passwordConfirmation"><br><br>
+    <button class='nice-button' type="submit" name="update">Update</button>
   </form>
+  <br><br>
+</div>
+</div>
+<br><br>
+<div class='dashboard'>
+  <h2>DASHBOARD GOODS HERE</h2>
 </div>
