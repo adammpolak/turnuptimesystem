@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/adammpolak/turntimetimesystem#readme",
   "dependencies": {
+    "angular": "^1.5.8",
     "body-parser": "^1.15.2",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^1.3.2",
