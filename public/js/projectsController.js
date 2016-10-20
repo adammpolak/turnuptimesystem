@@ -31,6 +31,7 @@
         //this is run if this task has outstanding time state
       } else {
         //this is run if the task does not have outstanding time state
+        getUser();
         var newTimePeriodObject = {
           userId: self.currentUser._id,
           user: self.currentUser.username,
@@ -60,6 +61,16 @@
       .catch(function(err){
         console.log('err', err)
       })
+
+    function getUser(){
+      $http.get('/api/helpers/get-user')
+        .then(function(response) {
+          self.currentUser = response.data.user;
+        })
+        .catch(function(err){
+          console.log('err', err)
+        })
+    }
 
 //updating a project status
     this.updateActiveProject = function () {
@@ -92,6 +103,7 @@
 
             if (self.activeProject.taskList[x].taskTimeList[i].stop) {
             } else {
+              getUser();
               if (self.activeProject.taskList[x].taskTimeList[i].userId == self.currentUser._id) {
                 taskStatus = {
                   outstanding: true,
