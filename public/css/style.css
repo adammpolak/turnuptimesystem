@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+body {
+    color: #454545;
+}
+
 .nice-button {
   border-style: solid;
   border-width: 0px 0px 3px;
@@ -22,6 +26,7 @@
   font-size: 14px;
   border-color: #326E99;
   background-color:  #1269B2;
+  cursor: pointer;
 }
 
 .remove {
@@ -164,11 +169,13 @@ textarea.input-description {
 
 #align-button {
   flex: .5;
+  cursor: pointer;
 }
 
 .align-details {
   flex: 1;
   font-size: 14px;
+  cursor:pointer;
 }
 
 .align-details:hover {
@@ -195,6 +202,7 @@ div.s-button {
     background: white;
     box-shadow: 0 0 3px white;
     font-size:30px;
+    cursor: pointer;
 }
 div.s-button:hover {
     background:#1269B2;
@@ -226,10 +234,6 @@ fieldset {
 .task-container {
   text-align: left;
 }
-
-/*#project-title {
-  color: #CCCCCC;
-}*/
 
 #align,
 #align-complete {
@@ -413,6 +417,10 @@ nav.tabs {
   justify-content: center;
   margin: -22vh -2.5vh -2.5vh 35.5vh;
   background: #CCCCCC;
+}
+
+a {
+  cursor: pointer;
 }
 
 a,
