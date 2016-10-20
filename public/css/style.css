@@ -111,7 +111,7 @@ textarea.input-description,
 }
 
 .project-description {
-  width:70%;
+  width:50%;
   margin: auto;
 }
 
@@ -163,15 +163,16 @@ div.s-button {
     height:30px;
     line-height:30px;
     border: 2px solid #f5f5f5;
-    color: white;
+    color: #1269B2;
     text-align: center;
     text-decoration:none;
-    background: #B26C00;
+    background: white;
     box-shadow: 0 0 3px white;
-    font-size:20px;
+    font-size:30px;
 }
 div.s-button:hover {
-    background: #FF9A00;
+    background:#1269B2;
+    color: white;
 }
 
 fieldset {
@@ -181,14 +182,17 @@ fieldset {
 #new-project-cont,
 #edit-project-cont {
   text-align: center;
-  background-color: #E4F3FF;
+  /*background-color: #E4F3FF;*/
+  background: #CCCCCC;
   padding: 4vh;
 }
 
 .project-container {
   text-align: center;
   /*border-radius: 4px;*/
-  background-color: #E4F3FF;
+  /*background-color: #E4F3FF;*/
+  background: #CCCCCC;
+  /*background: #454545;*/
   padding: 4vh;
   line-height: 40px;
 }
@@ -196,6 +200,10 @@ fieldset {
 .task-container {
   text-align: left;
 }
+
+/*#project-title {
+  color: #CCCCCC;
+}*/
 
 #align,
 #align-complete {
@@ -224,10 +232,10 @@ fieldset {
   /*text-align: center;*/
   background:  #1269B2;
   padding: 5px;
-  width: 120px;
-  height: 110px;
+  width: 100px;
+  height: 100px;
   margin: 10px;
-  line-height: 100px;
+  /*line-height: 100px;*/
   color: white;
   font-weight: bold;
   font-size: 1em;
@@ -236,11 +244,13 @@ fieldset {
 
 .project-list {
   background:  #1269B2;
+  /*background: #CCCCCC;*/
+  /*background: #1999FF;*/
   padding: 5px;
   width: 100px;
   height: 100px;
   margin: 10px;
-  line-height: 100px;
+  /*line-height: 60px;*/
   color: white;
   font-weight: bold;
   font-size: 1em;
@@ -255,6 +265,8 @@ fieldset {
 .project-list:hover,
 .add-project:hover {
   background-color: #1999FF;
+  /*color: #1269B2;*/
+  /*color: #CCCCCC;*/
 }
 
 .landing,
@@ -283,35 +295,42 @@ main {
   margin: -1vh;
 }
 
-nav {
+nav.tabs {
   padding: 3.5vh 3.5vh 3.5vh 3.5vh;
   display: flex;
   justify-content: center;
-  margin: -14vh -2.5vh -2.5vh 10.5vh;
-  /*background-color: #E4F3FF;*/
+  margin: -12vh -2.5vh -2.5vh 35.5vh;
+  /*background-color: #454545;*/
+  /*background: #E4F3FF;*/
+  /*background: #1269B2;*/
+  background: #CCCCCC;
 }
-
+/*#E4F3FF*/
 a,
 .complete {
   text-decoration: none;
   padding: 0 3vw 0 3vh;
   font-family: Arial Black;
-  color: #B26D00;
+  /*color: #B26D00;*/
+  color: #454545;
+  /*color: white;*/
 }
 
 a:hover {
+  /*color: #CCCCCC;*/
   color: #1269B2;
+  /*color: #454545;*/
 }
 
 .viewport {
   background-repeat: no-repeat;
-  background-position:left;
-  background-image: url('TUTS-01.png');
+  /*background-position:left;*/
+  background-image: url('TUTS1-02.png');
   height: 110vh;
   zoom: .15;
   z-index: 1;
   /*background-color: #E4F3FF;*/
-  padding: 0vh 0 8vh 0;
+  /*padding: 0vh 0 8vh vw;*/
 }
 
 #add {
