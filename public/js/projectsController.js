@@ -87,6 +87,7 @@
 
 //display a project
     this.displayThisProject = function(index) {
+      getUser();
       $http.get('/api/projects')
       .then(function(response) {
         self.allProjects = response.data;
@@ -103,7 +104,6 @@
 
             if (self.activeProject.taskList[x].taskTimeList[i].stop) {
             } else {
-              getUser();
               if (self.activeProject.taskList[x].taskTimeList[i].userId == self.currentUser._id) {
                 taskStatus = {
                   outstanding: true,
