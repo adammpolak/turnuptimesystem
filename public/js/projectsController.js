@@ -245,6 +245,15 @@
     }
     this.updateTimes()
 
+//Logout Flash
+  function logFlash() {
+    $http.delete('/api/users/logout')
+      .then(function(response){
+        $state.go('landing', {url: '/'});
+        infoAlert('You have been logged out!')
+      });
+  }
+  this.logFlash = logFlash;
 //Flash starts here
   function passAlert(msg){
     var id = Flash.create('success', msg, 7000, {class: 'flashAlert'}, true);
