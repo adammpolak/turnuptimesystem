@@ -14,12 +14,10 @@
 <!-- <div id='column2'> -->
 <h4>Tasks</h4>
 <div class='task-container'>
-<div ng-repeat='task in projects.activeProject.taskList track by $index'>
-  <h5>{{task.name}}</h5>
-  <h6>{{task.description}}
-      {{task.totalTime}}</h6>
-      <button ng-click='projects.updateTaskTimePeriod($index)' ng-if='!projects.activeUserTaskStates[$index].outstanding'>start</button>
-      <button ng-click='projects.updateTaskTimePeriod($index)' ng-if='projects.activeUserTaskStates[$index].outstanding'>stop</button>
+<div ng-repeat='task in projects.activeProject.taskList track by $index' ng-init='$rowIndex = $index'>
+  <h5>{{task.name}} | {{task.description}} | Total Time:  {{projects.allProjectsTotalTime[projects.activeIndex].taskObjectArray[$rowIndex].taskTotalTime}}</h5>
+      <button ng-click='projects.updateTaskTimePeriod($rowIndex)' ng-if='!projects.activeUserTaskStates[$rowIndex].outstanding'>start</button>
+      <button ng-click='projects.updateTaskTimePeriod($rowIndex)' ng-if='projects.activeUserTaskStates[$rowIndex].outstanding'>stop</button>
   <p class='task-details' ng-click='showDetails = !showDetails'>Details</p>
     <div ng-repeat="timeperiod in task.taskTimeList | orderBy: '-start'" ng-show='showDetails'>
       user: {{timeperiod.user}} | start: {{timeperiod.start | date : 'short'}} | stop: {{timeperiod.stop | date : 'short'}}
@@ -28,5 +26,6 @@
 </div>
 </div>
 </div>
+<!-- {{projects.allProjectsTotalTime[projects.activeIndex].taskObjectArray[$rowIndex].timeperiodObjectArray[$index].stopTime -->
 <!-- in order to make the dot notation work - KEEP -->
 <!-- <div ui-view><div> -->

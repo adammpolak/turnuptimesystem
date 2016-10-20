@@ -2,20 +2,20 @@
 <div id='edit-project-cont'>
 <h2>Edit Project</h2>
 
-<form ng-submit='projects.updateActiveProject(); projects.getToProject()'>
+<form ng-submit='projects.updateActiveProject(); projects.getToProject()' >
         <div class="project-edit">
           <label for="name">Project Name</label><br>
           <input type="text" ng-model='projects.activeProject.projectName'><br><br>
           <label for="description">Project Description</label>
           <input type="text" ng-model='projects.activeProject.projectDescription'>
         </div><br>
-        <fieldset data-ng-repeat='task in projects.activeProject.taskList track by $index'><br>
+        <fieldset ng-repeat='task in projects.activeProject.taskList track by $index'><br>
           <input type="text" ng-model='task.name' placeholder="task name"><br>
           <input type="text" ng-model='task.description' placeholder="task description"><br>
-          <button class='remove' ng-click='projects.editRemoveTask(index)' name="button">remove</button>
+          <button class='remove' ng-click='projects.editRemoveTask($index)' name="button">remove</button>
         </fieldset>
         <br><br>
-        <button type="button" ng-click='projects.editAddTask()'>Create New Task</button>
+        <button type="button" ng-click='projects.editAddTask($index)'>Create New Task</button>
         <div class="tasks" id='taskList'>
         </div>
         <button type="submit">Submit</button>
