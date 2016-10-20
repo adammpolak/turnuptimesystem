@@ -22,7 +22,6 @@
       var now = new Date();
       //this checks if there is an outstanding timeperiod for the current user
       if (self.activeUserTaskStates[index].outstanding === true) {
-        warnAlert('Clocked Out!');
         var timePeriodIndex = self.activeUserTaskStates[index].indexPosition;
         self.activeProject.taskList[index].taskTimeList[timePeriodIndex].stop = now;
         self.activeUserTaskStates[index] = {
@@ -32,7 +31,6 @@
         //this is run if this task has outstanding time state
       } else {
         //this is run if the task does not have outstanding time state
-        infoAlert('Clocked in!');
         var newTimePeriodObject = {
           userId: self.currentUser._id,
           user: self.currentUser.username,
@@ -68,7 +66,6 @@
       console.log(self.activeProject);
       $http.put(`/api/projects/project`, self.activeProject)
       .then(function(response){
-        passAlert('Update successful!');
         console.log(response);
       })
     }
