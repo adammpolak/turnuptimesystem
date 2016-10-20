@@ -1,11 +1,12 @@
 <br><br><br><br><br>
+<div class='account-container'>
 <div class='account' ng-controller='authControl as auth'>
-<h2>Hey there, {{projects.currentUser.username}}</h2><br>
+<h2>Hey there, {{projects.currentUser.username}}<br>Welcome to your dashboard</h2><br>
 <h3 class='account-user' ng-click='showUsername = !showUsername'>update username</h3><br>
 <form class="update-username" ng-submit="auth.updateUsername(projects.currentUser)" method="post" ng-show='showUsername'>
   <input type="text" name="username" ng-model="projects.currentUser.username"><br><br>
   <button class='nice-button' type="submit" name="update">Update</button>
-</form><br>
+</form>
 <h3 class='account-user' ng-click='showPassword = !showPassword'>
   update password</h3><br>
   <form class="update-password" ng-submit="auth.setPassword(projects.currentUser)" method="POST" ng-show='showPassword'>
@@ -15,4 +16,9 @@
     <button class='nice-button' type="submit" name="update">Update</button>
   </form>
   <br><br>
+</div>
+</div>
+<br><br>
+<div class='dashboard'>
+  <h2>DASHBOARD GOODS HERE</h2>
 </div>
