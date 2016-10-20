@@ -80,7 +80,8 @@ form.update-password select {
   margin-bottom: 30px;
 }
 
-textarea.input-description {
+textarea.input-description,
+.input-description {
   font-family: Georgia, "Times New Roman", Times, serif;
   background: rgba(255,255,255,.1);
   border: none;
