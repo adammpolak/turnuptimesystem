@@ -4,19 +4,19 @@
 <br>
 <form class='input-name' ng-submit="projects.addProject(newProject)">
         <div class="">
-          <label for="name">Project Name</label><br>
-          <input class='input-name' type="text" ng-model='newProject.projectName'><br><br>
-          <label for="description">Project Description</label><br>
-          <textarea class='input-description' type="text" ng-model='newProject.projectDescription'></textarea>
+          <!-- <label for="name">Project Name</label><br> -->
+          <input class='input-name' type="text" placeholder='project name' ng-model='newProject.projectName'><br><br>
+          <!-- <label for="description">Project Description</label><br> -->
+          <textarea class='input-description' type="text" placeholder='project description' ng-model='newProject.projectDescription'></textarea>
         </div><br>
         <fieldset data-ng-repeat='task in projects.newProjectTasks'>
           <input class='input-task-name' type="text" ng-model='task.name' placeholder="task name">
           <input class='input-task-description' type="text" ng-model='task.description' placeholder="task description">
           <button class='remove' ng-show='$last' ng-click='projects.removeTask()' name="button">Remove Task</button><br>
         </fieldset><br>
-        <button type="button" ng-click='projects.addTask()'>Create New Task</button>
-        <div class="tasks" id='taskList'>
-        </div>
-        <button type="submit">Create Project!</button>
+        <button class='nice-button' type="button" ng-click='projects.addTask()'>Create New Task</button>
+        <div class="tasks" class='taskList'>
+        </div><br>
+        <button  class='nice-button' type="submit">Create Project!</button>
       </form>
 </div>

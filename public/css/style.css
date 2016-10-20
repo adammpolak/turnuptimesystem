@@ -3,25 +3,103 @@
   margin: 0;
 }
 
-form.input-name input,
-form.input-name select{
-  min-width: 22%;
-  height: 5vh;
-  /*font-size: 1em;*/
-  background: white;
+.nice-button {
+  border-style: solid;
+  border-width: 0px 0px 3px;
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-style: normal;
+  overflow: hidden;
   text-align: center;
-  border: 1px solid #601a10;
-  /*border-radius: 0.5em;*/
+  text-decoration: none;
+  text-overflow: ellipsis;
+  transition: all 200ms ease-in-out 0s;
+  white-space: nowrap;
+  font-weight: 700;
+  padding: 19px 39px 18px;
+  font-size: 14px;
+  border-color: #326E99;
+  background-color:  #1269B2;
 }
 
-textarea.input-description {
-  min-width: 50%;
-  height: 10vh;
-  /*font-size: 1em;*/
-  background: white;
+.remove {
+  border-style: solid;
+  border-width: 0px 0px 3px;
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-style: normal;
+  overflow: hidden;
   text-align: center;
-  border: 1px solid #601a10;
-  /*border-radius: 0.5em;*/
+  text-decoration: none;
+  text-overflow: ellipsis;
+  transition: all 200ms ease-in-out 0s;
+  white-space: nowrap;
+  font-weight: 700;
+  padding: 6px 26px 5px;
+  font-size: 12px;
+  border-color: #326E99;
+  background-color:  #1269B2;
+}
+
+.nice-button:hover,
+.remove:hover {
+  background-color: #1999FF;
+  border-color: #326E99;
+}
+
+#password {
+  font-size: 12px;
+}
+
+form.input-name input,
+form.input-name select,
+form.update-username input,
+form.update-username select,
+form.update-password input,
+form.update-password select {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background: rgba(255,255,255,.1);
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  margin: 0;
+  outline: 0;
+  padding: 7px;
+  min-width: 22%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background-color: white;
+  color:#8a97a0;
+  -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 30px;
+}
+
+textarea.input-description,
+.input-description {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background: rgba(255,255,255,.1);
+  border: none;
+  height: 10vh;
+  border-radius: 4px;
+  font-size: 16px;
+  margin: 0;
+  outline: 0;
+  padding: 7px;
+  min-width: 50%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background-color: white;
+  color:#8a97a0;
+  -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 30px;
 }
 
 .input-task-name {
@@ -33,7 +111,7 @@ textarea.input-description {
 }
 
 .project-description {
-  width:70%;
+  width:50%;
   margin: auto;
 }
 
@@ -53,13 +131,18 @@ textarea.input-description {
    flex: 1;
 }
 
+.align-time {
+  flex: 1;
+  font-size: 14px;
+}
+
 .align-description {
-   flex: 3;
+   flex: 2;
    font-size: 14px;
 }
 
 #align-button {
-  flex: 1;
+  flex: .5;
 }
 
 .align-details {
@@ -85,15 +168,16 @@ div.s-button {
     height:30px;
     line-height:30px;
     border: 2px solid #f5f5f5;
-    color: white;
+    color: #1269B2;
     text-align: center;
     text-decoration:none;
-    background: #B26C00;
+    background: white;
     box-shadow: 0 0 3px white;
-    font-size:20px;
+    font-size:30px;
 }
 div.s-button:hover {
-    background: #FF9A00;
+    background:#1269B2;
+    color: white;
 }
 
 fieldset {
@@ -103,14 +187,17 @@ fieldset {
 #new-project-cont,
 #edit-project-cont {
   text-align: center;
-  background-color: #E4F3FF;
+  /*background-color: #E4F3FF;*/
+  background: #CCCCCC;
   padding: 4vh;
 }
 
 .project-container {
   text-align: center;
   /*border-radius: 4px;*/
-  background-color: #E4F3FF;
+  /*background-color: #E4F3FF;*/
+  background: #CCCCCC;
+  /*background: #454545;*/
   padding: 4vh;
   line-height: 40px;
 }
@@ -118,6 +205,10 @@ fieldset {
 .task-container {
   text-align: left;
 }
+
+/*#project-title {
+  color: #CCCCCC;
+}*/
 
 #align,
 #align-complete {
@@ -138,16 +229,33 @@ fieldset {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
 }
 
-.project-list {
+.add-project {
+  /*text-align: center;*/
   background:  #1269B2;
   padding: 5px;
   width: 100px;
   height: 100px;
   margin: 10px;
-  line-height: 100px;
+  /*line-height: 100px;*/
+  color: white;
+  font-weight: bold;
+  font-size: 1em;
+  text-align: center;
+}
+
+.project-list {
+  background:  #1269B2;
+  /*background: #CCCCCC;*/
+  /*background: #1999FF;*/
+  padding: 5px;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  /*line-height: 60px;*/
   color: white;
   font-weight: bold;
   font-size: 1em;
@@ -157,6 +265,13 @@ fieldset {
   display: flex;
   justify-content:space-between;
   flex-wrap: wrap;*/
+}
+
+.project-list:hover,
+.add-project:hover {
+  background-color: #1999FF;
+  /*color: #1269B2;*/
+  /*color: #CCCCCC;*/
 }
 
 .landing,
@@ -175,10 +290,6 @@ main {
   font-family: Arial;
 }
 
-/*header {
-
-}*/
-
 .heading {
   font-family: Arial Black;
   padding: 2vh 0 0 2vh;
@@ -189,45 +300,67 @@ main {
   margin: -1vh;
 }
 
-nav {
+nav.tabs {
   padding: 3.5vh 3.5vh 3.5vh 3.5vh;
   display: flex;
-  justify-content: flex-end;
-  margin: -3.5vh;
-  background-color: #E4F3FF;
+  justify-content: center;
+  margin: -12vh -2.5vh -2.5vh 35.5vh;
+  /*background-color: #454545;*/
+  /*background: #E4F3FF;*/
+  /*background: #1269B2;*/
+  background: #CCCCCC;
 }
-
+/*#E4F3FF*/
 a,
 .complete {
   text-decoration: none;
   padding: 0 3vw 0 3vh;
   font-family: Arial Black;
-  color: #B26D00;
+  /*color: #B26D00;*/
+  color: #454545;
+  /*color: white;*/
 }
 
 a:hover {
+  /*color: #CCCCCC;*/
   color: #1269B2;
+  /*color: #454545;*/
 }
 
-.add-project {
+.viewport {
+  background-repeat: no-repeat;
+  /*background-position:left;*/
+  background-image: url('TUTS1-02.png');
+  height: 110vh;
+  zoom: .15;
+  z-index: 1;
+  /*background-color: #E4F3FF;*/
+  /*padding: 0vh 0 8vh vw;*/
+}
+
+#add {
+    margin: 0 0 0 2vw;
+}
+
+/*.add-project {
   margin: 2vw;
   color:  #E4F3FF;
   padding: 2.5vh;
-  background: #1269B2;
+  background: #1269B2;*/
   /*-webkit-border-radius: 4px;
   -moz-border-radius: 4px;*/
   /*border-radius: 4px;*/
   /*border: solid 1px #20538D;*/
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+  /*text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px;
-}
+}*/
 
-.add-project:hover {
+/*.add-project:hover {
   color: #1269B2;
   background: #E4F3FF;
-}
+}*/
 
 .proj-container {
   display: flex;
@@ -244,23 +377,6 @@ a:hover {
 @font-face {
   font-family: 'Lemon Milk';
   src: url('LemonMilk.otf');
-}
-
-.button {
-  padding: 3px 5px;
-  background: #E4F3FF;
-  color: #B26D00;
-  text-align: center;
-  /*-webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;*/
-  /*border: solid 1px #20538D;*/
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
-  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
-  min-width: 10%;
-  font-size: 18px;
 }
 
 form.register input,
