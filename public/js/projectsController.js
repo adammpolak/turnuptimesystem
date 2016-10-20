@@ -54,13 +54,13 @@
     }
 
 //active user
-    $http.get('/api/helpers/get-user')
-      .then(function(response) {
-        self.currentUser = response.data.user;
-      })
-      .catch(function(err){
-        console.log('err', err)
-      })
+    // $http.get('/api/helpers/get-user')
+    //   .then(function(response) {
+    //     self.currentUser = response.data.user;
+    //   })
+    //   .catch(function(err){
+    //     console.log('err', err)
+    //   })
 
     function getUser(){
       $http.get('/api/helpers/get-user')
