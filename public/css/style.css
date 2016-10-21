@@ -381,10 +381,16 @@ a.clock:before {
 }
 
 .dashboard {
-  width: 800px;
+  /*width: 800px;*/
   height: 1500px;
   background: #CCCCCC;
   margin: auto;
+}
+
+.graphs {
+  width: 800px;
+  margin: auto;
+  /*text-align: center;*/
 }
 
 .landing,
