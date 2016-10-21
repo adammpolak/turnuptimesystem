@@ -270,7 +270,7 @@
     function accountsView() {
       getUser();
       //console.log("what is this user", this.currentUser);;
-      $http.get(`api/projects/ttt/${"test"}`)
+      $http.get(`api/projects/ttt/${"Bread making"}`)
         .then(function(response) {
           console.log("stats======", response.data);
           self.userStats = response.data;
