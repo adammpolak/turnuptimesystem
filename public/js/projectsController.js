@@ -266,24 +266,26 @@
     }
     this.updateTimes()
 
-    //go to accounts
     function accountsView() {
-      getUser();
-      //console.log("what is this user", this.currentUser);;
-      $http.get(`api/projects/ttt/${"test"}`)
-        // $http.get(`api/projects/ttt/${self.currentUser}`)
-        .then(function(response) {
-          console.log("stats======", response.data);
-          self.userStats = response.data;
-          console.log("stats===2===", self.userStats);
-          //$state.go('account', {url: '/account'});
-          $location.path('/account');
-        })
-        .catch(function(err) {
-          console.log(err);
-        })
-    };
-    this.accountsView = accountsView;
+     getUser();
+     $http.get('/api/helpers/get-user')
+       .then(function(response) {
+         this.myUserName = response.data.user.username;
+         console.log("what is this user", this.myUserName);
+         $http.get(`api/projects/ttt/${this.myUserName}`)
+         .then(function(response){
+           console.log("stats======", response.data);
+           self.userStats = response.data;
+           console.log("stats===2===", self.userStats);
+           //$state.go('account', {url: '/account'});
+           $location.path('/account');
+         })
+       })
+       .catch(function(err) {
+         console.log(err);
+       })
+   };
+   this.accountsView = accountsView;
 
 //Logout Flash
   function logFlash() {

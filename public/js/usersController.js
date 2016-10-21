@@ -48,18 +48,6 @@
       var id = Flash.create('danger', reason, 7000, { class: 'flashAlert'}, true);
     }
 
-    // var updateUsername = function(user) {
-    //   console.log('clicked', user, 'from updateUsername function');
-    //   console.log(user._id, 'from updateUsername function');
-    //   $http.patch(`/api/users/${user._id}`, user)
-    //   .then(function(response) {
-    //     console.log(response);
-    //   })
-    //   .catch(function(error) {
-    //     console.log(error);
-    //   })
-    // }
-
     var setPassword = function(userObj) {
       successAlert('<strong>Success!</strong> Password change completed.')
       $http.patch(`api/users/${userObj._id}`, {username: userObj.username, password: userObj.password, passwordConfirmation: userObj.passwordConfirmation})
@@ -69,6 +57,5 @@
     this.register = register;
     this.userObject;
     this.setPassword = setPassword;
-    // this.updateUsername = updateUsername;
   };
 })();
