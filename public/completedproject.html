@@ -9,11 +9,12 @@
 <p class='project-description'>{{projects.activeProject.projectDescription}}</p>
 <br>
 <div class='task-container'>
-<div ng-repeat='task in projects.activeProject.taskList'>
+<div ng-repeat='task in projects.activeProject.taskList track by $index'>
   <div class='align'>
   <h5 class='align-name'>{{task.name}}</h5>
   <p class='align-description'>{{task.description}}</p>
-  <p class='align-time'>Total Time:  {{projects.allProjectsTotalTime[projects.activeIndex].taskObjectArray[$rowIndex].totalH}}:{{projects.allProjectsTotalTime[projects.activeIndex].taskObjectArray[$rowIndex].totalM}}<span class='secondstask'>:{{projects.allProjectsTotalTime[projects.activeIndex].taskObjectArray[$rowIndex].totalS}}</span></p>
+  <p class='align-time'>Total Time:
+     {{projects.allProjectsTotalTime[projects.activeIndex].taskObjectArray[$index].totalH}}:{{projects.allProjectsTotalTime[projects.activeIndex].taskObjectArray[$index].totalM}}<span class='secondstask'>:{{projects.allProjectsTotalTime[projects.activeIndex].taskObjectArray[$index].totalS}}</span></p>
   <p class='align-details' class='task-details' ng-click='showDetails = !showDetails'>Click for details</p></div>
     <div ng-repeat="timeperiod in task.taskTimeList | orderBy: '-start'" ng-show='showDetails'>
       <p class='details'>user: {{timeperiod.user}} | start: {{timeperiod.start | date : 'short'}} | stop: {{timeperiod.stop | date : 'short'}}</p><hr>
