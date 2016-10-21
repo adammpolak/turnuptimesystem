@@ -6,6 +6,7 @@
   function projectsController($http, $location, $state, Flash, $timeout) {
     var self = this;
 
+    this.userStats = {};
     this.allProjects = [];
     this.completedprojects = [];
     this.activeProject = {};
@@ -264,6 +265,24 @@
       $timeout(self.updateTimes, 1000);
     }
     this.updateTimes()
+
+    //go to accounts
+    function accountsView() {
+      //getUser();
+      //console.log("what is this user", this.currentUser);;
+      $http.get(`api/projects/ttt/${"UserSix"}`)
+        .then(function(response) {
+          console.log("stats======", response.data);
+          self.userStats = response.data;
+          console.log("stats===2===", self.userStats);
+          //$state.go('account', {url: '/account'});
+          $location.path('/account');
+        })
+        .catch(function(err) {
+          console.log(err);
+        })
+    };
+    this.accountsView = accountsView;
 
 //Logout Flash
   function logFlash() {

@@ -529,3 +529,24 @@ z-index: 5;
 .seconds {
   font-size: .8em;
 }
+
+
+.bar-chart {
+display: block;
+height: 300px;
+position: relative;
+border-left: 1px solid #668284;
+border-bottom: 1px solid #668284;
+}
+.bar-chart td {
+position: absolute;
+width: 20px;
+bottom: 0;
+}
+.bar-chart .legend {
+bottom: -40px;
+}
+.bar-chart .time {
+background: #668284;
+margin-left: 30px;
+}
