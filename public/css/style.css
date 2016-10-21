@@ -377,13 +377,20 @@ a.clock:before {
   width: 40%;
   background: #CCCCCC;
   padding: 4vh 1vh 1vh 1vh;
+  margin: auto;
 }
 
 .dashboard {
-  width: 800px;
-  height: 800px;
+  /*width: 800px;*/
+  height: 1500px;
   background: #CCCCCC;
   margin: auto;
+}
+
+.graphs {
+  width: 800px;
+  margin: auto;
+  /*text-align: center;*/
 }
 
 .landing,
@@ -528,4 +535,36 @@ z-index: 5;
 }
 .seconds {
   font-size: .8em;
+}
+
+.account-project-name:hover {
+  color:  #1269B2;
+}
+
+.bar-chart {
+display: block;
+height: 100px;
+position: relative;
+border-left: 1px solid #668284;
+border-bottom: 1px solid #668284;
+}
+.bar-chart td {
+position: absolute;
+width: 20px;
+bottom: 0;
+}
+.bar-chart .legend {
+bottom: -40px;
+text-align: center;
+}
+.bar-chart .time {
+background:  #1269B2;
+font-size: 12px;
+color: white;
+margin-left: 30px;
+}
+
+.data {
+  text-align:center;
+  padding-top: 2vh;
 }
