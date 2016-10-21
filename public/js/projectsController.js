@@ -271,6 +271,7 @@
       getUser();
       //console.log("what is this user", this.currentUser);;
       $http.get(`api/projects/ttt/${"Bread making"}`)
+        $http.get(`api/projects/ttt/${self.currentUser}`)
         .then(function(response) {
           console.log("stats======", response.data);
           self.userStats = response.data;
