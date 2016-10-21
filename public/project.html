@@ -15,7 +15,6 @@
   <div class='align'>
   <h5 class='align-name'>{{task.name}}</h5>
   <p class='align-description'>{{task.description}}
-      {{task.totalTime}}</p>
   <p class='align-time'>Total Time:  {{projects.allProjectsTotalTime[projects.activeIndex].taskObjectArray[$rowIndex].totalH}}:{{projects.allProjectsTotalTime[projects.activeIndex].taskObjectArray[$rowIndex].totalM}}<span class='secondstask'>:{{projects.allProjectsTotalTime[projects.activeIndex].taskObjectArray[$rowIndex].totalS}}</span></p>
       <div id='align-button'>
       <button class='play' ng-click='projects.updateTaskTimePeriod($rowIndex)' ng-if='!projects.activeUserTaskStates[$rowIndex].outstanding'><div class='s-button'>&#9656</div></button>
