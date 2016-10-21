@@ -216,6 +216,7 @@
         };
         for (var i = 0; i<self.allProjects[x].taskList.length; i++){
           //now we are cycling through the specific project tasks
+          console.log(self.allProjectsTotalTime);
           var taskTimeObject = {
             taskTotalTime: 0,
             timeperiodObjectArray: [],
