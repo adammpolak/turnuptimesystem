@@ -2,11 +2,6 @@
 <div class='account-container'>
 <div class='account' ng-controller='authControl as auth'>
 <h2>Hey there, {{projects.currentUser.username}}<br>Welcome to your dashboard</h2><br>
-<h3 class='account-user' ng-click='showUsername = !showUsername'>update username</h3><br>
-<form class="update-username" ng-submit="auth.updateUsername(projects.currentUser)" method="post" ng-show='showUsername'>
-  <input type="text" name="username" ng-model="projects.currentUser.username"><br><br>
-  <button class='nice-button' type="submit" name="update">Update</button>
-</form>
 <h3 class='account-user' ng-click='showPassword = !showPassword'>
   update password</h3><br>
   <form class="update-password" ng-submit="auth.setPassword(projects.currentUser)" method="POST" ng-show='showPassword'>

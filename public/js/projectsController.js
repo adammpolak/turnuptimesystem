@@ -18,11 +18,11 @@
     this.allProjectsTotalTime = [];
 //update time for a certain task
     this.updateTaskTimePeriod = function(index){
+      getUser();
       console.log(index);
       var now = new Date();
       //this checks if there is an outstanding timeperiod for the current user
       if (self.activeUserTaskStates[index].outstanding === true) {
-        warnAlert('Clocked Out!');
         var timePeriodIndex = self.activeUserTaskStates[index].indexPosition;
         self.activeProject.taskList[index].taskTimeList[timePeriodIndex].stop = now;
         self.activeUserTaskStates[index] = {
@@ -32,7 +32,6 @@
         //this is run if this task has outstanding time state
       } else {
         //this is run if the task does not have outstanding time state
-        infoAlert('Clocked in!');
         var newTimePeriodObject = {
           userId: self.currentUser._id,
           user: self.currentUser.username,
@@ -55,20 +54,29 @@
     }
 
 //active user
-    $http.get('/api/helpers/get-user')
-      .then(function(response) {
-        self.currentUser = response.data.user;
-      })
-      .catch(function(err){
-        console.log('err', err)
-      })
+    // $http.get('/api/helpers/get-user')
+    //   .then(function(response) {
+    //     self.currentUser = response.data.user;
+    //   })
+    //   .catch(function(err){
+    //     console.log('err', err)
+    //   })
+
+    function getUser(){
+      $http.get('/api/helpers/get-user')
+        .then(function(response) {
+          self.currentUser = response.data.user;
+        })
+        .catch(function(err){
+          console.log('err', err)
+        })
+    }
 
 //updating a project status
     this.updateActiveProject = function () {
       console.log(self.activeProject);
       $http.put(`/api/projects/project`, self.activeProject)
       .then(function(response){
-        passAlert('Update successful!');
         console.log(response);
       })
     }
@@ -79,6 +87,7 @@
 
 //display a project
     this.displayThisProject = function(index) {
+      getUser();
       $http.get('/api/projects')
       .then(function(response) {
         self.allProjects = response.data;
@@ -224,6 +233,8 @@
             if (timeperiod.stop) {
               var stopTime = new Date(timeperiod.stop)
               var timeperiodTime = stopTime-startTime;
+              var calculated = [Math.floor((timeperiodTime/1000)%60), Math.floor((timeperiodTime/(1000*60))%60), Math.floor((timeperiodTime/(1000*60*60))%24)];
+              timeperiodTime = calculated.reverse().join(':');
               taskTimeObject.taskTotalTime += timeperiodTime;
               var timePeriodTimeObject = {
                 stopTime: timeperiod.stop,
@@ -231,6 +242,8 @@
               };
             } else {
               var timeperiodTime = now - startTime;
+              var calculated = [Math.floor((timeperiodTime/1000)%60), Math.floor((timeperiodTime/(1000*60))%60), Math.floor((timeperiodTime/(1000*60*60))%24)];
+              timeperiodTime = calculated.reverse().join(':');
               taskTimeObject.taskTotalTime += timeperiodTime;
               var timePeriodTimeObject = {
                 stopTime: now,
