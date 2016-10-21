@@ -29,7 +29,6 @@
             authFail(res.data.message);
           } else {
             self.user = res.data.user;
-            console.log(self.user)
             $state.go('projects', {url: '/projects'});
             loginSuccess()
           }
@@ -62,8 +61,6 @@
     // }
 
     var setPassword = function(userObj) {
-      console.log('clicked');
-      console.log(userObj, 'from updatePassword Function');
       successAlert('<strong>Success!</strong> Password change completed.')
       $http.patch(`api/users/${userObj._id}`, {username: userObj.username, password: userObj.password, passwordConfirmation: userObj.passwordConfirmation})
     }
