@@ -13,4 +13,4 @@ When a project is completed, the user can click the Completed? button and the pr
 The Account page displays the dashboard for the app. Here the user can update their password and view other statistics about their projects, tasks and use of the app.
 
 Wireframes in wiki: https://github.com/adammpolak/turnuptimesystem/wiki
-More detailed user stories in issues.
+More detailed user stories in issue #6.
