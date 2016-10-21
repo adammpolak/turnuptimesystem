@@ -19,7 +19,6 @@
 //update time for a certain task
     this.updateTaskTimePeriod = function(index){
       getUser();
-      console.log(index);
       var now = new Date();
       //this checks if there is an outstanding timeperiod for the current user
       if (self.activeUserTaskStates[index].outstanding === true) {
@@ -38,7 +37,6 @@
           start: now,
           stop: null,
         }
-        console.log(self.activeProject.taskList[index]);
         if (self.activeProject.taskList[index].taskTimeList) {
           self.activeProject.taskList[index].taskTimeList.push(newTimePeriodObject);
         } else {
@@ -74,14 +72,11 @@
 
 //updating a project status
     this.updateActiveProject = function () {
-      console.log(self.activeProject);
       $http.put(`/api/projects/project`, self.activeProject)
       .then(function(response){
-        console.log(response);
       })
     }
     this.goToNewProject = function(){
-      console.log('frank');
       $location.path('/projects/project/new')
     }
 
@@ -157,7 +152,6 @@
         warnAlert('Moved Project to Completed')
       }
       self.activeProject.completed = !self.activeProject.completed;
-      console.log(self.activeProject);
       self.updateActiveProject();
     }
 
@@ -181,8 +175,6 @@
 
     var addProject = function(project) {
       project.taskList = self.newProjectTasks;
-      console.log('clicked add project button')
-      console.log(project);
       var send = {
         project: project
       };
@@ -235,7 +227,6 @@
             //now we are cycling through the specific time periods
             var timeperiod = self.allProjects[x].taskList[i].taskTimeList[j];
             var startTime = new Date(timeperiod.start);
-            console.log(timeperiod);
             if (timeperiod.stop) {
               var stopTime = new Date(timeperiod.stop)
               var timeperiodTime = stopTime-startTime;
@@ -265,13 +256,10 @@
           projectTimeObject.projectTotalM = calcMin(projectTimeObject.projectTotalTime);
           projectTimeObject.projectTotalS = calcSec(projectTimeObject.projectTotalTime);
           projectTimeObject.taskObjectArray.push(taskTimeObject);
-          console.log(projectTimeObject.taskObjectArray)
         }
         tempProjectsTotalTimeArray.push(projectTimeObject);
       }
       self.allProjectsTotalTime = tempProjectsTotalTimeArray;
-      // console.log(self.allProjectsTotalTime);
-      console.log(self.allProjectsTotalTime);
       $timeout(self.updateTimes, 1000);
     }
     this.updateTimes()
