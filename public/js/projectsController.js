@@ -220,6 +220,7 @@
             //now we are cycling through the specific time periods
             var timeperiod = self.allProjects[x].taskList[i].taskTimeList[j];
             var startTime = new Date(timeperiod.start);
+            console.log(timeperiod);
             if (timeperiod.stop) {
               var stopTime = new Date(timeperiod.stop)
               var timeperiodTime = stopTime-startTime;
