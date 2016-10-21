@@ -217,7 +217,7 @@
         };
         for (var i = 0; i<self.allProjects[x].taskList.length; i++){
           //now we are cycling through the specific project tasks
-          console.log(self.allProjectsTotalTime);
+          // console.log(self.allProjectsTotalTime);
           var taskTimeObject = {
             taskTotalTime: 0,
             timeperiodObjectArray: [],
@@ -268,9 +268,9 @@
 
     //go to accounts
     function accountsView() {
-      //getUser();
+      getUser();
       //console.log("what is this user", this.currentUser);;
-      $http.get(`api/projects/ttt/${"UserSix"}`)
+      $http.get(`api/projects/ttt/${"test"}`)
         .then(function(response) {
           console.log("stats======", response.data);
           self.userStats = response.data;

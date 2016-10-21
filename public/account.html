@@ -15,24 +15,22 @@
 </div>
 <br><br>
 <div class='dashboard'>
-  <h2>DASHBOARD GOODS HERE</h2>
+  <h2 class='data'>Your Data</h2>
 
   <div class="container" ng-model="userStats">
-    <p>Total time for {{projects.userStats.user}} is: {{projects.userStats.userTotal}} seconds</p>
+    <p class='data'>Total time for {{projects.userStats.user}} is: {{projects.userStats.userTotal}} seconds</p>
     <br>
-    <div class="" ng-repeat="proj in projects.userStats.projectList">
-      <div>
+    <div class="account-project-name" ng-repeat="proj in projects.userStats.projectList">
         <p ng-click="show=!show">Project: {{proj.projectName}} total time: {{proj.totalProject}} seconds</p>
 
         <table class="bar-chart" ng-show="show">
         <tr ng-repeat="tsk in proj.taskList | limitTo: 10">
         <td ng-style="{left:$index * 10 + '%'}" class="legend"> {{tsk.taskName}} </td>
-        <td ng-style="{left:$index * 10 + '%'}" class="time"><span> {{tsk.totalTask | number}} seconds</span></td>
+        <td ng-style="{left:$index * 10 + '%'}" class="time"><span> {{tsk.totalTask | number}} s</span></td>
         <!-- <td> {{proj.distance | number}} Miles </td> -->
         </tr>
         </table>
-
-      </div>
+        <br><br><br>
 
 
   </div>
