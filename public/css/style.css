@@ -522,3 +522,10 @@ position: fixed;
 width: 100%;
 z-index: 5;
 }
+
+.secondstask {
+  font-size: 12px;
+}
+.seconds {
+  font-size: .8em;
+}

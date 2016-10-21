@@ -71,4 +71,44 @@ router.delete('/project/:id', function(req, res){
   })
 });
 
+// ROUTE :: GET --------------------------special Info
+router.get('/ttt/:whom', function(req, res){
+  Project.find({'taskList.taskTimeList.user' : req.params.whom}).exec()
+  .then(function(someProjects){
+    console.log("req.params.whom", req.params.whom)
+    console.log(someProjects);
+    var summary = {};
+    var singleProjectArray = [];
+    var singleTaskArray = [];
+    //-----------------------------Calc start
+    var sumUserTime = 0;
+    for (var i=0; i<someProjects.length; i++) {
+      var sumSingleProjectTime = 0;
+      for (var j=0; j<someProjects[i].taskList.length; j++) {
+        var sumSingleTaskTime = 0;
+        var sumTaskTime = 0;
+        for (var k=0; k<someProjects[i].taskList[j].taskTimeList.length; k++) {
+          var value = 0;
+          if (someProjects[i].taskList[j].taskTimeList[k].user === req.params.whom) {
+            value = Math.floor((someProjects[i].taskList[j].taskTimeList[k].stop.getTime() - someProjects[i].taskList[j].taskTimeList[k].start.getTime())/1000);
+            sumTaskTime += value;
+          };
+        };
+        sumSingleTaskTime += sumTaskTime;
+        singleTaskArray.push({taskName: someProjects[i].taskList[j].name, totalTask: sumSingleTaskTime});
+        sumSingleProjectTime += sumSingleTaskTime;
+      };
+      singleProjectArray.push({projectName: someProjects[i].projectName, totalProject: sumSingleProjectTime, taskList: singleTaskArray});
+      sumUserTime += sumSingleProjectTime;
+      singleTaskArray = [];
+    };
+    summary = {user: req.params.whom, userTotal: sumUserTime, projectList: singleProjectArray};
+    res.json(summary);
+  })
+  .catch(function(err){
+    console.log(err);
+    res.status(500);
+  })
+});
+
 module.exports = router;
