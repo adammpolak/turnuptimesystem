@@ -218,32 +218,41 @@
         var projectTimeObject = {
           projectTotalTime: 0,
           taskObjectArray: [],
+          projectTotalH: 0,
+          projectTotalM: 0,
+          projectTotalS: 0,
         };
         for (var i = 0; i<self.allProjects[x].taskList.length; i++){
           //now we are cycling through the specific project tasks
           var taskTimeObject = {
             taskTotalTime: 0,
             timeperiodObjectArray: [],
+            totalH: 0,
+            totalM: 0,
+            totalS: 0,
           };
           if (self.allProjects[x].taskList[i].taskTimeList) {for (var j = 0; j<self.allProjects[x].taskList[i].taskTimeList.length; j++) {
             //now we are cycling through the specific time periods
             var timeperiod = self.allProjects[x].taskList[i].taskTimeList[j];
             var startTime = new Date(timeperiod.start);
+            console.log(timeperiod);
             if (timeperiod.stop) {
               var stopTime = new Date(timeperiod.stop)
               var timeperiodTime = stopTime-startTime;
-              var calculated = [Math.floor((timeperiodTime/1000)%60), Math.floor((timeperiodTime/(1000*60))%60), Math.floor((timeperiodTime/(1000*60*60))%24)];
-              timeperiodTime = calculated.reverse().join(':');
               taskTimeObject.taskTotalTime += timeperiodTime;
+              taskTimeObject.totalH = calcHour(taskTimeObject.taskTotalTime);
+              taskTimeObject.totalM = calcMin(taskTimeObject.taskTotalTime)
+              taskTimeObject.totalS = calcSec(taskTimeObject.taskTotalTime);
               var timePeriodTimeObject = {
                 stopTime: timeperiod.stop,
                 totalTime: timeperiodTime,
               };
             } else {
               var timeperiodTime = now - startTime;
-              var calculated = [Math.floor((timeperiodTime/1000)%60), Math.floor((timeperiodTime/(1000*60))%60), Math.floor((timeperiodTime/(1000*60*60))%24)];
-              timeperiodTime = calculated.reverse().join(':');
               taskTimeObject.taskTotalTime += timeperiodTime;
+              taskTimeObject.totalH = calcHour(taskTimeObject.taskTotalTime);
+              taskTimeObject.totalM = calcMin(taskTimeObject.taskTotalTime)
+              taskTimeObject.totalS = calcSec(taskTimeObject.taskTotalTime);
               var timePeriodTimeObject = {
                 stopTime: now,
                 totalTime: timeperiodTime,
@@ -252,12 +261,17 @@
             taskTimeObject.timeperiodObjectArray.push(timePeriodTimeObject);
           }}
           projectTimeObject.projectTotalTime += taskTimeObject.taskTotalTime;
+          projectTimeObject.projectTotalH = calcHour(projectTimeObject.projectTotalTime);
+          projectTimeObject.projectTotalM = calcMin(projectTimeObject.projectTotalTime);
+          projectTimeObject.projectTotalS = calcSec(projectTimeObject.projectTotalTime);
           projectTimeObject.taskObjectArray.push(taskTimeObject);
+          console.log(projectTimeObject.taskObjectArray)
         }
         tempProjectsTotalTimeArray.push(projectTimeObject);
       }
       self.allProjectsTotalTime = tempProjectsTotalTimeArray;
       // console.log(self.allProjectsTotalTime);
+      console.log(self.allProjectsTotalTime);
       $timeout(self.updateTimes, 1000);
     }
     this.updateTimes()
@@ -287,5 +301,20 @@
   function warnAlert(msg){
     var id = Flash.create('warning', msg, 7000, {class: 'flashAlert'}, true);
   }
+
+
+//Some Math for times
+  function calcHour(total){
+    return Math.floor(total/(1000*60*60));
+  }
+
+  function calcMin(total){
+    return Math.floor(total/(1000*60)%60);
+  }
+
+  function calcSec(total){
+    return Math.floor((total/1000)%60);
+  }
+
 }
 })()
